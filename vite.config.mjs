@@ -1,9 +1,13 @@
 import { defineConfig } from 'vite'
 import shopify from 'vite-plugin-shopify'
+import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [shopify()],
+  plugins: [
+    shopify(), 
+    react()
+  ],
   build: {
     rollupOptions: {
       output: {
