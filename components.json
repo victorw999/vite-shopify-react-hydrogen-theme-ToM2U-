@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": false,
+  "tailwind": {
+    "config": "tailwind.config.cjs",
+    "css": "frontend/styles/tailwind-input.scss",
+    "baseColor": "slate",
+    "cssVariables": true,
+    "prefix": "tw-"
+  },
+  "aliases": {
+    "components": "frontend/entrypoints/components",
+    "utils": "frontend/entrypoints/lib/utils"
+  }
+}
