@@ -79,7 +79,7 @@
     {%- liquid
       render 'vite-tag' with 'theme.css', preload_stylesheet: true
       render 'vite-tag' with 'theme.js'
-      render 'vite-tag' with 'react/main.jsx'
+      render 'vite-tag' with 'react/index.jsx'
       if request.page_type contains 'customers/'
         render 'vite-tag' with 'customers.js'
       endif
