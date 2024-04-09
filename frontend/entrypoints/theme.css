@@ -4,3 +4,5 @@
 @import '@/styles/components';
 @import 'tailwindcss/utilities';
 @import '@/styles/utilities';
+
+@import '@/styles/tailwind-output.css'
