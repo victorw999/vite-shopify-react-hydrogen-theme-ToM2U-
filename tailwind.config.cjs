@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 
 const palette = {
@@ -22,13 +24,16 @@ const palette = {
   'muted-purple': '82, 105, 105',
   'blue-purple': '131, 148, 191',
 };
+function range(start, stop, step) {
+  return Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+}
 
 module.exports = {
   /* prevent conflict w/ existing css  */
   corePlugins: {
-    preflight: false,
+    // preflight: false,
   },
-  prefix: 'tw-',
+  // prefix: 'tw-',
   // important: true,
   /* prevent conflict w/ existing css  */
 
@@ -61,33 +66,6 @@ module.exports = {
       },
     },
     extend: {
-
-      fontSize: {
-        // 'xs': ['0.752rem', '1rem'], 
-        // 'sm': ['0.875rem', '1.25rem'],
-        // 'base': ['1rem', '1.5rem'], 
-        // 'lg': ['1.125rem', '1.75rem'],
-        // 'xl': ['1.25rem', '1.875rem'],   
-        // '2xl': ['1.5rem', '2.15rem'],  
-        // '3xl': ['1.875rem', '2.25rem'],  
-        // '4xl': ['2.25rem', '2.5rem'], 
-        // '5xl': ['3rem', '3.25rem'], 
-
-        // vicmod: 
-        // I think Tailwind generates font-size CSS alphabetically. 
-        // That's why text-xs and text-sm always appear after text-lg in the output CSS.
-        // therefore im adding z_ prefix 
-        'z_xs': ['0.752rem', '1rem'],
-        'z_sm': ['0.875rem', '1.25rem'],
-        'z_base': ['1rem', '1.5rem'],
-        'z_lg': ['1.125rem', '1.75rem'],
-        'z_xl': ['1.25rem', '1.875rem'],
-        'z_2xl': ['1.5rem', '2.15rem'],
-        'z_3xl': ['1.875rem', '2.25rem'],
-        'z_4xl': ['2.25rem', '2.5rem'],
-        'z_5xl': ['3rem', '3.25rem'],
-      },
-
       colors: {
         'teal': `rgb(${palette.teal})`,
         'teal-1': `rgba(${palette.teal}, .9)`,
@@ -104,15 +82,26 @@ module.exports = {
         'lightgray4': `hsl(0 0% 93)`,
         'lightgray5': `hsl(0 0% 92)`,
 
-        border: "hsl(var(--border))",
+        
+
+        // border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
+
+        /* from original hydrogen-theme repo */
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        contrast: 'rgba(var(--color-contrast) / <alpha-value>)',
+        notice: 'rgba(var(--color-accent) / <alpha-value>)',
+        shopPay: 'var(--color-shop-pay)',
+         
+
+        /* from shadcn/ui */
+        // primary: {
+        //   DEFAULT: "hsl(var(--primary))",
+        //   foreground: "hsl(var(--primary-foreground))",
+        // },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -138,6 +127,104 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      screens: {
+        sm: '32em',
+        md: '48em',
+        lg: '64em',
+        xl: '80em',
+        '2xl': '96em',
+        'sm-max': { max: '48em' },
+        'sm-only': { min: '32em', max: '48em' },
+        'md-only': { min: '48em', max: '64em' },
+        'lg-only': { min: '64em', max: '80em' },
+        'xl-only': { min: '80em', max: '96em' },
+        '2xl-only': { min: '96em' }
+      },
+      spacing: {
+        nav: 'var(--height-nav)',
+        screen: 'var(--screen-height, 100vh)'
+      },
+      height: {
+        screen: 'var(--screen-height, 100vh)',
+        'screen-no-nav': 'calc(var(--screen-height, 100vh) - var(--height-nav))'
+      },
+      width: {
+        mobileGallery: 'calc(100vw - 3rem)'
+      },
+      fontFamily: {
+        body: 'var(--font-body-family)',
+        heading: 'var(--font-heading-family)'
+      },
+      fontSize: {
+        // 'xs': ['0.752rem', '1rem'], 
+        // 'sm': ['0.875rem', '1.25rem'],
+        // 'base': ['1rem', '1.5rem'], 
+        // 'lg': ['1.125rem', '1.75rem'],
+        // 'xl': ['1.25rem', '1.875rem'],   
+        // '2xl': ['1.5rem', '2.15rem'],  
+        // '3xl': ['1.875rem', '2.25rem'],  
+        // '4xl': ['2.25rem', '2.5rem'], 
+        // '5xl': ['3rem', '3.25rem'], 
+
+        // vicmod: 
+        // I think Tailwind generates font-size CSS alphabetically. 
+        // That's why text-xs and text-sm always appear after text-lg in the output CSS.
+        // therefore im adding z_ prefix 
+        'z_xs': ['0.752rem', '1rem'],
+        'z_sm': ['0.875rem', '1.25rem'],
+        'z_base': ['1rem', '1.5rem'],
+        'z_lg': ['1.125rem', '1.75rem'],
+        'z_xl': ['1.25rem', '1.875rem'],
+        'z_2xl': ['1.5rem', '2.15rem'],
+        'z_3xl': ['1.875rem', '2.25rem'],
+        'z_4xl': ['2.25rem', '2.5rem'],
+        'z_5xl': ['3rem', '3.25rem'],
+        display: ['var(--font-size-display)', '1.1'],
+        heading: ['var(--font-size-heading)', '1.25'],
+        lead: ['var(--font-size-lead)', '1.333'],
+        copy: ['var(--font-size-copy)', '1.5'],
+        fine: ['var(--font-size-fine)', '1.333']
+      },
+      fontWeight: {
+        'body-weight': 'var(--font-body-weight)',
+        'body-weight-bold': 'var(--font-body-weight-bold)',
+        'heading-weight': 'var(--font-heading-weight)'
+      },
+      maxWidth: {
+        'prose-narrow': '45ch',
+        'prose-wide': '80ch'
+      },
+      boxShadow: {
+        border: 'inset 0px 0px 0px 1px rgb(var(--color-primary) / 0.08)',
+        darkHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.4)',
+        lightHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.05)'
+      },
+      borderColor: { 
+        DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+        'primary': { 
+          DEFAULT: 'rgba(var(--color-primary), 1)', // Adjust the default color as needed
+
+          // // Opacity variants
+          // ...range(10, 100, 10).reduce((acc, opacity) => ({
+          //   ...acc,
+          //   [opacity]: `rgb(var(--color-primary) / ${opacity / 100 + 0.09})`
+          // }), {}) 
+        }, 
+
+        /* generate utiliy class in this pattern
+          border-primary/10 ~ border-primary/90
+        
+        */
+        ...range(10, 90, 10).reduce(
+          (acc, opacity) => ({
+            ...acc,
+            [`primary/${opacity}`]: `rgb(var(--color-primary) / ${opacity / 100 + 0.09})` 
+          }),
+          {}
+        )
+    
+      },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -169,5 +256,12 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    plugin(({ addVariant }) => {
+      addVariant('no-js', '.no-js &')
+    })
+  ],
 }
