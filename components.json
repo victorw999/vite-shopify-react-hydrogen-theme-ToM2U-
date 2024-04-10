@@ -8,7 +8,7 @@
     "css": "frontend/styles/tailwind-input.scss",
     "baseColor": "slate",
     "cssVariables": true,
-    "prefix": "tw-"
+    "prefix": ""
   },
   "aliases": {
     "components": "frontend/entrypoints/components",

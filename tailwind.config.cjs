@@ -3,29 +3,32 @@ const plugin = require('tailwindcss/plugin')
 /** @type {import('tailwindcss').Config} */
 
 const palette = {
-  'teal': '56, 191, 195',
+  teal: '56, 191, 195',
   'dark-teal': '38, 130, 133',
-  'black': '35, 31, 32',
+  black: '35, 31, 32',
   'dark-gray': '51, 51, 51',
-  'slate': '75, 75, 75',
+  slate: '75, 75, 75',
   'dim-gray': '112, 112, 112',
-  'lightgray': '0 0% 96.9%',
-  'smoke': '224, 224, 224',
-  'salt': '248, 251, 251',
-  'brown': '162, 100, 50',
-  'red': '239, 71, 52',
-  'salmon': '255, 93, 82',
-  'pink': '244, 129, 123',
-  'yellow': '243, 235, 216',
-  'orange': '252, 182, 62',
-  'green': '29, 180, 102',
+  lightgray: '0 0% 96.9%',
+  smoke: '224, 224, 224',
+  salt: '248, 251, 251',
+  brown: '162, 100, 50',
+  red: '239, 71, 52',
+  salmon: '255, 93, 82',
+  pink: '244, 129, 123',
+  yellow: '243, 235, 216',
+  orange: '252, 182, 62',
+  green: '29, 180, 102',
   'blue-green': '71, 191, 175',
-  'purple': '139, 125, 186',
+  purple: '139, 125, 186',
   'muted-purple': '82, 105, 105',
-  'blue-purple': '131, 148, 191',
-};
+  'blue-purple': '131, 148, 191'
+}
 function range(start, stop, step) {
-  return Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+  return Array.from(
+    { length: (stop - start) / step + 1 },
+    (_, i) => start + i * step
+  )
 }
 
 module.exports = {
@@ -37,37 +40,35 @@ module.exports = {
   // important: true,
   /* prevent conflict w/ existing css  */
 
-  
-  darkMode: ["class"],
+  darkMode: ['class'],
   content: [
     './templates/**/*.{liquid,html,js,json}',
     './snippets/*.{liquid,html,js,json}',
     './sections/*.{liquid,html,js,json}',
     './layout/*.{liquid,html,js,json}',
-    "./frontend/**/*.{html,js,jsx}"
+    './frontend/**/*.{html,js,jsx}'
   ],
 
   // don't look at these folders
-  exclude: [    
+  exclude: [
     './.github/**',
     './.vscode/**',
     './assets/**',
     './config/**',
-    './node_modules/**',
+    './node_modules/**'
   ],
 
-  
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: '2rem',
       screens: {
-        "2xl": "1400px",
-      },
+        '2xl': '1400px'
+      }
     },
     extend: {
       colors: {
-        'teal': `rgb(${palette.teal})`,
+        teal: `rgb(${palette.teal})`,
         'teal-1': `rgba(${palette.teal}, .9)`,
         'teal-2': `rgba(${palette.teal}, .8)`,
         'teal-3': `rgba(${palette.teal}, .7)`,
@@ -75,27 +76,28 @@ module.exports = {
         'teal-5': `rgba(${palette.teal}, .5)`,
         'teal-100': `rgb(237, 249, 249)`,
 
-        'lightgray': `hsl(0 0% 97)`,
-        'lightgray1': `hsl(0 0% 96)`,
-        'lightgray2': `hsl(0 0% 95)`,
-        'lightgray3': `hsl(0 0% 94)`,
-        'lightgray4': `hsl(0 0% 93)`,
-        'lightgray5': `hsl(0 0% 92)`,
+        lightgray: `hsl(0 0% 97)`,
+        lightgray1: `hsl(0 0% 96)`,
+        lightgray2: `hsl(0 0% 95)`,
+        lightgray3: `hsl(0 0% 94)`,
+        lightgray4: `hsl(0 0% 93)`,
+        lightgray5: `hsl(0 0% 92)`,
 
-        
-
-        // border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
 
         /* from original hydrogen-theme repo */
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
-        contrast: 'rgba(var(--color-contrast) / <alpha-value>)',
+        contrast: 'rgba(var(--color-contrast) / <alpha-value>)' /* #202124 */,
+        contrast0: 'hsl(225, 6%, 15%)',
+        contrast1: 'hsl(225, 6%, 13%)' /* #202124 */,
+        contrast2: 'hsl(225, 6%, 12%)',
+
         notice: 'rgba(var(--color-accent) / <alpha-value>)',
         shopPay: 'var(--color-shop-pay)',
-         
 
         /* from shadcn/ui */
         // primary: {
@@ -103,29 +105,29 @@ module.exports = {
         //   foreground: "hsl(var(--primary-foreground))",
         // },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))'
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))'
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))'
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))'
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))'
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))'
+        }
       },
       screens: {
         sm: '32em',
@@ -156,29 +158,29 @@ module.exports = {
         heading: 'var(--font-heading-family)'
       },
       fontSize: {
-        // 'xs': ['0.752rem', '1rem'], 
+        // 'xs': ['0.752rem', '1rem'],
         // 'sm': ['0.875rem', '1.25rem'],
-        // 'base': ['1rem', '1.5rem'], 
+        // 'base': ['1rem', '1.5rem'],
         // 'lg': ['1.125rem', '1.75rem'],
-        // 'xl': ['1.25rem', '1.875rem'],   
-        // '2xl': ['1.5rem', '2.15rem'],  
-        // '3xl': ['1.875rem', '2.25rem'],  
-        // '4xl': ['2.25rem', '2.5rem'], 
-        // '5xl': ['3rem', '3.25rem'], 
+        // 'xl': ['1.25rem', '1.875rem'],
+        // '2xl': ['1.5rem', '2.15rem'],
+        // '3xl': ['1.875rem', '2.25rem'],
+        // '4xl': ['2.25rem', '2.5rem'],
+        // '5xl': ['3rem', '3.25rem'],
 
-        // vicmod: 
-        // I think Tailwind generates font-size CSS alphabetically. 
+        // vicmod:
+        // I think Tailwind generates font-size CSS alphabetically.
         // That's why text-xs and text-sm always appear after text-lg in the output CSS.
-        // therefore im adding z_ prefix 
-        'z_xs': ['0.752rem', '1rem'],
-        'z_sm': ['0.875rem', '1.25rem'],
-        'z_base': ['1rem', '1.5rem'],
-        'z_lg': ['1.125rem', '1.75rem'],
-        'z_xl': ['1.25rem', '1.875rem'],
-        'z_2xl': ['1.5rem', '2.15rem'],
-        'z_3xl': ['1.875rem', '2.25rem'],
-        'z_4xl': ['2.25rem', '2.5rem'],
-        'z_5xl': ['3rem', '3.25rem'],
+        // therefore im adding z_ prefix
+        z_xs: ['0.752rem', '1rem'],
+        z_sm: ['0.875rem', '1.25rem'],
+        z_base: ['1rem', '1.5rem'],
+        z_lg: ['1.125rem', '1.75rem'],
+        z_xl: ['1.25rem', '1.875rem'],
+        z_2xl: ['1.5rem', '2.15rem'],
+        z_3xl: ['1.875rem', '2.25rem'],
+        z_4xl: ['2.25rem', '2.5rem'],
+        z_5xl: ['3rem', '3.25rem'],
         display: ['var(--font-size-display)', '1.1'],
         heading: ['var(--font-size-heading)', '1.25'],
         lead: ['var(--font-size-lead)', '1.333'],
@@ -199,17 +201,17 @@ module.exports = {
         darkHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.4)',
         lightHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.05)'
       },
-      borderColor: { 
+      borderColor: {
         DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
-        'primary': { 
-          DEFAULT: 'rgba(var(--color-primary), 1)', // Adjust the default color as needed
+        primary: {
+          DEFAULT: 'rgba(var(--color-primary), 1)' // Adjust the default color as needed
 
           // // Opacity variants
           // ...range(10, 100, 10).reduce((acc, opacity) => ({
           //   ...acc,
           //   [opacity]: `rgb(var(--color-primary) / ${opacity / 100 + 0.09})`
-          // }), {}) 
-        }, 
+          // }), {})
+        },
 
         /* generate utiliy class in this pattern
           border-primary/10 ~ border-primary/90
@@ -218,50 +220,49 @@ module.exports = {
         ...range(10, 90, 10).reduce(
           (acc, opacity) => ({
             ...acc,
-            [`primary/${opacity}`]: `rgb(var(--color-primary) / ${opacity / 100 + 0.09})` 
+            [`primary/${opacity}`]: `rgb(var(--color-primary) / ${opacity / 100 + 0.09})`
           }),
           {}
         )
-    
       },
 
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)'
       },
       keyframes: {
-        "spin2": {
+        spin2: {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' }
         },
-        "spinme": {
+        spinme: {
           '0%': { transform: 'rotateZ(0deg)' },
           '100%': { transform: 'rotateZ(360deg)' }
         },
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' }
         },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' }
+        }
       },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        'spin-slow': 'spin2 3s linear infinite', 
-        'spin-me': 'spinme 1s linear infinite', 
-      },
-    },
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'spin-slow': 'spin2 3s linear infinite',
+        'spin-me': 'spinme 1s linear infinite'
+      }
+    }
   },
   plugins: [
-    require("tailwindcss-animate"),
+    require('tailwindcss-animate'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     plugin(({ addVariant }) => {
       addVariant('no-js', '.no-js &')
     })
-  ],
+  ]
 }

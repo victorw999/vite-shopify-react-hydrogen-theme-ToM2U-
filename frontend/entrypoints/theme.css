@@ -1,10 +1,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities'; 
+@import 'tailwindcss/utilities';
 
-
-@import '@/styles/base.css'; 
-@import '@/styles/components'; 
-@import '@/styles/utilities'; 
+@import '@/styles/base.css';
+@import '@/styles/components';
+@import '@/styles/utilities';
 
 @import '@/styles/tailwind-output.css';
