@@ -52,7 +52,10 @@
   },
   "dependencies": {
     "@radix-ui/react-toggle": "^1.0.3",
+    "framer-motion": "^11.0.27",
     "lucide-react": "^0.366.0",
+    "react-icons": "^5.0.1",
+    "react-use": "^17.5.0",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7"
   }
