@@ -6,3 +6,4 @@ const summaries = document.querySelectorAll('[id^="Details-"] summary')
 
 revive(islands)
 initDisclosureWidgets(summaries)
+console.log('===> theme.js')

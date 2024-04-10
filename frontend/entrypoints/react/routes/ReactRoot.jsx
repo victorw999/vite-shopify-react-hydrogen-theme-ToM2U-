@@ -46,7 +46,9 @@ export default function ReactRoot() {
     <>
       <div
         id="sidebar"
-        className="tw-container tw-z-10 tw-flex tw-h-screen tw-w-[35rem]   tw-min-w-[30rem] tw-flex-col tw-overflow-y-auto tw-p-5"
+        className="tw-container tw-z-10 tw-flex tw-h-screen tw-w-[35rem]   tw-min-w-[30rem] tw-flex-col tw-overflow-y-auto tw-p-5
+         
+         "
       >
         <div className="sidebar_innerContainer tw-p-5">
           <h1 className="tw-text-4xl">React Router Contacts</h1>
