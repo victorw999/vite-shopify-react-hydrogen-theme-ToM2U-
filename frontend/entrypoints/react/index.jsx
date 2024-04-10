@@ -1,19 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import App from './App';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-import { SHOPIFY_URL, SHOPIFY_REACT_ROOT } from './Global.js';
+import { SHOPIFY_URL, SHOPIFY_REACT_ROOT } from './Global.js'
 
-import ReactRoot, { loader as rootLoader, action as rootAction } from './routes/ReactRoot.jsx';
-import fetchProducts from './routes/fetchProducts.js';
+import ReactRoot, {
+  loader as rootLoader,
+  action as rootAction
+} from './routes/ReactRoot.jsx'
+import fetchProducts from './routes/fetchProducts.js'
 
-import ErrorPage from './error-page.jsx';
-import Contact, { loader as contactLoader, action as contactAction, } from './routes/contact.jsx';
-import EditContact, { action as editAction } from './routes/edit.jsx';
-import { action as destroyAction } from './routes/destroy.jsx';
-import Index from './routes/index.jsx';
+import ErrorPage from './error-page.jsx'
+import Contact, {
+  loader as contactLoader,
+  action as contactAction
+} from './routes/contact.jsx'
+import EditContact, { action as editAction } from './routes/edit.jsx'
+import { action as destroyAction } from './routes/destroy.jsx'
+import Index from './routes/index.jsx'
+
+import App from './App.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +32,7 @@ const router = createBrowserRouter([
     children: [
       {
         errorElement: <ErrorPage />,
-        children:[
+        children: [
           // {
           //   path: `${SHOPIFY_URL}/products/:productId`,
           //   element: <h1>Hello HOoah!</h1>,
@@ -36,30 +43,37 @@ const router = createBrowserRouter([
             path: `contacts/:contactId`,
             element: <Contact />,
             loader: contactLoader,
-            action: contactAction,
+            action: contactAction
           },
           {
             path: `contacts/:contactId/edit`,
             element: <EditContact />,
             loader: contactLoader,
-            action: editAction,
+            action: editAction
           },
           {
             path: 'contacts/:contactId/destroy',
             action: destroyAction,
-            errorElement: <div>Oops! There was an error.</div>,
-          },
+            errorElement: <div>Oops! There was an error.</div>
+          }
         ]
-      }      
-    ],
-  },
-]);
+      }
+    ]
+  }
+])
 
-const root = ReactDOM.createRoot(document.getElementById(SHOPIFY_REACT_ROOT));
+const root = ReactDOM.createRoot(document.getElementById(SHOPIFY_REACT_ROOT))
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-);
 
- 
+    {/* use this method 
+     without change broswer url
+
+    https://g.co/gemini/share/f5aac48678e6
+    https://g.co/gemini/share/f5aac48678e6
+    
+    */}
+    {/* <App></App> */}
+  </React.StrictMode>
+)

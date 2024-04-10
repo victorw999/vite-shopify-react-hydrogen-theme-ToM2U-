@@ -27,22 +27,26 @@ const query = `{
     }
   }
 }
-`;
+`
 async function fetchProducts() {
-  const response = await fetch('https://vzine.myshopify.com/api/2024-07/graphql.json', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': process.env.REACT_APP__SHOPIFY_STOREFRONT_API,
-    },
-    body: JSON.stringify({ query }),
-  });
+  const response = await fetch(
+    'https://vzine.myshopify.com/api/2024-07/graphql.json',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': import.meta.env
+          .VITE__SHOPIFY_STOREFRONT_API
+      },
+      body: JSON.stringify({ query })
+    }
+  )
 
-  const data = await response.json();
+  const data = await response.json()
 
-  console.log('===>', data.data.products.edges); // Access product data
+  console.log('===>', data.data.products.edges) // Access product data
 
-  return data.data.products.edges;
+  return data.data.products.edges
 }
 
-export default fetchProducts;
+export default fetchProducts

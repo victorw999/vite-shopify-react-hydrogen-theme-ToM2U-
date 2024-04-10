@@ -10,8 +10,6 @@
   "[liquid]": {
     "editor.formatOnSave": true
   },
-  "prettier.documentSelectors": [
-    "**/*.liquid"
-  ],
+  "prettier.documentSelectors": ["**/*.liquid"],
   "workbench.colorTheme": "Kimbie Dark"
 }

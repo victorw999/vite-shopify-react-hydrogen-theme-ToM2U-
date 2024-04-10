@@ -1,23 +1,27 @@
-import { useRouteError } from 'react-router-dom';
-import { SHOPIFY_REACT_ROOT } from './Global';
-import { useEffect } from 'react';
+import { useRouteError } from 'react-router-dom'
+import { SHOPIFY_REACT_ROOT } from './Global'
+import { useEffect } from 'react'
 
 export default function ErrorPage() {
-  const error = useRouteError();
-  console.error(error);
+  const error = useRouteError()
+  console.error(error)
 
   useEffect(() => {
     if (error) {
-      document.getElementById(SHOPIFY_REACT_ROOT).classList.add('error-state');
+      document.getElementById(SHOPIFY_REACT_ROOT).classList.add('error-state')
     } else {
-      document.getElementById(SHOPIFY_REACT_ROOT).classList.remove('error-state');
+      document
+        .getElementById(SHOPIFY_REACT_ROOT)
+        .classList.remove('error-state')
     }
 
     return () => {
       // Cleanup to remove the class if ErrorBoundary is unmounted
-      document.getElementById(SHOPIFY_REACT_ROOT).classList.remove('error-state');
-    };
-  }, [error]);
+      document
+        .getElementById(SHOPIFY_REACT_ROOT)
+        .classList.remove('error-state')
+    }
+  }, [error])
 
   // Set the error state in your root component
   // const root = document.getElementById(SHOPIFY_REACT_ROOT);
@@ -36,5 +40,5 @@ export default function ErrorPage() {
         <i>{error.statusText || error.message}</i>
       </p>
     </div>
-  );
+  )
 }

@@ -65,7 +65,121 @@
     --ring: 212.7 26.8% 83.9%;
   }
 }
- 
-#shopify-react-root{
-  display: none;
+
+@layer utilities {
+  .container {
+    @apply font-sans;
+  }
 }
+
+/* side bar project */
+#shopify-react-root {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 11;
+
+  &.error-state {
+    @apply relative h-auto w-auto;
+  }
+
+  /*** Error Page ***/
+  #error-page {
+    @apply mx-auto max-h-[300px] w-full bg-contrast;
+  }
+
+  /*** Side Bar ***/
+  #sidebar {
+    @apply bg-contrast0;
+
+    /*** scroll bar style ***/
+    /* General scrollbar styling */
+    &::-webkit-scrollbar {
+      width: 2px; /* Example width - adjust as desired */
+    }
+
+    /* Styling the scrollbar thumb (the draggable part) */
+    &::-webkit-scrollbar-thumb {
+      @apply bg-border;
+    }
+
+    /* Styling the scrollbar track (the background) */
+    &::-webkit-scrollbar-track {
+      @apply bg-muted;
+    }
+
+    /***  ***/
+    ul.contact-list {
+      padding-left: 0rem;
+      li {
+        list-style-type: none;
+        a {
+          @apply block px-7 py-2 no-underline;
+          &.active {
+            @apply bg-contrast2 text-accent;
+          }
+          &.pending {
+            color: hsl(224, 98%, 58%);
+          }
+        }
+      }
+    }
+  } /* #sidebar */
+
+  #sidebar form {
+    position: relative;
+    input[type='search'] {
+      width: 100%;
+      padding-left: 3rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='%23999' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 0.625rem 0.8rem;
+      background-size: 2rem;
+      position: relative;
+    }
+    input[type='search'].loading {
+      background-image: none;
+    }
+  } /* #sidebar form*/
+
+  /*hidden*/
+  #search-spinner {
+    @apply absolute left-[0.625rem] top-[0.75rem] h-8 w-8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23000' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M20 4v5h-.582m0 0a8.001 8.001 0 00-15.356 2m15.356-2H15M4 20v-5h.581m0 0a8.003 8.003 0 0015.357-2M4.581 15H9' /%3E%3C/svg%3E");
+    &[data-hidden='true'] {
+      visibility: hidden;
+    }
+  }
+
+  #detail {
+    flex: 1;
+    padding: 2rem 4rem;
+    width: 100%;
+    @apply bg-contrast2;
+    &.loading::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      /* background: white; */
+      /*  opacity: 0.8; */
+    }
+  }
+
+  #contact-form {
+    .contact-img-wrapper {
+      @apply bg-lightgray;
+    }
+    .form-row,
+    .form-row-wrapper {
+      @apply flex flex-row my-2;
+    }
+    .form-row-wrapper {
+      @apply w-full;
+    }
+    .form-label {
+      @apply flex min-w-[168px] align-middle;
+    }
+  } /* #contact-form */
+} /* #shopify-react-root */
