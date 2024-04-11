@@ -14,11 +14,13 @@ import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
 import { useState, useEffect } from 'react'
 import fetchProducts from './fetchProducts.js'
+import fetchCustomers from './fetchCustomers'
 import { getContacts, createContact } from '../contacts'
 import { motion, AnimatePresence } from 'framer-motion'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { BsPeople } from "react-icons/bs";
 import { AiOutlineRollback } from 'react-icons/ai'
+
 
 export async function loader({ request }) {
   const url = new URL(request.url)
@@ -44,6 +46,11 @@ export default function ReactRoot() {
       setProducts(fetchedProducts)
     }
     getProducts()
+
+    const getCustomers = async () => {
+      const fetchedProducts = await fetchCustomers()      
+    }
+    getCustomers()
   }, [])
 
   // method #2 of retrieving data
@@ -183,12 +190,13 @@ export default function ReactRoot() {
                       <li>
                         <Link to={`/`}>Home</Link>
                       </li>
-                      <li>
+                      
+                      {/* <li>
                         <a href={`/collections/all`}>All Collection Anchor</a>
                       </li>
                       <li>
                         <Link to={`/collections/all`}>All Collection Link</Link>
-                      </li>
+                      </li> */}
 
                       {contacts.length ? (
                         contacts.map((contact, idx) => (
