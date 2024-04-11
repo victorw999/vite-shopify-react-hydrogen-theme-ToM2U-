@@ -1371,6 +1371,10 @@ select {
   right: 1rem;
 }
 
+.right-\[theme\(\'sidebarMargin\.default\'\)\] {
+  right: 1.75rem;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -1385,10 +1389,6 @@ select {
 
 .top-nav {
   top: var(--height-nav);
-}
-
-.right-\[theme\(\'sidebarMargin\.default\'\)\] {
-  right: 1.75rem;
 }
 
 .-z-10 {
@@ -1691,8 +1691,8 @@ select {
   width: 250px;
 }
 
-.w-\[35rem\] {
-  width: 35rem;
+.w-\[30rem\] {
+  width: 30rem;
 }
 
 .w-auto {
@@ -1714,10 +1714,6 @@ select {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[30rem\] {
-  width: 30rem;
 }
 
 .min-w-\[18rem\] {
@@ -2298,6 +2294,11 @@ select {
   padding-right: 0.125rem;
 }
 
+.px-\[theme\(\'sidebarMargin\.default\'\)\] {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -2326,11 +2327,6 @@ select {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.px-\[theme\(\'sidebarMargin\.default\'\)\] {
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
 }
 
 .pb-10 {
@@ -2363,10 +2359,6 @@ select {
 
 .pl-4 {
   padding-left: 1rem;
-}
-
-.pl-\[theme\(\'sidebarMargin\.default\'\)\] {
-  padding-left: 1.75rem;
 }
 
 .pr-16 {

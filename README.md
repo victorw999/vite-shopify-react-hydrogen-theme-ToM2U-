@@ -1,3 +1,11 @@
+# vic note
+- vite server
+    - `pnpm vite:dev `
+- shopify theme CLI 
+    - `shopify theme dev -s [shopname] -t [theme_id] --live-reload=full-page`
+- tailwind
+    - `pnpm watch-tailwind`
+    
 # Hydrogen Theme
 
 [![Build status](https://github.com/montalvomiguelo/hydrogen-theme/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/montalvomiguelo/hydrogen-theme/actions/workflows/ci.yml?query=branch%3Amain)

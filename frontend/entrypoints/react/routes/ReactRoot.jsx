@@ -13,9 +13,9 @@ import {
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
 import { useState, useEffect } from 'react'
-import fetchProducts from './fetchProducts.js'
-import fetchCustomers from './fetchCustomers'
-import { getContacts, createContact } from '../contacts'
+import fetchProducts from '../utils/fetchProducts.js'
+import fetchCustomers from '../utils/fetchCustomers'
+import { getContacts, createContact } from '../utils/contacts/contacts'
 import { motion, AnimatePresence } from 'framer-motion'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { BsPeople } from "react-icons/bs";
@@ -60,6 +60,8 @@ export default function ReactRoot() {
   const searching =
     navigation.location &&
     new URLSearchParams(navigation.location.search).has('q')
+
+  console.log('===> contacts: ', contacts)
 
   useEffect(() => {
     let searchbar = document.getElementById('react_searchbar_q')

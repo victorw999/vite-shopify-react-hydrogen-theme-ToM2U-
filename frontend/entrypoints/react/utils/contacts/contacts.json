@@ -1,0 +1,51 @@
+[
+  {
+      "id": "MkeDHds",
+      "createdAt": 1712185217702,
+      "first": "Nirmal",
+      "last": "Dinu",
+      "twitter": "Alfred_Adler",
+      "avatar": "https://xsgames.co/randomusers/avatar.php?g=male",
+      "notes": "The first one in the office every morning and the last one to leave. It wasn't about clocking hours; it was about a relentless pursuit of finding a better way. Her colleagues would often see scribbled notes, abandoned prototypes, and diagrams scattered across her desk –  evidence of restless nights and a mind always churning towards the next breakthrough."
+  },
+  {
+      "id": "35vQdPb",
+      "createdAt": 1712185165737,
+      "first": "Cyan",
+      "last": "Arsène",
+      "twitter": "@adamsmith",
+      "avatar": "https://xsgames.co/randomusers/avatar.php?g=male",
+      "notes": "His workspace was a kaleidoscope of tools, half-built gadgets, and overflowing bookshelves. He was as much an inventor as an engineer, his greatest ideas often born from late-night tinkering. Failure was merely a stepping stone, and the word impossible simply fueled his determination to find an unconventional solution.",
+      "favorite": false
+  },
+  {
+      "id": "r7tF6cP",
+      "createdAt": 1712336685232,
+      "first": "Ansgar",
+      "last": "Sieghard",
+      "twitter": "",
+      "avatar": "https://xsgames.co/randomusers/avatar.php?g=male",
+      "notes": "Meetings were never about status updates; they were battlegrounds for ideas. She challenged assumptions, tore down conventional thinking, and forced everyone to zoom out. Every obstacle became an invitation to create a new path forward. Her unwavering belief in the project was contagious, fueling her team's collective ambition.",
+      "favorite": true
+  },
+  {
+    "id": "AQpWypc",
+    "createdAt": 1712336685232,
+    "first": "René",
+    "last": "Aldous",
+    "twitter": "",
+    "avatar": "https://xsgames.co/randomusers/avatar.php?g=male",
+    "notes": "To him, the finish line was merely a mirage. Each milestone achieved only spurred a hunger for the next challenge.  He relentlessly dissected every success and scrutinized every flaw. This relentless self-criticism wasn't perfectionism; it was an understanding that progress was a journey, not a destination.",
+    "favorite": true
+  },
+  {
+    "id": "9JFkWpr",
+    "createdAt": 1712336685232,
+    "first": "Lillia",
+    "last": "Marylyn",
+    "twitter": "",
+    "avatar": "https://xsgames.co/randomusers/avatar.php?g=female",
+    "notes": "Her office door was always open. Junior engineers, designers, even interns—everyone felt their voice mattered. She understood that true innovation comes from collaboration, not just singular brilliance.  She was their fiercest advocate, their mentor, the wind beneath their wings.",
+    "favorite": true
+  }
+]

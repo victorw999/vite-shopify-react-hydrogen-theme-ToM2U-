@@ -1,5 +1,5 @@
 import { Form, useLoaderData, useFetcher } from 'react-router-dom'
-import { getContact, updateContact } from '../contacts'
+import { getContact, updateContact } from '../../utils/contacts/contacts'
 import { Button } from '@shadcn/components/ui/button.jsx'
 
 export async function loader({ params }) {

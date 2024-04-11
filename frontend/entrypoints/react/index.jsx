@@ -9,15 +9,15 @@ import ReactRoot, {
   loader as rootLoader,
   action as rootAction
 } from './routes/ReactRoot.jsx'
-import fetchProducts from './routes/fetchProducts.js'
+import fetchProducts from './utils/fetchProducts.js'
 
 import ErrorPage from './error-page.jsx'
 import Contact, {
   loader as contactLoader,
   action as contactAction
-} from './routes/contact.jsx'
-import EditContact, { action as editAction } from './routes/edit.jsx'
-import { action as destroyAction } from './routes/destroy.jsx'
+} from './routes/contacts/contact.jsx'
+import EditContact, { action as editAction } from './routes/contacts/edit.jsx'
+import { action as destroyAction } from './routes/contacts/destroy.jsx'
 import Index from './routes/index.jsx'
 
 import App from './App.jsx'
@@ -32,14 +32,9 @@ const router = createHashRouter([
     children: [
       {
         errorElement: <ErrorPage />,
-        children: [
-          // {
-          //   path: `${SHOPIFY_URL}/products/:productId`,
-          //   element: <h1>Hello HOoah!</h1>,
-          // },
+        children: [ 
           { index: true, element: <Index /> },
           {
-            // path: `${SHOPIFY_URL}/contacts/:contactId`,
             path: `contacts/:contactId`,
             element: <Contact />,
             loader: contactLoader,
@@ -55,6 +50,10 @@ const router = createHashRouter([
             path: 'contacts/:contactId/destroy',
             action: destroyAction,
             errorElement: <div>Oops! There was an error.</div>
+          },
+          {
+            path: 'contacts/loadContacts',
+            errorElement: <div>Oops! There was an error loading contacts.</div>
           }
         ]
       }

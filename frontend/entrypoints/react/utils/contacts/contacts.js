@@ -18,6 +18,7 @@ export async function createContact() {
   let contact = { id, createdAt: Date.now() }
   let contacts = await getContacts()
   contacts.unshift(contact)
+  console.log('====> contacts 1:', contacts)
   await set(contacts)
   return contact
 }
@@ -49,6 +50,19 @@ export async function deleteContact(id) {
   }
   return false
 }
+
+// load dummy contacts data
+export async function loadContacts() {
+  // let contacts = await localforage.getItem('contacts')
+  // let index = contacts.findIndex((contact) => contact.id === id)
+  // if (index > -1) {
+  //   contacts.splice(index, 1)
+  //   await set(contacts)
+  //   return true
+  // }
+  return false
+}
+
 
 function set(contacts) {
   return localforage.setItem('contacts', contacts)

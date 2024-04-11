@@ -2,7 +2,7 @@ import { Form, useLoaderData, useNavigate, redirect } from 'react-router-dom'
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
 
-import { updateContact } from '../contacts'
+import { updateContact } from '../../utils/contacts/contacts'
 
 export async function action({ request, params }) {
   const formData = await request.formData()
