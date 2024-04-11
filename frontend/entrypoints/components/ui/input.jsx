@@ -12,7 +12,7 @@ const Variants = cva(orig_classes, {
       default: 'h-9 px-3 py-1 text-sm',
       sm: 'h-8   px-3 py-1 text-xs',
       lg: 'h-10  px-3 py-1 text-z_lg',
-      xl: 'h-16  px-3 py-1 text-xl rounded-none'
+      xl: `h-[theme('btnHeight.default')] px-3 py-1 text-xl rounded-none`
     }
   },
   defaultVariants: {

@@ -74,10 +74,10 @@
 
 /* side bar project */
 #shopify-react-root {
-  display: flex;
+  /*display: flex;
   height: 100%;
   width: 100%;
-  position: fixed;
+  position: fixed;*/
   z-index: 11;
 
   &.error-state {
@@ -90,6 +90,8 @@
   }
 
   /*** Side Bar ***/
+ 
+
   #sidebar {
     @apply bg-contrast0;
 
@@ -114,8 +116,8 @@
       padding-left: 0rem;
       li {
         list-style-type: none;
-        a {
-          @apply block px-7 py-2 no-underline;
+        a, navlink { 
+          @apply block px-7 py-4 no-underline border-b-[1px] border-zinc-600 transition-all;
           &.active {
             @apply bg-contrast2 text-accent;
           }

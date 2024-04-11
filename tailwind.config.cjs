@@ -61,7 +61,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: '2rem',   
       screens: {
         '2xl': '1400px'
       }
@@ -254,6 +254,18 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'spin-slow': 'spin2 3s linear infinite',
         'spin-me': 'spinme 1s linear infinite'
+      },
+      sidebarMargin: { 
+        'default': '1.75rem',  
+        'sm': '1.25rem',       
+        'md': '1.75rem',
+        'lg': '1.95rem', 
+      },
+      btnHeight: { 
+        'default': '3.3rem',  
+        'sm': '3.25rem',       
+        'md': '3.5rem',
+        'lg': '3.75rem', 
       }
     }
   },
