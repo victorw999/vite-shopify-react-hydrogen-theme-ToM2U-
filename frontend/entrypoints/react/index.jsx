@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, createHashRouter } from 'react-router-dom'
 
 import { SHOPIFY_URL, SHOPIFY_REACT_ROOT } from './Global.js'
 
@@ -22,7 +22,7 @@ import Index from './routes/index.jsx'
 
 import App from './App.jsx'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <ReactRoot />,
@@ -63,6 +63,7 @@ const router = createBrowserRouter([
 ])
 
 const root = ReactDOM.createRoot(document.getElementById(SHOPIFY_REACT_ROOT))
+
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
