@@ -1716,12 +1716,20 @@ select {
   width: 100vw;
 }
 
+.w-\[300px\] {
+  width: 300px;
+}
+
 .min-w-\[18rem\] {
   min-width: 18rem;
 }
 
 .min-w-\[30rem\] {
   min-width: 30rem;
+}
+
+.min-w-\[300px\] {
+  min-width: 300px;
 }
 
 .max-w-7xl {
@@ -1758,6 +1766,14 @@ select {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-\[30rem\] {
+  max-width: 30rem;
+}
+
+.max-w-\[300px\] {
+  max-width: 300px;
 }
 
 .flex-shrink {
