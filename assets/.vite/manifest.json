@@ -1,9 +1,57 @@
 {
+  "__commonjsHelpers.Cpj98o6Y.min.js": {
+    "file": "_commonjsHelpers.Cpj98o6Y.min.js"
+  },
+  "_index.Bb4qSo10.min.js": {
+    "file": "index.Bb4qSo10.min.js"
+  },
+  "_index.BhYu7o0F.min.js": {
+    "file": "index.BhYu7o0F.min.js",
+    "imports": [
+      "frontend/entrypoints/react/App.jsx"
+    ]
+  },
   "_modulepreload-polyfill.BCYanipZ.min.js": {
     "file": "modulepreload-polyfill.BCYanipZ.min.js"
   },
+  "_utils.CHtjtCvc.min.js": {
+    "file": "utils.CHtjtCvc.min.js"
+  },
   "_utils.yhNUuzph.min.js": {
     "file": "utils.yhNUuzph.min.js"
+  },
+  "frontend/entrypoints/components/ui/button.jsx": {
+    "file": "button.V03yvgJ8.min.js",
+    "src": "frontend/entrypoints/components/ui/button.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "_index.BhYu7o0F.min.js",
+      "_index.Bb4qSo10.min.js",
+      "_utils.CHtjtCvc.min.js",
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/components/ui/card.jsx": {
+    "file": "card.7iHpbRsY.min.js",
+    "src": "frontend/entrypoints/components/ui/card.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "_utils.CHtjtCvc.min.js",
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/components/ui/input.jsx": {
+    "file": "input.w5GC5yKu.min.js",
+    "src": "frontend/entrypoints/components/ui/input.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "_utils.CHtjtCvc.min.js",
+      "_index.Bb4qSo10.min.js",
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
   },
   "frontend/entrypoints/customers.js": {
     "file": "customers.0-uxUFsu.min.js",
@@ -17,13 +65,193 @@
       "frontend/lib/customer-address.js"
     ]
   },
+  "frontend/entrypoints/lib/utils.js": {
+    "file": "utils.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/lib/utils.js",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/App.jsx": {
+    "file": "App.DdBsMdc5.min.js",
+    "src": "frontend/entrypoints/react/App.jsx",
+    "isEntry": true,
+    "imports": [
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/Global.js": {
+    "file": "Global.0DVqcuRV.min.js",
+    "src": "frontend/entrypoints/react/Global.js",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/assets/contacts/ppl-1.jpg": {
+    "file": "ppl-1.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/assets/contacts/ppl-1.jpg",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/assets/contacts/ppl-2.jpg": {
+    "file": "ppl-2.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/assets/contacts/ppl-2.jpg",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/assets/contacts/ppl-3.jpg": {
+    "file": "ppl-3.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/assets/contacts/ppl-3.jpg",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/assets/contacts/ppl-4.jpg": {
+    "file": "ppl-4.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/assets/contacts/ppl-4.jpg",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/assets/contacts/ppl-5.jpg": {
+    "file": "ppl-5.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/assets/contacts/ppl-5.jpg",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/assets/contacts/ppl-6.jpg": {
+    "file": "ppl-6.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/assets/contacts/ppl-6.jpg",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/assets/contacts/ppl-7.jpg": {
+    "file": "ppl-7.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/assets/contacts/ppl-7.jpg",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/components/icons.jsx": {
+    "file": "icons.BDc0knoH.min.js",
+    "src": "frontend/entrypoints/react/components/icons.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/error-page.jsx": {
+    "file": "error-page.yNS9getj.min.js",
+    "src": "frontend/entrypoints/react/error-page.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/index.jsx": {
+    "file": "index.Aw-EJklI.min.js",
+    "src": "frontend/entrypoints/react/index.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "__commonjsHelpers.Cpj98o6Y.min.js",
+      "frontend/entrypoints/react/error-page.jsx",
+      "frontend/entrypoints/react/routes/contacts/contact.jsx",
+      "frontend/entrypoints/react/routes/contacts/edit.jsx",
+      "frontend/entrypoints/react/routes/contacts/destroy.jsx",
+      "_index.BhYu7o0F.min.js",
+      "_index.Bb4qSo10.min.js",
+      "_utils.CHtjtCvc.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/routes/ReactRoot.jsx": {
+    "file": "ReactRoot.knd3QmST.min.js",
+    "src": "frontend/entrypoints/react/routes/ReactRoot.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "frontend/entrypoints/react/error-page.jsx",
+      "frontend/entrypoints/react/routes/contacts/contact.jsx",
+      "frontend/entrypoints/react/routes/contacts/edit.jsx",
+      "frontend/entrypoints/react/routes/contacts/destroy.jsx",
+      "__commonjsHelpers.Cpj98o6Y.min.js",
+      "_index.BhYu7o0F.min.js",
+      "_index.Bb4qSo10.min.js",
+      "_utils.CHtjtCvc.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/routes/contacts/contact.jsx": {
+    "file": "contact.zlfSvmiZ.min.js",
+    "src": "frontend/entrypoints/react/routes/contacts/contact.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "frontend/entrypoints/react/routes/contacts/destroy.jsx",
+      "_index.BhYu7o0F.min.js",
+      "_index.Bb4qSo10.min.js",
+      "_utils.CHtjtCvc.min.js",
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/routes/contacts/destroy.jsx": {
+    "file": "destroy.DH6u2IrP.min.js",
+    "src": "frontend/entrypoints/react/routes/contacts/destroy.jsx",
+    "isEntry": true,
+    "imports": [
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/routes/contacts/edit.jsx": {
+    "file": "edit.c_4xkNts.min.js",
+    "src": "frontend/entrypoints/react/routes/contacts/edit.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "frontend/entrypoints/react/routes/contacts/contact.jsx",
+      "_utils.CHtjtCvc.min.js",
+      "_index.Bb4qSo10.min.js",
+      "frontend/entrypoints/react/routes/contacts/destroy.jsx",
+      "__commonjsHelpers.Cpj98o6Y.min.js",
+      "_index.BhYu7o0F.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/routes/contacts/loadContactsFrmSample.jsx": {
+    "file": "loadContactsFrmSample.85FFhFDQ.min.js",
+    "src": "frontend/entrypoints/react/routes/contacts/loadContactsFrmSample.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/routes/contacts/destroy.jsx",
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/routes/index.jsx": {
+    "file": "index.BDc0knoH.min.js",
+    "src": "frontend/entrypoints/react/routes/index.jsx",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/App.jsx",
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/utils/contacts/contacts.js": {
+    "file": "contacts.85FFhFDQ.min.js",
+    "src": "frontend/entrypoints/react/utils/contacts/contacts.js",
+    "isEntry": true,
+    "imports": [
+      "frontend/entrypoints/react/routes/contacts/destroy.jsx",
+      "__commonjsHelpers.Cpj98o6Y.min.js"
+    ]
+  },
+  "frontend/entrypoints/react/utils/contacts/sample_contacts.json": {
+    "file": "sample_contacts.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/utils/contacts/sample_contacts.json",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/utils/fetchCustomers.js": {
+    "file": "fetchCustomers.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/utils/fetchCustomers.js",
+    "isEntry": true
+  },
+  "frontend/entrypoints/react/utils/fetchProducts.js": {
+    "file": "fetchProducts.l0sNRNKZ.min.js",
+    "src": "frontend/entrypoints/react/utils/fetchProducts.js",
+    "isEntry": true
+  },
   "frontend/entrypoints/theme.css": {
-    "file": "theme.GFGXf3_Z.min.css",
+    "file": "theme.DLrc5-qw.min.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
   "frontend/entrypoints/theme.js": {
-    "file": "theme.Cfke23E1.min.js",
+    "file": "theme.BJ4hsXz2.min.js",
     "src": "frontend/entrypoints/theme.js",
     "isEntry": true,
     "imports": [
@@ -49,7 +277,7 @@
     ]
   },
   "frontend/islands/cart-drawer-items.js": {
-    "file": "cart-drawer-items.DwKBss8_.min.js",
+    "file": "cart-drawer-items.D23EMnT4.min.js",
     "src": "frontend/islands/cart-drawer-items.js",
     "isDynamicEntry": true,
     "imports": [
@@ -60,7 +288,7 @@
     ]
   },
   "frontend/islands/cart-drawer.js": {
-    "file": "cart-drawer.BztpLx3Q.min.js",
+    "file": "cart-drawer.GTkHWJEP.min.js",
     "src": "frontend/islands/cart-drawer.js",
     "isDynamicEntry": true,
     "imports": [
@@ -69,7 +297,7 @@
     ]
   },
   "frontend/islands/cart-items.js": {
-    "file": "cart-items.DvqQXJpo.min.js",
+    "file": "cart-items.DgC6_1JC.min.js",
     "src": "frontend/islands/cart-items.js",
     "isDynamicEntry": true,
     "imports": [
@@ -97,7 +325,7 @@
     "isDynamicEntry": true
   },
   "frontend/islands/details-modal.js": {
-    "file": "details-modal.tZvsYdLo.min.js",
+    "file": "details-modal.BUqveD2Z.min.js",
     "src": "frontend/islands/details-modal.js",
     "isDynamicEntry": true,
     "imports": [
@@ -106,7 +334,7 @@
     ]
   },
   "frontend/islands/header-drawer.js": {
-    "file": "header-drawer.CMoonS-f.min.js",
+    "file": "header-drawer.C-TL-KAP.min.js",
     "src": "frontend/islands/header-drawer.js",
     "isDynamicEntry": true,
     "imports": [
@@ -121,7 +349,7 @@
     "isDynamicEntry": true
   },
   "frontend/islands/password-modal.js": {
-    "file": "password-modal.Bkz2iZwY.min.js",
+    "file": "password-modal.DZeDKCHa.min.js",
     "src": "frontend/islands/password-modal.js",
     "isDynamicEntry": true,
     "imports": [

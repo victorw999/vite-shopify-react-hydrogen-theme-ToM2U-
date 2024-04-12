@@ -1,7 +1,7 @@
 import { Form, useLoaderData, useFetcher } from 'react-router-dom'
 import { getContact, updateContact } from '../../utils/contacts/contacts'
 import { Button } from '@shadcn/components/ui/button.jsx'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 
 export async function loader({ params }) {
   const contact = await getContact(params.contactId)
@@ -40,34 +40,60 @@ function getProfileImg() {
 
 }
 
-// if avatar url has the 'shoify-assets-folder-path' pattern, then modify the url pointing to assets folder img
-function getImgFrmShopifyAssets(str) {
-  
-  try {
-    let pattern = 'shoify-assets-folder-path'
-    console.log('===> getImgFrmShopifyAssets', " str:",str, " pattern:", pattern)
-    if (str && str.includes(pattern)){
-      if (!window.shop_assets || !window.shop_assets.assetsFolderPath) {
-        throw new Error("window.shop_assets, or assetsFolderPath is not defined");
-      }
-      let shopify_assets_url = window.shop_assets.assetsFolderPath.trim();
-      console.log('===> getImgFrmShopifyAssets 111 ',  str.replace(pattern, shopify_assets_url)  )
-      return str.replace(pattern, shopify_assets_url)  
-    }else {
-      return str;
-    }
-  } catch (error) {
-    console.error("Error generating profile image URL:", error);
-    return "";
-  }
-}
+
+// function getImgFrmShopifyAssets(str) {
+
+//   try {
+//     let pattern = 'shoify-assets-folder-path'
+//     console.log('===> getImgFrmShopifyAssets', " str:",str, " pattern:", pattern)
+//     if (str && str.includes(pattern)){
+//       if (!window.shop_assets || !window.shop_assets.assetsFolderPath) {
+//         throw new Error("window.shop_assets, or assetsFolderPath is not defined");
+//       }
+//       let shopify_assets_url = window.shop_assets.assetsFolderPath.trim();
+//       console.log('===> getImgFrmShopifyAssets 111 ',  str.replace(pattern, shopify_assets_url)  )
+//       return str.replace(pattern, shopify_assets_url)  
+//     }else {
+//       return str;
+//     }
+//   } catch (error) {
+//     console.error("Error generating profile image URL:", error);
+//     return "";
+//   }
+// }
 
 export default function Contact() {
   const { contact } = useLoaderData()
   const [profileImg, setProfileImg] = useState()
-  // useEffect(()=>{
-  //   setProfileImg(getProfileImg2())
-  // }, [])
+
+  const [avatarURL, setAvatarRUL] = useState()
+
+  useEffect(() => {
+    setAvatarRUL(contact.avatar)
+  })
+  // if avatar url has the 'shoify-assets-folder-path' pattern, then modify the url pointing to assets folder img
+
+  const getImgFrmShopifyAssets = useCallback(() => {
+    try {
+      let str = avatarURL
+      let pattern = 'shoify-assets-folder-path'
+      console.log('===> getImgFrmShopifyAssets', " str:", str, " pattern:", pattern)
+      if (str && str.includes(pattern)) {
+        if (!window.shop_assets || !window.shop_assets.assetsFolderPath) {
+          throw new Error("window.shop_assets, or assetsFolderPath is not defined");
+        }
+        let shopify_assets_url = window.shop_assets.assetsFolderPath.trim();
+        console.log('===> getImgFrmShopifyAssets 111 ', str.replace(pattern, shopify_assets_url))
+        return str.replace(pattern, shopify_assets_url)
+      } else {
+        return str;
+      }
+    } catch (error) {
+      console.error("Error generating profile image URL:", error);
+      return "";
+    }
+  }, [avatarURL])
+
   return (
     <div
       id="contact"
@@ -76,10 +102,10 @@ export default function Contact() {
       <div className="contact-img-wrapper  flex  min-w-[18rem] flex-shrink  flex-grow-0 justify-center bg-lightgray p-8 align-middle">
         <img
           className="h-[250px] w-[250px] border-[0.5px] border-solid border-lightgray5 bg-lightgray  object-cover"
-          key={contact.avatar}
+          key={avatarURL}
           // src={contact.avatar || null}
           // src={profileImg}
-          src={getImgFrmShopifyAssets(contact.avatar)}
+          src={getImgFrmShopifyAssets()}
         />
       </div>
 
