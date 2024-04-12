@@ -2,6 +2,7 @@ import { Form, useLoaderData, useFetcher } from 'react-router-dom'
 import { getContact, updateContact } from '../../utils/contacts/contacts'
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { useEffect, useState, useCallback } from 'react'
+import { stringHasNoSlashes, isImageFile, removeFileExtension } from '../../Global'
 
 export async function loader({ params }) {
   const contact = await getContact(params.contactId)
@@ -61,29 +62,85 @@ function getProfileImg() {
 //     return "";
 //   }
 // }
+function removeTrailingSlash(str) {
+  if (str.length > 0) { // Ensure the string is not empty
+    const lastChar = str.slice(-1);
+    if (lastChar === '/' || lastChar === '\\') {
+      return str.slice(0, -1); // Remove the last character
+    }
+  }
+  return str; // If no trailing slash was found
+}
+
+/*
+  Importing image
+  During the build process:
+  Vite will include the image that you imported in your asset bundle.
+  Vite will handle the hashing of the filename.
+*/
+
+/* get all image urls from react/assets/ */
+function importAllImages(modules) {
+  let imageUrls = {};
+  Object.entries(modules).forEach(([item, module]) => {
+    // Extract filename (assumes filenames like 'image-name.jpg')
+    const filename = item.split('/').pop().split('.')[0];
+    imageUrls[filename] = module.default;
+  });
+  return imageUrls;
+}
+const allImageUrls = importAllImages(import.meta.glob('../../assets/contacts/**/*.{png,jpg,jpeg,svg}', { eager: true }));
+// console.log("===> allImageUrls: ", allImageUrls); 
+
+
+/* 
+  get specific image urls from react/assets/   
+
+  4/12/2024 Fri 2:02 PM 
+  import.meta.glob() does not work with variables, so have to import all images instead of any specific one
+  https://github.com/vitejs/vite/discussions/15397#discussioncomment-8419078
+  let globStr = `../../assets/contacts/${imgFileName}` <----error, can't use a variable
+  const imagePath = import.meta.glob(globStr, { eager: true }); <----error
+
+*/
+const imagePath = import.meta.glob('../../assets/contacts/ppl-1.jpg', { eager: true });
+// Assuming you have only one match
+const imageModule = Object.values(imagePath)[0];
+// Access the image URL
+const imageUrl = imageModule.default;
+console.log('====> imgurl ---> ', imageUrl)
+
+
 
 export default function Contact() {
   const { contact } = useLoaderData()
   const [profileImg, setProfileImg] = useState()
-
   const [avatarURL, setAvatarRUL] = useState()
 
   useEffect(() => {
-    setAvatarRUL(contact.avatar)
+    setAvatarRUL(contact.avatar.trim())
   })
-  // if avatar url has the 'shoify-assets-folder-path' pattern, then modify the url pointing to assets folder img
 
+
+
+  /*
+    Purpose: if avatar url has the 'shoify-assets-folder-path' pattern, then modify the url pointing to assets folder img
+    
+    Problem:
+      this approach is problematic
+      When Vite builds your project, it adds unique hashes to your asset filenames (like from ppl-1.jpg to ppl-1.DNYQ4w4w.min.jpg).
+  */
   const getImgFrmShopifyAssets = useCallback(() => {
     try {
       let str = avatarURL
+      if (!str) return
       let pattern = 'shoify-assets-folder-path'
-      console.log('===> getImgFrmShopifyAssets', " str:", str, " pattern:", pattern)
       if (str && str.includes(pattern)) {
         if (!window.shop_assets || !window.shop_assets.assetsFolderPath) {
           throw new Error("window.shop_assets, or assetsFolderPath is not defined");
         }
         let shopify_assets_url = window.shop_assets.assetsFolderPath.trim();
-        console.log('===> getImgFrmShopifyAssets 111 ', str.replace(pattern, shopify_assets_url))
+        shopify_assets_url = removeTrailingSlash(shopify_assets_url) // remove the slash at the end
         return str.replace(pattern, shopify_assets_url)
       } else {
         return str;
@@ -94,18 +151,45 @@ export default function Contact() {
     }
   }, [avatarURL])
 
+  /*
+    import imgRUL from react/assets to get around VITE's cache busting file renaming
+  */
+  const getImgUrls = useCallback(() => {
+    console.log('====> avatarURL ', contact.first, " == ", avatarURL)
+    try {
+      let str = avatarURL
+      if (!str) return
+
+      // if it's not a URL and it's an image file, retrieve the default images provided in react/assests folder
+      if (stringHasNoSlashes(str) && isImageFile(str)) {
+        let imgFileName = str
+        imgFileName = removeFileExtension(imgFileName)
+
+        console.log('====> imgurl ', contact.first, " == ", allImageUrls[imgFileName])
+        return imageUrl
+      } else {
+        return avatarURL
+      }
+
+
+    } catch (error) {
+      console.error("Error getImgUrls:", error);
+      return "";
+    }
+  }, [avatarURL])
+
   return (
     <div
       id="contact"
       className="my-10 flex border-[0.5px] border-solid border-border"
     >
-      <div className="contact-img-wrapper  flex  min-w-[18rem] flex-shrink  flex-grow-0 justify-center bg-lightgray p-8 align-middle">
+      <div className="contact-img-wrapper  flex min-w-[300px] max-w-[300px] flex-shrink  flex-grow-0 justify-center bg-lightgray p-8 align-middle">
         <img
-          className="h-[250px] w-[250px] border-[0.5px] border-solid border-lightgray5 bg-lightgray  object-cover"
+          className="h-full w-full border-[0.5px] border-solid border-lightgray5 bg-lightgray  object-cover w"
           key={avatarURL}
           // src={contact.avatar || null}
           // src={profileImg}
-          src={getImgFrmShopifyAssets()}
+          src={getImgUrls()}
         />
       </div>
 

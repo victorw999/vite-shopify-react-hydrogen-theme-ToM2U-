@@ -75,13 +75,13 @@ export default function ReactRoot() {
   }, [q])
 
    /* load sample contacts data */
-  useEffect(() => {
-    console.log('====> useEffect>>> contacts changes', contacts)
-  }, [contacts])
+  // useEffect(() => {
+  //   console.log('====> useEffect>>> contacts changes', contacts)
+  // }, [contacts])
 
-  useEffect(() => {
-    console.log('====> useEffect::: contactsState changes', contactsState)
-  }, [contactsState])
+  // useEffect(() => {
+  //   console.log('====> useEffect::: contactsState changes', contactsState)
+  // }, [contactsState])
 
   async function loadContactsFrmSample() {
     const contacts_1 = await loadContacts(); 
