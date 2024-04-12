@@ -3,7 +3,7 @@ import {
   Outlet,
   NavLink,
   Link,
-  useNavigation,
+  useNavigation, useNavigate,
   useSubmit,
   Form,
   useLoaderData,
@@ -15,12 +15,11 @@ import { Input } from '@shadcn/components/ui/input.jsx'
 import { useState, useEffect } from 'react'
 import fetchProducts from '../utils/fetchProducts.js'
 import fetchCustomers from '../utils/fetchCustomers'
+import { loadContacts } from '../utils/contacts/contacts'
 import { getContacts, createContact } from '../utils/contacts/contacts'
 import { motion, AnimatePresence } from 'framer-motion'
-import { GiHamburgerMenu } from 'react-icons/gi'
-import { BsPeople } from "react-icons/bs";
-import { AiOutlineRollback } from 'react-icons/ai'
 
+import { IconGoBack, IconPeople, IconHome, IconLoadSample } from '../components/icons'
 
 export async function loader({ request }) {
   const url = new URL(request.url)
@@ -48,29 +47,62 @@ export default function ReactRoot() {
     getProducts()
 
     const getCustomers = async () => {
-      const fetchedProducts = await fetchCustomers()      
+      const fetchedCustomers = await fetchCustomers()
     }
     getCustomers()
   }, [])
 
-  // method #2 of retrieving data
+  // method #2 of retrieving contact's data from local storage
   const { contacts, q } = useLoaderData()
+  const [contactsState, setContactsState] = useState([])
+  useEffect(() => {
+    setContactsState(contacts)
+    console.log('====> useEffect*** initialization: setContactsState(contacts), contactsState:', contactsState)
+  }, [])
+
   const navigation = useNavigation()
   const submit = useSubmit()
   const searching =
     navigation.location &&
     new URLSearchParams(navigation.location.search).has('q')
 
-  console.log('===> contacts: ', contacts)
 
   useEffect(() => {
     let searchbar = document.getElementById('react_searchbar_q')
     if (searchbar) {
       searchbar.value = q
     }
-
   }, [q])
 
+   /* load sample contacts data */
+  useEffect(() => {
+    console.log('====> useEffect>>> contacts changes', contacts)
+  }, [contacts])
+
+  useEffect(() => {
+    console.log('====> useEffect::: contactsState changes', contactsState)
+  }, [contactsState])
+
+  async function loadContactsFrmSample() {
+    const contacts_1 = await loadContacts(); 
+    let contacts = await getContacts('')
+    console.log('====> loadContactsFrmSample() contacts:', contacts)
+    setContactsState(contacts)
+  }
+
+
+  /* another method to trigger a rout action (in this case: loader())
+    * 0, specifies the relative offset within the history stack. 0 indicates navigating to the current route  
+    * Using navigate with replace: true on the current route indirectly refetches data by forcing React Router to re-execute the route's associated loader function (if one exists).
+     
+      const navigate = useNavigate();
+      const loadContactsFrmSample_bk = () => {
+        loadContacts()
+        navigate(0, { replace: true }); // Trigger refetch
+      }
+
+  */ 
+  
 
   /* Frame motion animations */
   const [isAppOpen, setAppOpen] = useState(false)
@@ -95,28 +127,14 @@ export default function ReactRoot() {
       },
     }
   }
-  const bsi = 2 // btn shake intensity
-  const framerBtnHover = {
-    scale: 1.1,
-    x: [-bsi, bsi, -bsi, bsi, -bsi, 0], // Creates a shaking motion
-    transition: { duration: 0.4, ease: "easeInOut", times: [0, 0.2, 0.4, 0.6, 0.8, 1] }
-  }
-  const toggleSidebar = () => setAppOpen(prev => !prev)
 
+  const toggleSidebar = () => setAppOpen(prev => !prev)
 
   return (
     <>
       <div id="react-app-icons-container" className="fixed bg-zinc-800 border-r-2 border-2 border-zinc-100 p-3">
-        <motion.button
-          whileHover={framerBtnHover}
-          onClick={toggleSidebar}
-          className="p-3 border-2 border-white-800 rounded-xl"
-          aria-label="toggle sidebar"
-        >
-          <BsPeople />
-        </motion.button>
+        <IconPeople className="" action={toggleSidebar} />
       </div>
-
 
       <AnimatePresence mode="wait" initial={false}>
         {
@@ -133,15 +151,7 @@ export default function ReactRoot() {
                 <div className="sidebar_innerContainer py-5">
 
                   <div className="sidebar_row_1 mb-4 flex relative px-[theme('sidebarMargin.default')]">
-                    <motion.button
-                      whileHover={framerBtnHover}
-                      onClick={toggleSidebar}
-                      className="p-3 border-2 border-zinc-100 rounded-xl   absolute right-[theme('sidebarMargin.default')] "
-                      aria-label="close sidebar"
-                    >
-                      <AiOutlineRollback />
-                    </motion.button>
-
+                    <IconGoBack className="" action={toggleSidebar} />
                     <h1 className="text-2xl ">React Router Contacts</h1>
                   </div>
 
@@ -189,10 +199,13 @@ export default function ReactRoot() {
                   </div>
                   <nav>
                     <ul className="contact-list">
-                      <li>
-                        <Link to={`/`}>Home</Link>
+                      <li className='contact-app-tool-bar'>
+                        <Link to={`/`}>
+                          <IconHome /> <IconLoadSample action={loadContactsFrmSample}/>
+                        </Link>
+                         
                       </li>
-                      
+
                       {/* <li>
                         <a href={`/collections/all`}>All Collection Anchor</a>
                       </li>
@@ -200,8 +213,8 @@ export default function ReactRoot() {
                         <Link to={`/collections/all`}>All Collection Link</Link>
                       </li> */}
 
-                      {contacts.length ? (
-                        contacts.map((contact, idx) => (
+                      {contactsState.length ? (
+                        contactsState.map((contact, idx) => (
                           <motion.li key={contact.id}
                             {...framerText(idx)}
                           >

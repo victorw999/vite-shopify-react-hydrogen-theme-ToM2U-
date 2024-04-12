@@ -1,6 +1,7 @@
 import { Form, useLoaderData, useFetcher } from 'react-router-dom'
 import { getContact, updateContact } from '../../utils/contacts/contacts'
 import { Button } from '@shadcn/components/ui/button.jsx'
+import { useEffect, useState } from 'react'
 
 export async function loader({ params }) {
   const contact = await getContact(params.contactId)
@@ -20,19 +21,65 @@ export async function action({ request, params }) {
   })
 }
 
+// Get a random image from Shopify assets. The random profile images I uploaded are ppl-1.jpg to ppl-7.jpg.
+function getProfileImg() {
+  try {
+    if (!window.shop_assets || !window.shop_assets.assetsFolderPath) {
+      throw new Error("window.shop_assets, or assetsFolderPath is not defined");
+    }
+
+    let max = 7, min = 1;
+    let rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    let shopify_assets_url = window.shop_assets.assetsFolderPath.trim();
+    return shopify_assets_url + `ppl-${rand}.jpg`;
+
+  } catch (error) {
+    console.error("Error generating profile image URL:", error);
+    return "";
+  }
+
+}
+
+// if avatar url has the 'shoify-assets-folder-path' pattern, then modify the url pointing to assets folder img
+function getImgFrmShopifyAssets(str) {
+  
+  try {
+    let pattern = 'shoify-assets-folder-path'
+    console.log('===> getImgFrmShopifyAssets', " str:",str, " pattern:", pattern)
+    if (str && str.includes(pattern)){
+      if (!window.shop_assets || !window.shop_assets.assetsFolderPath) {
+        throw new Error("window.shop_assets, or assetsFolderPath is not defined");
+      }
+      let shopify_assets_url = window.shop_assets.assetsFolderPath.trim();
+      console.log('===> getImgFrmShopifyAssets 111 ',  str.replace(pattern, shopify_assets_url)  )
+      return str.replace(pattern, shopify_assets_url)  
+    }else {
+      return str;
+    }
+  } catch (error) {
+    console.error("Error generating profile image URL:", error);
+    return "";
+  }
+}
+
 export default function Contact() {
   const { contact } = useLoaderData()
-
+  const [profileImg, setProfileImg] = useState()
+  // useEffect(()=>{
+  //   setProfileImg(getProfileImg2())
+  // }, [])
   return (
     <div
       id="contact"
-      className=" my-10 flex border-[0.5px] border-solid border-border"
+      className="my-10 flex border-[0.5px] border-solid border-border"
     >
       <div className="contact-img-wrapper  flex  min-w-[18rem] flex-shrink  flex-grow-0 justify-center bg-lightgray p-8 align-middle">
         <img
           className="h-[250px] w-[250px] border-[0.5px] border-solid border-lightgray5 bg-lightgray  object-cover"
           key={contact.avatar}
-          src={contact.avatar || null}
+          // src={contact.avatar || null}
+          // src={profileImg}
+          src={getImgFrmShopifyAssets(contact.avatar)}
         />
       </div>
 

@@ -1,7 +1,8 @@
 import localforage from 'localforage'
 import { matchSorter } from 'match-sorter'
 import sortBy from 'sort-by'
-
+import sample_contacts from './sample_contacts.json'; 
+ 
 export async function getContacts(query) {
   await fakeNetwork(`getContacts:${query}`)
   let contacts = await localforage.getItem('contacts')
@@ -53,16 +54,31 @@ export async function deleteContact(id) {
 
 // load dummy contacts data
 export async function loadContacts() {
-  // let contacts = await localforage.getItem('contacts')
-  // let index = contacts.findIndex((contact) => contact.id === id)
-  // if (index > -1) {
-  //   contacts.splice(index, 1)
-  //   await set(contacts)
-  //   return true
-  // }
-  return false
-}
 
+  // sample_contacts.json
+  console.log("loadContacts() sample_contacts:", sample_contacts)
+
+  // contacts in storage
+  let storage_contacts = await localforage.getItem('contacts')
+  console.log("storage_contacts:", storage_contacts)
+
+  try {
+    sample_contacts.forEach( item => {
+       
+      let id_found_in_storage = storage_contacts.some(i=>i.id===item.id)
+      if (!id_found_in_storage) {
+        storage_contacts.unshift(item) 
+      }
+    })
+    await set(storage_contacts) 
+
+  } catch (error) {
+    console.error("Error fetching sample_contacts.JSON:", error);
+  }
+
+  // return with the updated contacts array
+  return storage_contacts 
+} 
 
 function set(contacts) {
   return localforage.setItem('contacts', contacts)

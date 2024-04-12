@@ -11,8 +11,7 @@
       <link
         rel="icon"
         type="image/png"
-        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
-      >
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
 
     {%- unless settings.type_body_font.system? -%}
@@ -21,8 +20,7 @@
         as="font"
         href="{{ settings.type_body_font | font_url }}"
         type="font/woff2"
-        crossorigin
-      >
+        crossorigin>
     {%- endunless -%}
     {%- unless settings.type_header_font.system? -%}
       <link
@@ -30,8 +28,7 @@
         as="font"
         href="{{ settings.type_header_font | font_url }}"
         type="font/woff2"
-        crossorigin
-      >
+        crossorigin>
     {%- endunless -%}
 
     <title>
@@ -61,12 +58,12 @@
 
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}{{ body_font_bold | font_face: font_display: 'swap' }}{{ body_font_italic | font_face: font_display: 'swap' }}{{ body_font_bold_italic | font_face: font_display: 'swap' }}{{ settings.type_header_font | font_face: font_display: 'swap' }}:root {
-        --font-body-family: {{ settings.type_body_font.family }},
+        --font-body-family: {{ settings.type_body_font.family }}, 
         {{ settings.type_body_font.fallback_families }};
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-        --font-heading-family: {{ settings.type_header_font.family }},
+        --font-heading-family: {{ settings.type_header_font.family }}, 
         {{ settings.type_header_font.fallback_families }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
@@ -102,10 +99,7 @@
     {% comment %} react entry point {% endcomment %}
     <div id="shopify-react-root"></div>
 
-    <a
-      href="#MainContent"
-      class="button sr-only bg-primary text-contrast focus:not-sr-only focus:absolute focus:z-50 focus:px-6 focus:py-3"
-    >
+    <a href="#MainContent" class="button sr-only bg-primary text-contrast focus:not-sr-only focus:absolute focus:z-50 focus:px-6 focus:py-3">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
 
@@ -117,8 +111,7 @@
     <main
       role="main"
       id="MainContent"
-      tabindex="-1"
-    >
+      tabindex="-1">
       {{ content_for_layout }}
     </main>
 
@@ -145,6 +138,24 @@
         soldOut: `{{ 'products.product.sold_out' | t }}`,
         unavailable: `{{ 'products.product.unavailable' | t }}`
       }
+  </script>
+
+    {% comment %} Assets Folder Path {% endcomment %}
+    {% assign anyImg = 'empty.jpg' %}
+    {% assign imgPath = anyImg | asset_url %}
+    {% assign assets_folder_path = imgPath | split: anyImg | first %}
+    <script>
+      window.shop_assets={
+        assetsFolderPath: ` {{assets_folder_path}} `,
+        images:[
+          {% for i in (1..7) %}
+            {% assign name = 'ppl-' |  append: i |  append: '.jpg'%}
+            {{ name | asset_img_url }}
+            {% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }
     </script>
+
   </body>
 </html>

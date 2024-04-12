@@ -18,9 +18,9 @@ import Contact, {
 } from './routes/contacts/contact.jsx'
 import EditContact, { action as editAction } from './routes/contacts/edit.jsx'
 import { action as destroyAction } from './routes/contacts/destroy.jsx'
+import { action as loadContactsAction} from './routes/contacts/loadContactsFrmSample.jsx'
 import Index from './routes/index.jsx'
-
-import App from './App.jsx'
+ 
 
 const router = createHashRouter([
   {
@@ -53,6 +53,7 @@ const router = createHashRouter([
           },
           {
             path: 'contacts/loadContacts',
+            action: loadContactsAction,
             errorElement: <div>Oops! There was an error loading contacts.</div>
           }
         ]
