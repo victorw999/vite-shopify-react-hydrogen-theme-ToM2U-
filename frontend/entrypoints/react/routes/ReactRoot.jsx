@@ -1,4 +1,4 @@
-import { SHOPIFY_URL } from '../Global'
+import { SHOPIFY_URL, importAllImages } from '../Global'
 import {
   Outlet,
   NavLink,
@@ -21,6 +21,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 import { IconGoBack, IconPeople, IconHome, IconLoadSample } from '../components/icons'
 
+import { useDispatch, useSelector } from 'react-redux';
+import { loadPlaceholderImages } from '../redux/contactSlice'
+
 export async function loader({ request }) {
   const url = new URL(request.url)
   const q = url.searchParams.get('q')
@@ -34,7 +37,6 @@ export async function action() {
 }
 
 export default function ReactRoot() {
-
 
   // method 1 of retrieving data
   const [products, setProducts] = useState([])
@@ -54,11 +56,11 @@ export default function ReactRoot() {
 
   // method #2 of retrieving contact's data from local storage
   const { contacts, q } = useLoaderData()
-  const [contactsState, setContactsState] = useState([])
+  const [ contactsState, setContactsState ] = useState([])
+  
   useEffect(() => {
     setContactsState(contacts)
-    console.log('====> useEffect*** initialization: setContactsState(contacts), contactsState:', contactsState)
-  }, [])
+  }, [contacts])
 
   const navigation = useNavigation()
   const submit = useSubmit()
@@ -74,19 +76,10 @@ export default function ReactRoot() {
     }
   }, [q])
 
-   /* load sample contacts data */
-  // useEffect(() => {
-  //   console.log('====> useEffect>>> contacts changes', contacts)
-  // }, [contacts])
-
-  // useEffect(() => {
-  //   console.log('====> useEffect::: contactsState changes', contactsState)
-  // }, [contactsState])
-
+ 
   async function loadContactsFrmSample() {
-    const contacts_1 = await loadContacts(); 
-    let contacts = await getContacts('')
-    console.log('====> loadContactsFrmSample() contacts:', contacts)
+    await loadContacts(); // merge sample data w/ current contact frm cache
+    let contacts = await getContacts('')  // refresh contact
     setContactsState(contacts)
   }
 
@@ -101,8 +94,8 @@ export default function ReactRoot() {
         navigate(0, { replace: true }); // Trigger refetch
       }
 
-  */ 
-  
+  */
+
 
   /* Frame motion animations */
   const [isAppOpen, setAppOpen] = useState(false)
@@ -130,6 +123,15 @@ export default function ReactRoot() {
 
   const toggleSidebar = () => setAppOpen(prev => !prev)
 
+
+  // use redux to load placeholder imgs into redux store
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadPlaceholderImages()); 
+  }, [dispatch]);
+
+  
   return (
     <>
       <div id="react-app-icons-container" className="fixed bg-zinc-800 border-r-2 border-2 border-zinc-100 p-3">
@@ -201,10 +203,10 @@ export default function ReactRoot() {
                     <ul className="contact-list">
                       <li className='contact-app-tool-bar'>
                         <Link to={`/`}>
-                          <IconHome /> <IconLoadSample action={loadContactsFrmSample}/>
-                        </Link>
-                         
+                          <IconHome /> <IconLoadSample action={loadContactsFrmSample} />
+                        </Link> 
                       </li>
+                
 
                       {/* <li>
                         <a href={`/collections/all`}>All Collection Anchor</a>
@@ -267,6 +269,7 @@ export default function ReactRoot() {
                 id="detail"
                 className={navigation.state === 'loading' ? 'loading' : ''}
               >
+                {/* <Outlet context={{ allImageUrls }} /> */}
                 <Outlet />
               </div>
             </motion.div>)
