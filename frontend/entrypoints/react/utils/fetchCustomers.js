@@ -65,7 +65,7 @@ async function fetchCustomers() {
 
   const data = await response.json()
 
-  console.log('===> data.data.customers', data.data.customers.edges) // Access product data
+  // console.log('===> data.data.customers', data.data.customers.edges) // Access product data
 
   return data.data.customers.edges
 }

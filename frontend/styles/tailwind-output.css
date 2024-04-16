@@ -1594,10 +1594,6 @@ select {
   height: 2.25rem;
 }
 
-.h-\[250px\] {
-  height: 250px;
-}
-
 .h-\[theme\(\'btnHeight\.default\'\)\] {
   height: 3.3rem;
 }
@@ -1687,10 +1683,6 @@ select {
   width: 0.75rem;
 }
 
-.w-\[250px\] {
-  width: 250px;
-}
-
 .w-\[30rem\] {
   width: 30rem;
 }
@@ -1716,20 +1708,12 @@ select {
   width: 100vw;
 }
 
-.w-\[300px\] {
-  width: 300px;
-}
-
-.min-w-\[18rem\] {
-  min-width: 18rem;
+.min-w-\[300px\] {
+  min-width: 300px;
 }
 
 .min-w-\[30rem\] {
   min-width: 30rem;
-}
-
-.min-w-\[300px\] {
-  min-width: 300px;
 }
 
 .max-w-7xl {
@@ -1742,6 +1726,10 @@ select {
 
 .max-w-\[250px\] {
   max-width: 250px;
+}
+
+.max-w-\[300px\] {
+  max-width: 300px;
 }
 
 .max-w-\[335px\] {
@@ -1766,14 +1754,6 @@ select {
 
 .max-w-xl {
   max-width: 36rem;
-}
-
-.max-w-\[30rem\] {
-  max-width: 30rem;
-}
-
-.max-w-\[300px\] {
-  max-width: 300px;
 }
 
 .flex-shrink {
@@ -2583,6 +2563,16 @@ select {
 
 .text-secondary-foreground {
   color: hsl(var(--secondary-foreground));
+}
+
+.text-slate-400 {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+
+.text-slate-200 {
+  --tw-text-opacity: 1;
+  color: rgb(226 232 240 / var(--tw-text-opacity));
 }
 
 .underline {
