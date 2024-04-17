@@ -203,7 +203,7 @@ export default function ReactRoot() {
                   </div>
                   <nav>
                     <ul className="contact-list">
-                      <li className='contact-app-tool-bar'>
+                      <li className='app-tool-bar'>
                         <Link to={`/`}>
                           <IconHome /> 
                           <IconLoadSample action={loadContactsFrmSample} />

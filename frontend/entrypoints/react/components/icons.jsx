@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { BsPeople } from "react-icons/bs";
- 
+
 import { RiHome7Line } from "react-icons/ri";
 import { BsDatabaseDown } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
@@ -15,10 +15,10 @@ const framerBtnHover = (flag) => {
 
   if (flag && flag.includes('shake')) {
     options.x = [-bsi, bsi, -bsi, bsi, -bsi, 0]; // Creates a shaking motion
-    options.transition = { 
-      duration: 0.4, 
-      ease: "easeInOut", 
-      times: [0, 0.2, 0.4, 0.6, 0.8, 1] 
+    options.transition = {
+      duration: 0.4,
+      ease: "easeInOut",
+      times: [0, 0.2, 0.4, 0.6, 0.8, 1]
     };
   }
   return options
@@ -30,7 +30,7 @@ export function IconGoBack(props) {
     <motion.button
       whileHover={framerBtnHover('shake')}
       onClick={props.action}
-      className={`p-3 border-2 border-zinc-100 rounded-xl absolute right-[theme('sidebarMargin.default')]  ${props.className}`}
+      className={`appIcon absolute right-[theme('sidebarMargin.default')]  ${props.className}`}
       aria-label="close sidebar"
     >
       <AiOutlineRollback />
@@ -45,7 +45,7 @@ export function IconPeople(props) {
     <motion.button
       whileHover={framerBtnHover('shake')}
       onClick={props.action}
-      className={`p-3 border-2 border-zinc-100 rounded-xl  ${props.className}`}
+      className={`appIcon  ${props.className}`}
       aria-label="toggle sidebar"
     >
       <BsPeople />
@@ -55,14 +55,15 @@ export function IconPeople(props) {
 
 /**   */
 export function IconHome(props) {
+  const { action, className, ...rest } = props;
   return (
     <motion.button
       whileHover={framerBtnHover}
-      onClick={props.action}
-      className={`p-3 border-2 border-zinc-100 rounded-xl  ${props.className}`}
+      onClick={action}
+      className={`appIcon  ${className ? className : ''}`}
       aria-label="toggle home"
     >
-      <RiHome7Line/>
+      <RiHome7Line />
     </motion.button>
   )
 }
@@ -75,11 +76,11 @@ export function IconLoadSample(props) {
     <motion.button
       whileHover={framerBtnHover}
       onClick={action}
-      className={`p-3 border-2 border-zinc-100 rounded-xl  ${className}`}
+      className={`appIcon  ${className ? className : ''}`}
       aria-label="toggle load data"
       {...rest}
     >
-      <BsDatabaseDown/>
+      <BsDatabaseDown />
     </motion.button>
   )
 }
@@ -92,7 +93,7 @@ export function IconLoadCustomer(props) {
     <motion.button
       whileHover={framerBtnHover}
       onClick={action}
-      className={`p-3 border-2 border-zinc-100 rounded-xl  ${className}`}
+      className={`appIcon  ${className ? className : ''}`}
       aria-label="toggle load customer"
       {...rest}
     >
