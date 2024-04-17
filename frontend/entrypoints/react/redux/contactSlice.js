@@ -10,7 +10,7 @@ export const contactSlice = createSlice({
   reducers: {
     loadImages: (state, action) => {
       state.imageLoadingError = false
-      state.placeholderImages={ ...state.placeholderImages, ...action.payload };
+      state.placeholderImages = { ...state.placeholderImages, ...action.payload };
     },
     imageLoadingErr: (state) => {
       state.imageLoadingError = true
@@ -28,11 +28,10 @@ export const loadPlaceholderImages = () => {
       const images = importAllImages(import.meta.glob('../assets/contacts/**/*.{png,jpg,jpeg,svg}', { eager: true }));
 
       // dispatch an action when we get the response back
-      dispatch(loadImages(images))  
+      dispatch(loadImages(images))
     } catch (err) {
       // If something went wrong, handle it here
       dispatch(imageLoadingErr())
-      console.error('===>err loadPlaceholderImages() ', err)
     }
   }
 }

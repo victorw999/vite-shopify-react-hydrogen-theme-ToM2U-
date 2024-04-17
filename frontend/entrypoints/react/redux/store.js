@@ -1,12 +1,13 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import contactReducer from './contactSlice'
+import customerReducer from './customerSlice'
+
 // Create the Redux store
 const store = configureStore({
-  // reducer: appReducer,
-  // preloadedState: initialState, // Include initial state
-  reducer:{
-    contact: contactReducer
+  reducer: {
+    contact: contactReducer,
+    customers: customerReducer
   }
 });
 

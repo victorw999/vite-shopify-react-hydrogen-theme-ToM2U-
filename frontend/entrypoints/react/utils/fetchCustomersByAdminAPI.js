@@ -47,27 +47,29 @@ const query = `{
 
 `
 
-async function fetchCustomers() {
+async function fetchCustomersByAdminAPI() {
+  try {
+    const headers = new Headers({
+      'X-Shopify-Access-Token': import.meta.env.VITE__SHOPIFY_ADMIN_API,
+      'Content-Type': 'application/json'
+    });
 
-  const headers = new Headers({
-    'X-Shopify-Access-Token': import.meta.env.VITE__SHOPIFY_ADMIN_API,
-    'Content-Type': 'application/json'
-  });
+    const response = await fetch(
+      'https://vzine.myshopify.com/admin/api/2024-04/graphql.json',
+      {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({ query })
+      }
+    )
 
-  const response = await fetch(
-    'https://vzine.myshopify.com/admin/api/2024-04/graphql.json',
-    {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify({ query })
-    }
-  )
+    const data = await response.json()
+    let results = data.data.customers.edges.map(i => i.node)
+    return results
+  } catch (err) {
+    console.error('fetchCustomersByAdminAPI() error fetching customers: ', err)
+  }
 
-  const data = await response.json()
-
-  // console.log('===> data.data.customers', data.data.customers.edges) // Access product data
-
-  return data.data.customers.edges
 }
 
-export default fetchCustomers
+export default fetchCustomersByAdminAPI;

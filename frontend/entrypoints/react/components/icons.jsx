@@ -5,7 +5,7 @@ import { BsPeople } from "react-icons/bs";
  
 import { RiHome7Line } from "react-icons/ri";
 import { BsDatabaseDown } from "react-icons/bs";
-
+import { CgProfile } from "react-icons/cg";
 
 const bsi = 2 // btn shake intensity
 const framerBtnHover = (flag) => {
@@ -84,3 +84,19 @@ export function IconLoadSample(props) {
   )
 }
 
+/**  load shopify customer data */
+export function IconLoadCustomer(props) {
+  const { action, className, ...rest } = props; // Destructure and separate 'action'
+
+  return (
+    <motion.button
+      whileHover={framerBtnHover}
+      onClick={action}
+      className={`p-3 border-2 border-zinc-100 rounded-xl  ${className}`}
+      aria-label="toggle load customer"
+      {...rest}
+    >
+      <CgProfile />
+    </motion.button>
+  )
+}

@@ -14,15 +14,17 @@ import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
 import { useState, useEffect } from 'react'
 import fetchProducts from '../utils/fetchProducts.js'
-import fetchCustomers from '../utils/fetchCustomers'
+ 
 import { loadContacts } from '../utils/contacts/contacts'
 import { getContacts, createContact } from '../utils/contacts/contacts'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { IconGoBack, IconPeople, IconHome, IconLoadSample } from '../components/icons'
+import { IconGoBack, IconPeople, IconHome, IconLoadSample , IconLoadCustomer} from '../components/icons'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { loadPlaceholderImages } from '../redux/contactSlice'
+
+import { fetchCustomers } from '../redux/customerSlice'
 
 export async function loader({ request }) {
   const url = new URL(request.url)
@@ -48,10 +50,10 @@ export default function ReactRoot() {
     }
     getProducts()
 
-    const getCustomers = async () => {
-      const fetchedCustomers = await fetchCustomers()
-    }
-    getCustomers()
+    // const getCustomers = async () => {
+    //   const fetchedCustomers = await fetchCustomers()
+    // }
+    // getCustomers()
   }, [])
 
   // method #2 of retrieving contact's data from local storage
@@ -203,7 +205,9 @@ export default function ReactRoot() {
                     <ul className="contact-list">
                       <li className='contact-app-tool-bar'>
                         <Link to={`/`}>
-                          <IconHome /> <IconLoadSample action={loadContactsFrmSample} />
+                          <IconHome /> 
+                          <IconLoadSample action={loadContactsFrmSample} />
+                          <IconLoadCustomer action={()=>dispatch(fetchCustomers())} />
                         </Link> 
                       </li>
                 
