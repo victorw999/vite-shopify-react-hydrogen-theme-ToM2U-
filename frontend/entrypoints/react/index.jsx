@@ -13,9 +13,9 @@ import ErrorPage from './error-page.jsx'
 import Contact, {
   loader as contactLoader,
   action as contactAction
-} from './routes/contacts/contact.jsx'
-import EditContact, { action as editAction } from './routes/contacts/edit.jsx'
-import { action as destroyAction } from './routes/contacts/destroy.jsx'
+} from './features/contacts/Contact.jsx'
+import EditContact, { action as editAction } from './features/contacts/edit'
+import { action as destroyAction } from './features/contacts/destroy.jsx'
 
 import Index from './routes/index.jsx'
 

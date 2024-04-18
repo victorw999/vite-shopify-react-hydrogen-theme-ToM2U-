@@ -14,17 +14,18 @@ import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
 import { useState, useEffect } from 'react'
 import fetchProducts from '../utils/fetchProducts.js'
- 
-import { loadContacts } from '../utils/contacts/contacts'
-import { getContacts, createContact } from '../utils/contacts/contacts'
+
+import { loadContacts } from '../features/contacts/utils/contacts'
+import { getContacts, createContact } from '../features/contacts/utils/contacts'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { IconGoBack, IconPeople, IconHome, IconLoadSample , IconLoadCustomer} from '../components/icons'
+import { IconGoBack, IconPeople, IconHome, IconLoadSample, IconLoadCustomer } from '../components/icons'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { loadPlaceholderImages } from '../redux/contactSlice'
+import { loadPlaceholderImages } from '../features/contacts/contactSlice'
 
-import { fetchCustomers } from '../redux/customerSlice'
+import { fetchCustomers } from '../features/customers/customerSlice'
+import ContactList from '../features/contacts/ContactList'
 
 export async function loader({ request }) {
   const url = new URL(request.url)
@@ -58,8 +59,8 @@ export default function ReactRoot() {
 
   // method #2 of retrieving contact's data from local storage
   const { contacts, q } = useLoaderData()
-  const [ contactsState, setContactsState ] = useState([])
-  
+  const [contactsState, setContactsState] = useState([])
+
   useEffect(() => {
     setContactsState(contacts)
   }, [contacts])
@@ -78,7 +79,7 @@ export default function ReactRoot() {
     }
   }, [q])
 
- 
+
   async function loadContactsFrmSample() {
     await loadContacts(); // merge sample data w/ current contact frm cache
     let contacts = await getContacts('')  // refresh contact
@@ -130,10 +131,10 @@ export default function ReactRoot() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadPlaceholderImages()); 
+    dispatch(loadPlaceholderImages());
   }, [dispatch]);
 
-  
+
   return (
     <>
       <div id="react-app-icons-container" className="fixed bg-zinc-800 border-r-2 border-2 border-zinc-100 p-3">
@@ -202,15 +203,15 @@ export default function ReactRoot() {
                     </Form>
                   </div>
                   <nav>
-                    <ul className="contact-list">
+                    <div className="app-display-list">
                       <li className='app-tool-bar'>
                         <Link to={`/`}>
-                          <IconHome /> 
+                          <IconHome />
                           <IconLoadSample action={loadContactsFrmSample} />
-                          <IconLoadCustomer action={()=>dispatch(fetchCustomers())} />
-                        </Link> 
+                          <IconLoadCustomer action={() => dispatch(fetchCustomers())} />
+                        </Link>
                       </li>
-                
+
 
                       {/* <li>
                         <a href={`/collections/all`}>All Collection Anchor</a>
@@ -219,37 +220,8 @@ export default function ReactRoot() {
                         <Link to={`/collections/all`}>All Collection Link</Link>
                       </li> */}
 
-                      {contactsState.length ? (
-                        contactsState.map((contact, idx) => (
-                          <motion.li key={contact.id}
-                            {...framerText(idx)}
-                          >
-                            < NavLink
-                              as="NavLink"
+                      <ContactList contactsState={contactsState} framerText={framerText} />
 
-                              to={`contacts/${contact.id}`}
-                              className={({ isActive, isPending }) =>
-                                isActive ? 'active' : isPending ? 'pending' : ''
-                              }
-                            >
-                              {contact.first || contact.last ? (
-                                <>
-                                  {contact.first} {contact.last}
-                                </>
-                              ) : (
-                                <i>No Name</i>
-                              )}{' '}
-                              {contact.favorite && <span>★</span>}
-                            </ NavLink>
-                          </motion.li>
-                        ))
-                      ) : (
-                        <li>
-                          <a href="#" disabled>
-                            <i>No contacts</i>
-                          </a>
-                        </li>
-                      )}
                       {/*  */}
                       <hr />
                       {products ? (
@@ -265,7 +237,7 @@ export default function ReactRoot() {
                           <i>No Products</i>
                         </p>
                       )}
-                    </ul>
+                    </div>
                   </nav>
                 </div>
               </motion.div>

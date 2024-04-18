@@ -116,20 +116,26 @@
     }
 
     /***  ***/
-    ul.contact-list {
+    .app-display-list {
       padding-left: 0rem;
       li {
         list-style-type: none;
-        a,
-        navlink {
-          @apply block px-7 py-4 no-underline border-b-[1px] border-zinc-600 transition-all;
-          &.active {
-            @apply bg-contrast2 text-accent;
-          }
-          &.pending {
-            color: hsl(224, 98%, 58%);
-          }
+      }
+      
+      a,
+      navlink,
+      .list-header {
+        @apply block px-7 py-4 no-underline border-b-[1px] border-zinc-600 transition-all;
+        &.active {
+          @apply bg-contrast2 text-accent;
         }
+        &.pending {
+          color: hsl(224, 98%, 58%);
+        }
+      }
+
+      .list-header {
+        @apply font-bold text-xl;
       }
     }
 

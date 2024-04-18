@@ -12,5 +12,8 @@
     "editor.formatOnSave": true
   },
   "prettier.documentSelectors": ["**/*.liquid"],
-  "workbench.colorTheme": "Kimbie Dark"
+  "workbench.colorTheme": "Kimbie Dark",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }

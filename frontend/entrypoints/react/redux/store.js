@@ -1,7 +1,7 @@
 
 import { configureStore } from '@reduxjs/toolkit';
-import contactReducer from './contactSlice'
-import customerReducer from './customerSlice'
+import contactReducer from '../features/contacts/contactSlice'
+import customerReducer from '../features/customers/customerSlice'
 
 // Create the Redux store
 const store = configureStore({
