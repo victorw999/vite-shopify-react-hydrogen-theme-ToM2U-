@@ -1,4 +1,6 @@
 # vic note
+- node version
+    - `nvm use 18.12.1`
 - vite server
     - `pnpm vite:dev `
 - shopify theme CLI 
