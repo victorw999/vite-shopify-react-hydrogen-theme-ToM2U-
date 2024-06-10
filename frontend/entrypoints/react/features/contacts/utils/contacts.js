@@ -1,8 +1,8 @@
 import localforage from 'localforage'
 import { matchSorter } from 'match-sorter'
 import sortBy from 'sort-by'
-import sample_contacts from './sample_contacts.json'; 
- 
+import sample_contacts from './sample_contacts.json';
+
 export async function getContacts(query) {
   await fakeNetwork(`getContacts:${query}`)
   let contacts = await localforage.getItem('contacts')
@@ -19,7 +19,6 @@ export async function createContact() {
   let contact = { id, createdAt: Date.now() }
   let contacts = await getContacts()
   contacts.unshift(contact)
-  console.log('====> contacts 1:', contacts)
   await set(contacts)
   return contact
 }
@@ -55,30 +54,42 @@ export async function deleteContact(id) {
 // load dummy contacts data
 export async function loadContacts() {
 
-  // sample_contacts.json
-  console.log("loadContacts() sample_contacts:", sample_contacts)
-
-  // contacts in storage
-  let storage_contacts = await localforage.getItem('contacts')
-  console.log("storage_contacts:", storage_contacts)
 
   try {
-    sample_contacts.forEach( item => {
-       
-      let id_found_in_storage = storage_contacts.some(i=>i.id===item.id)
-      if (!id_found_in_storage) {
-        storage_contacts.unshift(item) 
-      }
-    })
-    await set(storage_contacts) 
+
+    // sample_contacts.json
+    if (!sample_contacts) {
+      throw new Error("sample_contacts.json error")
+    }
+
+    // console.log("loadContacts() sample_contacts:", sample_contacts)
+
+    // contacts in storage
+    let storage_contacts = await localforage.getItem('contacts')
+    console.log("storage_contacts:", storage_contacts)
+
+
+    if (storage_contacts && storage_contacts.length > 0) {
+      sample_contacts.forEach(item => {
+        let id_found_in_storage = storage_contacts.some(i => i.id === item.id)
+        if (!id_found_in_storage) {
+          storage_contacts.unshift(item)
+        }
+      })
+    } else {
+      storage_contacts = [...sample_contacts]
+    }
+
+    await set(storage_contacts)
+
+    // return with the updated contacts array
+    return storage_contacts
 
   } catch (error) {
     console.error("Error fetching sample_contacts.JSON:", error);
   }
 
-  // return with the updated contacts array
-  return storage_contacts 
-} 
+}
 
 function set(contacts) {
   return localforage.setItem('contacts', contacts)
