@@ -12,7 +12,7 @@ import {
 
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
-import { useState, useEffect } from 'react' 
+import { useState, useEffect } from 'react'
 
 import { loadContacts } from '../features/contacts/utils/contacts'
 import { getContacts, createContact } from '../features/contacts/utils/contacts'
@@ -26,14 +26,24 @@ import { loadPlaceholderImages } from '../features/contacts/contactSlice'
 
 import { fetchCustomers } from '../features/customers/customerSlice'
 import TabSwitch from '../features/sidebar/TabSwitch'
+import productsLoader from '../loaders/productsLoader'
 
 // ReactRoot.jsx
-export async function loader({ request }) {
-  console.log('===> loader for root')
-  const url = new URL(request.url)
-  const q = url.searchParams.get('q')
-  const contacts = await getContacts(q)
-  return { contacts, q }
+export async function loader({ request, params }) {
+  try {
+    console.log('===> loader for root, request:', request, ' params:', params)
+
+    // load contacts data
+    const url = new URL(request.url)
+    const q = url.searchParams.get('q')
+    const contacts = await getContacts(q)
+
+    // load product data (w/ GraphQL)
+    const products = await productsLoader()
+    return { contacts, q, products }
+  } catch (error) {
+    throw new Error('ReactRoot.jsx loader() issue: ', error);
+  }
 }
 
 export async function action() {
@@ -44,7 +54,8 @@ export async function action() {
 export default function ReactRoot() {
 
   // retrieving contact's data from local storage
-  const { contacts, q } = useLoaderData()
+  // retrieve products from loader
+  const { contacts, q, products } = useLoaderData()
 
   // "contactsState" is necessary becuz 
   // Besides loading data from local storage, we also manually load data from samples. 
@@ -191,7 +202,8 @@ export default function ReactRoot() {
 
                       <TabSwitch initialActiveTab='contacts'
                         contactsState={contactsState}
-                        customersState 
+                        customersState
+                        productsState={products}
                       />
 
 

@@ -1708,6 +1708,10 @@ select {
   width: 100vw;
 }
 
+.w-\[300px\] {
+  width: 300px;
+}
+
 .min-w-\[300px\] {
   min-width: 300px;
 }
@@ -2162,6 +2166,11 @@ select {
   background-color: rgba(var(--color-contrast) / 0.8);
 }
 
+.bg-contrast2 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(225 6% 12% / var(--tw-bg-opacity));
+}
+
 .bg-destructive {
   background-color: hsl(var(--destructive));
 }
@@ -2196,26 +2205,6 @@ select {
 .bg-zinc-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
-}
-
-.bg-slate-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
-}
-
-.bg-slate-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
-}
-
-.bg-slate-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
-}
-
-.bg-contrast2 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(225 6% 12% / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-t {
@@ -2785,7 +2774,12 @@ select {
     }
     /***  ***/
     .app-display-list {
-      padding-left: 0rem;
+      padding-left: 0px;
+    }
+    .app-display-list {
+      padding-bottom: 20rem;
+    }
+    .app-display-list {
       li {
         list-style-type: none;
       }
@@ -2875,6 +2869,14 @@ select {
     }
   }
   /* #sidebar form*/
+  /* TabSwitch */
+  .tab-controls{
+    button{
+      border: 2px solid white;
+      padding: 10px;
+      margin: 10px;
+    }
+  }
   /*hidden*/
   #search-spinner {
     position: absolute;
@@ -3195,12 +3197,24 @@ select {
     aspect-ratio: 1 / 1;
   }
 
+  .sm\:w-\[300px\] {
+    width: 300px;
+  }
+
+  .sm\:min-w-\[300px\] {
+    min-width: 300px;
+  }
+
   .sm\:max-w-sm {
     max-width: 24rem;
   }
 
   .sm\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
   }
 
   .sm\:gap-6 {
@@ -3313,6 +3327,22 @@ select {
     width: 100%;
   }
 
+  .md\:w-\[30rem\] {
+    width: 30rem;
+  }
+
+  .md\:w-\[300px\] {
+    width: 300px;
+  }
+
+  .md\:min-w-\[30rem\] {
+    min-width: 30rem;
+  }
+
+  .md\:min-w-\[300px\] {
+    min-width: 300px;
+  }
+
   .md\:max-w-\[335px\] {
     max-width: 335px;
   }
@@ -3349,6 +3379,10 @@ select {
 
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
   }
 
   .md\:items-start {
@@ -3595,6 +3629,12 @@ select {
 @media (min-width: 80em) {
   .xl\:aspect-\[2\/1\] {
     aspect-ratio: 2/1;
+  }
+}
+
+@media (min-width: 28em) {
+  .xs\:flex-row {
+    flex-direction: row;
   }
 }
 

@@ -9,6 +9,8 @@ import ReactRoot, {
   action as rootAction
 } from './routes/ReactRoot.jsx'
 
+import ProductList from './features/products/ProductList.jsx'
+
 import ErrorPage from './error-page.jsx'
 import Contact, {
   loader as contactLoader,
@@ -37,6 +39,10 @@ const router = createHashRouter([
         children: [
           { index: true, element: <Index /> },
           {
+            path: `contacts`,
+            element: <Index />, 
+          },
+          {
             path: `contacts/:contactId`,
             element: <Contact />,
             loader: contactLoader,
@@ -52,15 +58,19 @@ const router = createHashRouter([
             path: 'contacts/:contactId/destroy',
             action: destroyAction,
             errorElement: <div>Oops! There was an error.</div>
-          }
+          },
+          {
+            path: 'products', 
+            element: <ProductList />, // Component to display your products
+            // loader: productsLoader // Load products_data here
+          }, 
       
         ]
       }
     ]
   }
 ])
-
-
+  
 const App = () => {
   // const [appContextData, dispatch] = useReducer(appReducer, initialState);
   return (

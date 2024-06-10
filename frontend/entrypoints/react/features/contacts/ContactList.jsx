@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom'
 
 const ns = 'contactlist'
 
-function ContactList({ contactsState, framerText }) {
+function ContactList({ list, framerText }) {
   return (
     <div className={`${ns}`}>
       <li><h3 className='list-header bg-contrast2'>Contacts</h3></li>
-      {contactsState.length ? (
-        contactsState.map((contact, idx) => (
+      {list.length ? (
+        list.map((contact, idx) => (
           <motion.li key={contact.id}
             {...framerText(idx)}
           >

@@ -1,5 +1,5 @@
 import { createSlice, createSelector, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit'
-import fetchCustomersByAdminAPI from '../../utils/fetchCustomersByAdminAPI'
+import fetchCustomersByAdminAPI from './fetchCustomersByAdminAPI'
 
 const customerAdapter = createEntityAdapter()
 
