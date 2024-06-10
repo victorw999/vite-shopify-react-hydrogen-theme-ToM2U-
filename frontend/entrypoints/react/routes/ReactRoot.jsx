@@ -12,12 +12,12 @@ import {
 
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
-import { useState, useEffect } from 'react'
-import fetchProducts from '../utils/fetchProducts.js'
+import { useState, useEffect } from 'react' 
 
 import { loadContacts } from '../features/contacts/utils/contacts'
 import { getContacts, createContact } from '../features/contacts/utils/contacts'
 import { motion, AnimatePresence } from 'framer-motion'
+import { framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
 
 import { IconGoBack, IconPeople, IconHome, IconLoadSample, IconLoadCustomer } from '../components/icons'
 
@@ -25,9 +25,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadPlaceholderImages } from '../features/contacts/contactSlice'
 
 import { fetchCustomers } from '../features/customers/customerSlice'
-import ContactList from '../features/contacts/ContactList'
+import TabSwitch from '../features/sidebar/TabSwitch'
 
+// ReactRoot.jsx
 export async function loader({ request }) {
+  console.log('===> loader for root')
   const url = new URL(request.url)
   const q = url.searchParams.get('q')
   const contacts = await getContacts(q)
@@ -41,24 +43,11 @@ export async function action() {
 
 export default function ReactRoot() {
 
-  // method 1 of retrieving data
-  const [products, setProducts] = useState([])
-
-  useEffect(() => {
-    const getProducts = async () => {
-      const fetchedProducts = await fetchProducts()
-      setProducts(fetchedProducts)
-    }
-    getProducts()
-
-    // const getCustomers = async () => {
-    //   const fetchedCustomers = await fetchCustomers()
-    // }
-    // getCustomers()
-  }, [])
-
-  // method #2 of retrieving contact's data from local storage
+  // retrieving contact's data from local storage
   const { contacts, q } = useLoaderData()
+
+  // "contactsState" is necessary becuz 
+  // Besides loading data from local storage, we also manually load data from samples. 
   const [contactsState, setContactsState] = useState([])
 
   useEffect(() => {
@@ -100,39 +89,22 @@ export default function ReactRoot() {
   */
 
 
-  /* Frame motion animations */
+  /**
+   ** animations 
+   */
   const [isAppOpen, setAppOpen] = useState(false)
-  const framerSidebarBackground = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0, transition: { delay: 0.2 } },
-    transition: { duration: 0.3 },
-  }
-  const framerSidebarPanel = {
-    initial: { x: '-100%' },
-    animate: { x: 0 },
-    exit: { x: '-100%' },
-    transition: { duration: 0.3 },
-  }
-  const framerText = delay => {
-    return {
-      initial: { opacity: 0, x: -50 },
-      animate: { opacity: 1, x: 0 },
-      transition: {
-        delay: 0.5 + delay / 10,
-      },
-    }
-  }
-
   const toggleSidebar = () => setAppOpen(prev => !prev)
 
 
-  // use redux to load placeholder imgs into redux store
+  /**
+   * * load placeholder img
+   *   use redux to load placeholder imgs into redux store   
+   */
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(loadPlaceholderImages());
   }, [dispatch]);
+
 
 
   return (
@@ -151,7 +123,11 @@ export default function ReactRoot() {
               <motion.div
                 {...framerSidebarPanel}
                 id="sidebar"
-                className="container z-10 flex h-screen w-[30rem] min-w-[30rem] flex-col overflow-y-auto py-5 px-0"
+                className="container z-10 flex h-screen 
+                
+                w-[300px] min-w-[300px] 
+                md:w-[30rem] md:min-w-[30rem]
+                flex-col overflow-y-auto py-5 px-0"
               >
                 <div className="sidebar_innerContainer py-5">
 
@@ -191,7 +167,7 @@ export default function ReactRoot() {
                       />
                       <div className="sr-only" aria-live="polite"></div>
                     </Form>
-                    <Form method="post" className=" my-5 ml-3">
+                    <Form method="post" className="my-5 ml-3">
                       <Button
                         type="submit"
                         variant="default"
@@ -213,18 +189,26 @@ export default function ReactRoot() {
                       </li>
 
 
+                      <TabSwitch initialActiveTab='contacts'
+                        contactsState={contactsState}
+                        customersState 
+                      />
+
+
                       {/* <li>
                         <a href={`/collections/all`}>All Collection Anchor</a>
                       </li>
                       <li>
                         <Link to={`/collections/all`}>All Collection Link</Link>
-                      </li> */}
+                      </li> 
 
                       <ContactList contactsState={contactsState} framerText={framerText} />
+                      */}
 
                       {/*  */}
                       <hr />
-                      {products ? (
+
+                      {/* {products ? (
                         products.map((product) => (
                           <li key={product.node.id} data-prod-id={product.node.id}>
                             <Link to={`/products/${product.node.handle}`}>
@@ -237,6 +221,7 @@ export default function ReactRoot() {
                           <i>No Products</i>
                         </p>
                       )}
+                       */}
                     </div>
                   </nav>
                 </div>

@@ -5,6 +5,7 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 import { stringHasNoSlashes, isImageFile, removeFileExtension } from '../../Global'
 import { useDispatch, useSelector } from 'react-redux';
 import { CgProfile } from "react-icons/cg";
+
 export async function loader({ params }) {
   const contact = await getContact(params.contactId)
   if (!contact) {
@@ -50,16 +51,16 @@ export default function Contact() {
 
       console.log('====>  getImgUrls() avatarURL', avatarURL)
       let str = avatarURL
-      if (!str)
-        return ""
+       
       if (!str || str.trim() === "") {
-        return `https://xsgames.co/randomusers/avatar.php?g=male`
+        console.log('===> render a default profile img')
+        return placeholderImages['ppl-1'] 
       }
       // if it's not a URL and it's an image file, retrieve the default images provided in react/assests folder
       if (stringHasNoSlashes(str) && isImageFile(str)) {
         let imgFileName = str
         imgFileName = removeFileExtension(imgFileName)
-        console.log('====>   ', " ", contact.first, " imgFileName == ", imgFileName)
+        // console.log('====>   ', " ", contact.first, " imgFileName == ", imgFileName)
 
         return placeholderImages[imgFileName]
       } else {
@@ -81,9 +82,13 @@ export default function Contact() {
 
     <div
       id="contact"
-      className="my-10 flex border-[0.5px] border-solid border-border"
+      className="my-10 flex flex-col md:flex-row border-[0.5px] border-solid border-border"
     >
-      <div className="contact-img-wrapper  flex min-w-[300px] max-w-[300px] flex-shrink  flex-grow-0 justify-center bg-lightgray p-8 align-middle">
+      <div className="contact-img-wrapper   flex 
+      w-full
+      md:w-[300px] md:min-w-[300px]
+      
+      flex-shrink  flex-grow-0 justify-center bg-lightgray p-8 align-middle">
 
         {(avatarURL && avatarURL.trim() !== '') ?
           (<img

@@ -61,7 +61,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',   
+      padding: '2rem',
       screens: {
         '2xl': '1400px'
       }
@@ -130,6 +130,7 @@ module.exports = {
         }
       },
       screens: {
+        xs: '28em',
         sm: '32em',
         md: '48em',
         lg: '64em',
@@ -255,17 +256,17 @@ module.exports = {
         'spin-slow': 'spin2 3s linear infinite',
         'spin-me': 'spinme 1s linear infinite'
       },
-      sidebarMargin: { 
-        'default': '1.75rem',  
-        'sm': '1.25rem',       
+      sidebarMargin: {
+        'default': '1.75rem',
+        'sm': '1.25rem',
         'md': '1.75rem',
-        'lg': '1.95rem', 
+        'lg': '1.95rem',
       },
-      btnHeight: { 
-        'default': '3.3rem',  
-        'sm': '3.25rem',       
+      btnHeight: {
+        'default': '3.3rem',
+        'sm': '3.25rem',
         'md': '3.5rem',
-        'lg': '3.75rem', 
+        'lg': '3.75rem',
       }
     }
   },
