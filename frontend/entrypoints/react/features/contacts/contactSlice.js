@@ -21,11 +21,13 @@ export const contactSlice = createSlice({
 
 // the outside "thunk creator" function
 export const loadPlaceholderImages = () => {
+
   // the inside "thunk function"
   return async (dispatch, getState) => {
     try {
+
       // make an async call in the thunk
-      const images = importAllImages(import.meta.glob('../assets/contacts/**/*.{png,jpg,jpeg,svg}', { eager: true }));
+      const images = importAllImages(import.meta.glob('../../assets/contacts/**/*.{png,jpg,jpeg,svg}', { eager: true }));
 
       // dispatch an action when we get the response back
       dispatch(loadImages(images))

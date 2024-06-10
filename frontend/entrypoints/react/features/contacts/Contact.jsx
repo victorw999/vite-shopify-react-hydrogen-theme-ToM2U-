@@ -49,19 +49,17 @@ export default function Contact() {
   const getImgUrls = useCallback(() => {
     try {
 
-      console.log('====>  getImgUrls() avatarURL', avatarURL)
+      // console.log('====>  getImgUrls() avatarURL', avatarURL)
       let str = avatarURL
        
-      if (!str || str.trim() === "") {
-        console.log('===> render a default profile img')
-        return placeholderImages['ppl-1'] 
+      if (!str || str.trim() === "") { 
+        return placeholderImages['ppl-1']  // set default profile img
       }
       // if it's not a URL and it's an image file, retrieve the default images provided in react/assests folder
       if (stringHasNoSlashes(str) && isImageFile(str)) {
         let imgFileName = str
         imgFileName = removeFileExtension(imgFileName)
         // console.log('====>   ', " ", contact.first, " imgFileName == ", imgFileName)
-
         return placeholderImages[imgFileName]
       } else {
         return avatarURL
