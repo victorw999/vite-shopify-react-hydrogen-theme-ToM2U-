@@ -28,7 +28,7 @@ const query = `{
   }
 }
 `
-async function fetchProducts() {
+async function productsLoader() {
   const response = await fetch(
     'https://vzine.myshopify.com/api/2024-07/graphql.json',
     {
@@ -44,9 +44,9 @@ async function fetchProducts() {
 
   const data = await response.json()
 
-  // console.log('===> products', data.data.products.edges) // Access product data
+  // console.log('===> productLoader()', data.data.products.edges) // Access product data
 
   return data.data.products.edges
 }
 
-export default fetchProducts
+export default productsLoader

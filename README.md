@@ -9,7 +9,11 @@
     - `pnpm watch-tailwind`
 - Rebuild the assets/ folder, and the minified files (eg:xx.min.js) in it.
     - `pnpm build`
-    
+- push built assets files to shopify
+    - `shopify theme push -s [shopname] -t [theme_id]`
+- refresh the contacts cache in local cache
+    - chrome inspector > Application > IndexedDB > localforage > keyvaluepairs
+
 # Hydrogen Theme
 
 [![Build status](https://github.com/montalvomiguelo/hydrogen-theme/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/montalvomiguelo/hydrogen-theme/actions/workflows/ci.yml?query=branch%3Amain)
