@@ -7,6 +7,8 @@
     - `shopify theme dev -s [shopname] -t [theme_id] --live-reload=full-page`
 - tailwind
     - `pnpm watch-tailwind`
+- Rebuild the assets/ folder, and the minified files (eg:xx.min.js) in it.
+    - `pnpm build`
     
 # Hydrogen Theme
 
