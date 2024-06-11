@@ -46,7 +46,10 @@ async function productsLoader() {
 
   // console.log('===> productLoader()', data.data.products.edges) // Access product data
 
-  return data.data.products.edges
+  // massage "products" data for easy usage
+  const products = data.data.products.edges.map(i => i.node)
+
+  return products
 }
 
 export default productsLoader

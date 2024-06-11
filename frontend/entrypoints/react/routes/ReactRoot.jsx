@@ -22,7 +22,8 @@ import { framerSidebarBackground, framerSidebarPanel, framerText } from '../util
 import { IconGoBack, IconPeople, IconHome, IconLoadSample, IconLoadCustomer } from '../components/icons'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { loadPlaceholderImages } from '../features/contacts/contactSlice'
+import { fetchContactsPlaceholderImgs } from '../features/contacts/contactSlice'
+import { fetchProducts } from '../features/products/productSlice'
 
 import { fetchCustomers } from '../features/customers/customerSlice'
 import TabSwitch from '../features/sidebar/TabSwitch'
@@ -37,10 +38,8 @@ export async function loader({ request, params }) {
     const url = new URL(request.url)
     const q = url.searchParams.get('q')
     const contacts = await getContacts(q)
-
-    // load product data (w/ GraphQL)
-    const products = await productsLoader()
-    return { contacts, q, products }
+ 
+    return { contacts, q }
   } catch (error) {
     throw new Error('ReactRoot.jsx loader() issue: ', error);
   }
@@ -55,7 +54,7 @@ export default function ReactRoot() {
 
   // retrieving contact's data from local storage
   // retrieve products from loader
-  const { contacts, q, products } = useLoaderData()
+  const { contacts, q } = useLoaderData()
 
   // "contactsState" is necessary becuz 
   // Besides loading data from local storage, we also manually load data from samples. 
@@ -108,12 +107,14 @@ export default function ReactRoot() {
 
 
   /**
-   * * load placeholder img
-   *   use redux to load placeholder imgs into redux store   
+   * * load data to redux store
+   *    - load placeholder imgs into store
+   *    - load products into redux store   
    */
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadPlaceholderImages());
+    dispatch(fetchContactsPlaceholderImgs());
+    dispatch(fetchProducts())
   }, [dispatch]);
 
 
@@ -203,7 +204,7 @@ export default function ReactRoot() {
                       <TabSwitch initialActiveTab='contacts'
                         contactsState={contactsState}
                         customersState
-                        productsState={products}
+                         
                       />
 
 

@@ -4,7 +4,7 @@ import ContactList from '../contacts/ContactList';
 import ProductList from '../products/ProductList';
 import { useNavigate, redirect, NavLink } from 'react-router-dom';
 
-const TabSwitch = ({ initialActiveTab = 'contacts', contactsState, customersState, productsState }) => {
+const TabSwitch = ({ initialActiveTab = 'contacts', contactsState, customersState }) => {
 
   const [activeTab, setActiveTab] = useState(initialActiveTab);
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ const TabSwitch = ({ initialActiveTab = 'contacts', contactsState, customersStat
           )}
           {activeTab === 'products' && (
             <div className="panel">
-              <ProductList list={productsState} framerText={framerText} />
+              <ProductList framerText={framerText} />
             </div>
           )}
         </div>

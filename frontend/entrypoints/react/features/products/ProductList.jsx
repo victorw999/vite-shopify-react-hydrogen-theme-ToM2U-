@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react'
+import {  useSelector } from 'react-redux';
+
 import { motion } from 'framer-motion'
 import { NavLink, useLoaderData } from 'react-router-dom'
  
 // import { framerText } from '../../utils/framerAnimationOptions'
 const ns = 'productlist'
  
-function ProductList({ list, framerText }) {
+function ProductList({ framerText }) {
+
+  const { products, loadingError } = useSelector((state) => state.products);
 
   return (
     <div className={`${ns}`}>
       <li><h3 className='list-header bg-contrast2'>Products</h3></li>
 
-      {list && list.length ? (
-        list.map((product, idx) => {
-          product = product.node
+      {products && products.length ? (
+        products.map((product, idx) => {
+
           return (
             <li key={idx}>{product.title}</li>
             // <motion.li key={product.id}

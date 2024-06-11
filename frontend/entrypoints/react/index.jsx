@@ -10,6 +10,7 @@ import ReactRoot, {
 } from './routes/ReactRoot.jsx'
 
 import ProductList from './features/products/ProductList.jsx'
+import ProductDetail from './features/products/ProductDetail.jsx'
 
 import ErrorPage from './error-page.jsx'
 import Contact, {
@@ -61,8 +62,11 @@ const router = createHashRouter([
           },
           {
             path: 'products', 
-            element: <ProductList />, // Component to display your products
-            // loader: productsLoader // Load products_data here
+            element: <ProductList />, // products list on sidebar  
+          },
+          {
+            path: `products/:handle`,
+            element: <ProductDetail />, 
           }, 
       
         ]

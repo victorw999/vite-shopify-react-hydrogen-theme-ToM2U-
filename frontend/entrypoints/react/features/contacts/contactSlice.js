@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { importAllImages } from '../../Global';
 
 export const contactSlice = createSlice({
-  name: 'contact',
+  name: 'contacts',
   initialState: {
     placeholderImages: {},
     imageLoadingError: null
@@ -19,8 +19,15 @@ export const contactSlice = createSlice({
 })
 
 
+/**
+ * this "thunk creator" only load placeholder images for contacts
+ *    we haven't add "contacts" into store
+ *    currently "contacts" is still stored at local storage, and loaded via loader()
+ * 
+ *  */
+
 // the outside "thunk creator" function
-export const loadPlaceholderImages = () => {
+export const fetchContactsPlaceholderImgs = () => {
 
   // the inside "thunk function"
   return async (dispatch, getState) => {

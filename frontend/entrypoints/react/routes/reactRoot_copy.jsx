@@ -22,7 +22,7 @@ import { framerSidebarBackground, framerSidebarPanel, framerText } from '../util
 import { IconGoBack, IconPeople, IconHome, IconLoadSample, IconLoadCustomer } from '../components/icons'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { loadPlaceholderImages } from '../features/contacts/contactSlice'
+import { fetchContactsPlaceholderImgs } from '../features/contacts/contactSlice'
 
 import { fetchCustomers } from '../features/customers/customerSlice'
 import ContactList from '../features/contacts/ContactList'
@@ -101,7 +101,7 @@ export default function ReactRoot() {
    */
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(loadPlaceholderImages());
+    dispatch(fetchContactsPlaceholderImgs());
   }, [dispatch]);
 
 
