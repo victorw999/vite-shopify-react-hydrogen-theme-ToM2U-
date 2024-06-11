@@ -19,7 +19,7 @@ import { getContacts, createContact } from '../features/contacts/utils/contacts'
 import { motion, AnimatePresence } from 'framer-motion'
 import { framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
 
-import { IconGoBack, IconPeople, IconHome, IconLoadSample, IconLoadCustomer } from '../components/icons'
+import { IconGoBack, IconPeople, IconHome, IconLoadCustomer } from '../components/icons'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactsPlaceholderImgs } from '../features/contacts/contactSlice'
@@ -37,8 +37,11 @@ export async function loader({ request, params }) {
     // load contacts data
     const url = new URL(request.url)
     const q = url.searchParams.get('q')
-    const contacts = await getContacts(q)
+    
  
+    await loadContacts(); // merge sample data w/ current contact frm cache
+    const contacts = await getContacts(q)
+    
     return { contacts, q }
   } catch (error) {
     throw new Error('ReactRoot.jsx loader() issue: ', error);
@@ -77,13 +80,6 @@ export default function ReactRoot() {
       searchbar.value = q
     }
   }, [q])
-
-
-  async function loadContactsFrmSample() {
-    await loadContacts(); // merge sample data w/ current contact frm cache
-    let contacts = await getContacts('')  // refresh contact
-    setContactsState(contacts)
-  }
 
 
   /* another method to trigger a rout action (in this case: loader())
@@ -194,8 +190,7 @@ export default function ReactRoot() {
                     <div className="app-display-list">
                       <li className='app-tool-bar'>
                         <Link to={`/`}>
-                          <IconHome />
-                          <IconLoadSample action={loadContactsFrmSample} />
+                          <IconHome /> 
                           <IconLoadCustomer action={() => dispatch(fetchCustomers())} />
                         </Link>
                       </li>

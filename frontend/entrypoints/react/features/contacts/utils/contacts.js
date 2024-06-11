@@ -54,20 +54,15 @@ export async function deleteContact(id) {
 // load dummy contacts data
 export async function loadContacts() {
 
-
   try {
-
     // sample_contacts.json
     if (!sample_contacts) {
       throw new Error("sample_contacts.json error")
     }
 
-    // console.log("loadContacts() sample_contacts:", sample_contacts)
-
     // contacts in storage
     let storage_contacts = await localforage.getItem('contacts')
-    console.log("storage_contacts:", storage_contacts)
-
+    // console.log("storage_contacts:", storage_contacts)
 
     if (storage_contacts && storage_contacts.length > 0) {
       sample_contacts.forEach(item => {

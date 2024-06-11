@@ -28,7 +28,7 @@ export default function Contact() {
   const { contact } = useLoaderData()
   const [avatarURL, setAvatarRUL] = useState()
 
-  const { placeholderImages, imageLoadingError } = useSelector((state) => state.contact);
+  const { placeholderImages, imageLoadingError } = useSelector((state) => state.contacts);
 
   useEffect(() => {
     if (!contact || !contact.avatar) {
