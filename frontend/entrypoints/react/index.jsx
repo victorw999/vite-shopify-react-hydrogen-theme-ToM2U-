@@ -22,7 +22,7 @@ import { action as destroyAction } from './features/contacts/destroy.jsx'
 
 import Index from './routes/index.jsx'
 
-import { AppContext, AppDispatchContext } from './redux/AppContext.js' 
+import { AppContext, AppDispatchContext } from './redux/AppContext.js'
 
 import { Provider } from 'react-redux';
 import store from './redux/store.js'
@@ -38,10 +38,13 @@ const router = createHashRouter([
       {
         errorElement: <ErrorPage />,
         children: [
-          { index: true, element: <Index /> },
+          {
+            index: true,
+            element: <Index />
+          },
           {
             path: `contacts`,
-            element: <Index />, 
+            element: <Index />,
           },
           {
             path: `contacts/:contactId`,
@@ -61,29 +64,29 @@ const router = createHashRouter([
             errorElement: <div>Oops! There was an error.</div>
           },
           {
-            path: 'products', 
-            element: <ProductList />, // products list on sidebar  
+            path: 'products',
+            element: <ProductDetail />,
           },
           {
             path: `products/:handle`,
-            element: <ProductDetail />, 
-          }, 
-      
+            element: <ProductDetail />
+          },
+
         ]
       }
     ]
   }
 ])
-  
+
 const App = () => {
   // const [appContextData, dispatch] = useReducer(appReducer, initialState);
   return (
     <React.StrictMode>
       <Provider store={store}>
         {/* <AppContext.Provider value={appContextData}> */}
-          {/* <AppDispatchContext value={dispatch}> */}
-            <RouterProvider router={router} />
-          {/* </AppDispatchContext> */}
+        {/* <AppDispatchContext value={dispatch}> */}
+        <RouterProvider router={router} />
+        {/* </AppDispatchContext> */}
         {/* </AppContext.Provider> */}
       </Provider>
     </React.StrictMode>

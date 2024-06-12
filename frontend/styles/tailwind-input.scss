@@ -118,11 +118,11 @@
     /***  ***/
     .app-display-list {
       @apply pl-0 pb-80;
-       
+
       li {
         list-style-type: none;
       }
-      
+
       a,
       navlink,
       .list-header {
@@ -165,8 +165,8 @@
   } /* #sidebar form*/
 
   /* TabSwitch */
-  .tab-controls{
-    button{
+  .tab-controls {
+    button {
       border: 2px solid white;
       padding: 10px;
       margin: 10px;
@@ -182,7 +182,7 @@
     }
   }
 
-  #detail {
+  #outlet_container {
     flex: 1;
     padding: 2rem 4rem;
     width: 100%;
@@ -198,9 +198,6 @@
   }
 
   #contact-form {
-    .contact-img-wrapper {
-      @apply bg-lightgray;
-    }
     .form-row,
     .form-row-wrapper {
       @apply flex flex-row my-2;
@@ -212,4 +209,19 @@
       @apply flex min-w-[168px] align-middle;
     }
   } /* #contact-form */
+
+  .detail_section {
+    @apply my-10 flex flex-col md:flex-row md:items-start;
+  }
+  .detail_img_wrapper {
+    @apply flex w-full p-0
+           md:w-[300px] md:min-w-[300px] md:py-8  
+           flex-shrink  flex-grow-0 justify-center  align-middle;
+  }
+  .detail_img_main{
+    @apply h-full w-full object-contain object-top border-solid border-gray-100 border-[15px]
+  }
+  .detail_info_wrapper{
+    @apply flex-shrink flex-grow basis-auto p-8;
+  }
 } /* #shopify-react-root */

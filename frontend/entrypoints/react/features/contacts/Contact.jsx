@@ -48,8 +48,6 @@ export default function Contact() {
   */
   const getImgUrls = useCallback(() => {
     try {
-
-      // console.log('====>  getImgUrls() avatarURL', avatarURL)
       let str = avatarURL
        
       if (!str || str.trim() === "") { 
@@ -59,7 +57,6 @@ export default function Contact() {
       if (stringHasNoSlashes(str) && isImageFile(str)) {
         let imgFileName = str
         imgFileName = removeFileExtension(imgFileName)
-        // console.log('====>   ', " ", contact.first, " imgFileName == ", imgFileName)
         return placeholderImages[imgFileName]
       } else {
         return avatarURL
@@ -78,19 +75,12 @@ export default function Contact() {
 
   return (
 
-    <div
-      id="contact"
-      className="my-10 flex flex-col md:flex-row border-[0.5px] border-solid border-border"
-    >
-      <div className="contact-img-wrapper   flex 
-      w-full
-      md:w-[300px] md:min-w-[300px]
-      
-      flex-shrink  flex-grow-0 justify-center bg-lightgray p-8 align-middle">
+    <div id="contact" className="detail_section">
+      <div className="detail_img_wrapper">
 
         {(avatarURL && avatarURL.trim() !== '') ?
           (<img
-            className="h-full w-full border bg-lightgray  object-cover w"
+            className="detail_img_main"
             key={avatarURL}
             // src={contact.avatar || null} 
             // src={avatarImgUrl}
@@ -99,7 +89,7 @@ export default function Contact() {
         }
       </div>
 
-      <div className="contact-info-wrapper flex-shrink flex-grow  basis-auto p-8">
+      <div className="detail_info_wrapper">
         <h1>
           {contact.first || contact.last ? (
             <>
