@@ -1,21 +1,21 @@
-const query = `{
-  products(first: 10) {  
+// shopify Storefront API
+
+const query = ` {
+  products(first: 10) {
     edges {
       node {
         id
         title
         handle
         description
-        images(first: 1) {
-          edges {
-            node {
-              originalSrc
-            }
-          }
-        }
         variants(first: 5) {
           edges {
-            node {
+            node {              
+              id
+              selectedOptions {
+                name
+                value
+              }
               priceV2 {
                 amount
                 currencyCode
@@ -23,11 +23,14 @@ const query = `{
             }
           }
         }
+        featuredImage {
+          originalSrc
+          src
+        }
       }
     }
   }
-}
-`
+}`
 async function productsLoader() {
   const response = await fetch(
     'https://vzine.myshopify.com/api/2024-07/graphql.json',

@@ -19,25 +19,25 @@ function ProductList({ framerText }) {
         products.map((product, idx) => {
 
           return (
-            <li key={idx}>{product.title}</li>
-            // <motion.li key={product.id}
-            //   data-prod-id={product.id}
-            //   {...framerText(idx)}
-            // >
-            //   <NavLink
-            //     as="NavLink"
-            //     to={`products/${product.handle}`}
-            //     className={({ isActive, isPending }) =>
-            //       isActive ? 'active' : isPending ? 'pending' : ''
-            //     }
-            //   >
-            //     {product.title ? (
-            //       <>
-            //         {product.title}
-            //       </>
-            //     ) : ''}
-            //   </NavLink>
-            // </motion.li>
+            // <li key={idx}>{product.title}</li>
+            <motion.li key={product.id}
+              data-prod-id={product.id}
+              {...framerText(idx)}
+            >
+              <NavLink
+                as="NavLink"
+                to={`products/${product.handle}`}
+                className={({ isActive, isPending }) =>
+                  isActive ? 'active' : isPending ? 'pending' : ''
+                }
+              >
+                {product.title ? (
+                  <>
+                    {product.title}
+                  </>
+                ) : ''}
+              </NavLink>
+            </motion.li>
           )
         })
       ) : (

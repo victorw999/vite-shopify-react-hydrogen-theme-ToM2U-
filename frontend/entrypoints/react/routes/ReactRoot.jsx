@@ -32,17 +32,17 @@ import productsLoader from '../loaders/productsLoader'
 // ReactRoot.jsx
 export async function loader({ request, params }) {
   try {
-    console.log('===> loader for root, request:', request, ' params:', params)
-
-    // load contacts data
+  
+    // get params to filter contacts data
     const url = new URL(request.url)
     const q = url.searchParams.get('q')
     
- 
-    await loadContacts(); // merge sample data w/ current contact frm cache
+    // merge sample data w/ current contact frm cache
+    await loadContacts(); 
     const contacts = await getContacts(q)
     
     return { contacts, q }
+
   } catch (error) {
     throw new Error('ReactRoot.jsx loader() issue: ', error);
   }
@@ -216,29 +216,15 @@ export default function ReactRoot() {
                       {/*  */}
                       <hr />
 
-                      {/* {products ? (
-                        products.map((product) => (
-                          <li key={product.node.id} data-prod-id={product.node.id}>
-                            <Link to={`/products/${product.node.handle}`}>
-                              {product.node.title}
-                            </Link>
-                          </li>
-                        ))
-                      ) : (
-                        <p>
-                          <i>No Products</i>
-                        </p>
-                      )}
-                       */}
+                     
                     </div>
                   </nav>
                 </div>
               </motion.div>
               <div
-                id="detail"
+                id="outlet_container"
                 className={navigation.state === 'loading' ? 'loading' : ''}
               >
-                {/* <Outlet context={{ allImageUrls }} /> */}
                 <Outlet />
               </div>
             </motion.div>)

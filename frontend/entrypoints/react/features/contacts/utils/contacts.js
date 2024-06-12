@@ -62,7 +62,6 @@ export async function loadContacts() {
 
     // contacts in storage
     let storage_contacts = await localforage.getItem('contacts')
-    // console.log("storage_contacts:", storage_contacts)
 
     if (storage_contacts && storage_contacts.length > 0) {
       sample_contacts.forEach(item => {
