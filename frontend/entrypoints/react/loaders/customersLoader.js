@@ -29,9 +29,7 @@ const query = `{
         
               }
             }
-          }
-           
-           
+          }             
         }
         validEmailAddress
         tags
@@ -47,7 +45,7 @@ const query = `{
 
 `
 
-async function fetchCustomersByAdminAPI() {
+async function customersLoader() {
   try {
     const headers = new Headers({
       'X-Shopify-Access-Token': import.meta.env.VITE__SHOPIFY_ADMIN_API,
@@ -64,6 +62,7 @@ async function fetchCustomersByAdminAPI() {
     )
 
     const data = await response.json()
+    console.log('===customers loader data: ', data)
     let results = data.data.customers.edges.map(i => i.node)
     return results
   } catch (err) {
@@ -72,4 +71,4 @@ async function fetchCustomersByAdminAPI() {
 
 }
 
-export default fetchCustomersByAdminAPI;
+export default customersLoader;

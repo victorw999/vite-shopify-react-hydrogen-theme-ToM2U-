@@ -13,14 +13,14 @@ const TabSwitch = ({ initialActiveTab = 'contacts', contactsState, customersStat
     setActiveTab(tab);
 
     // change router path
-    if (tab === 'products' || tab === 'contacts' || tab === 'customers' ) {
+    if (tab === 'products' || tab === 'contacts' || tab === 'customers') {
       navigate(`/${tab}`)
-    }    
+    }
   };
 
   return (
     <>
-      <div>TabSwitch</div>
+
       <div>
         <div className="tab-controls">
           <button
@@ -41,11 +41,7 @@ const TabSwitch = ({ initialActiveTab = 'contacts', contactsState, customersStat
           >
             products
           </button>
-          <div onClick={() => handleTabClick('products')}>
-            <NavLink to="products" className={activeTab === 'products' ? 'active' : ''}>
-              here products
-            </NavLink>
-          </div>
+
         </div>
 
         <div className="tab-content">

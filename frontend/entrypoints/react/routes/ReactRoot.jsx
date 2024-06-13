@@ -92,6 +92,7 @@ export default function ReactRoot() {
   useEffect(() => {
     dispatch(fetchContactsPlaceholderImgs());
     dispatch(fetchProducts())
+    dispatch(fetchCustomers())
   }, [dispatch]);
 
 

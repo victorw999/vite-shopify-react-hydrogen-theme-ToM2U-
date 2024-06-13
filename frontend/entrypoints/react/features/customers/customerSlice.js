@@ -1,59 +1,54 @@
 import { createSlice, createSelector, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit'
-import fetchCustomersByAdminAPI from './fetchCustomersByAdminAPI'
-
-const customerAdapter = createEntityAdapter()
-
-const initialState = customerAdapter.getInitialState({
-  status: 'idle',
-})
-
+import customersLoader from '../../loaders/customersLoader'
 
 export const customerSlice = createSlice({
   name: 'customers',
-  initialState,
-  reducers: {
-
+  initialState: {
+    customers: [],
+    loadingError: null
   },
-  extraReducers: builder => {
-    builder
-      .addCase(fetchCustomers.pending, (state, action) => {
-        state.status = "loading"
-      })
-      .addCase(fetchCustomers.fulfilled, (state, action) => {
-        customerAdapter.setAll(state, action.payload)
-        state.status = 'idle'
-      })
-      .addCase(fetchCustomers.rejected, (state, action) => {
-        state.status = 'failed';
+  reducers: {
+    loadCustomers: (state, action) => {
+      state.loadingError = false
 
-        // Accessing error information
-        if (action.payload) {
-          // Likely a direct error object if the API set it
-          state.error = action.payload;
-        } else if (action.error.message) {
-          // Redux Toolkit wraps errors 
-          state.error = action.error.message;
-        } else {
-          // Unknown error format
-          state.error = "An unknown error occurred."
-        }
-      })
+      // Extract IDs
+      const existingCustomerIds = new Set(state.customers.map(customer => customer.id));
 
+      // Filter new customers
+      const newCustomers = action.payload.filter(customer => !existingCustomerIds.has(customer.id));
+
+      // only update when current store doesn't have it. prevent duplicates
+      if (newCustomers.length > 0) {
+        state.customers = [...state.customers, ...action.payload];
+      }
+
+    },
+    loadingError: (state) => {
+      state.loadingError = true
+    }
+  },
+
+})
+
+
+// the outside "thunk creator" function
+export const fetchCustomers = () => {
+
+  // the inside "thunk function"
+  return async (dispatch, getState) => {
+    try {
+      // make an async call in the thunk
+      const customers = await customersLoader()
+
+      // dispatch an action when we get the response back
+      dispatch(loadCustomers(customers))
+    } catch (err) {
+      // If something went wrong, handle it here
+      dispatch(loadingError())
+    }
   }
-})
-
-// THUNK
-export const fetchCustomers = createAsyncThunk('customers/fetchCustomers', async () => {
-  const response = await fetchCustomersByAdminAPI()
-  return response
-})
-
-// SELECTORS
-export const {
-  selectAll: selectCustomers, // you can use it like const customers = useSelector(selectCustomers).
-  selectById: selectCustomerById, // you can use it like const customer = useSelector(selectCustomerById).
-} = customerAdapter.getSelectors((state) => state.customers)
+}
 
 
-// export const { loadCustomers } = customerSlice.actions
+export const { loadCustomers, loadingError } = customerSlice.actions
 export default customerSlice.reducer

@@ -36,7 +36,6 @@ export const fetchProducts = () => {
   // the inside "thunk function"
   return async (dispatch, getState) => {
     try {
-
       // make an async call in the thunk
       const products = await productsLoader()
 
