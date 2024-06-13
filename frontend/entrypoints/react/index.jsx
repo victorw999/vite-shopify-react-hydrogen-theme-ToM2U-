@@ -5,14 +5,17 @@ import { createBrowserRouter, RouterProvider, createHashRouter } from 'react-rou
 import { SHOPIFY_URL, SHOPIFY_REACT_ROOT } from './Global.js'
 
 import ReactRoot, {
-  loader as rootLoader,
   action as rootAction
 } from './routes/ReactRoot.jsx'
+
 
 import ProductList from './features/products/ProductList.jsx'
 import ProductDetail from './features/products/ProductDetail.jsx'
 
 import ErrorPage from './error-page.jsx'
+
+
+import { contactsLoader } from './loaders/contactsLoader.js'
 import Contact, {
   loader as contactLoader,
   action as contactAction
@@ -20,19 +23,20 @@ import Contact, {
 import EditContact, { action as editAction } from './features/contacts/edit'
 import { action as destroyAction } from './features/contacts/destroy.jsx'
 
-import Index from './routes/index.jsx'
+import ContactIndex from './features/contacts/ContactIndex.jsx'
 
 import { AppContext, AppDispatchContext } from './redux/AppContext.js'
 
 import { Provider } from 'react-redux';
 import store from './redux/store.js'
+import ProductIndex from './features/products/ProductIndex.jsx'
 
 const router = createHashRouter([
   {
     path: '/',
     element: <ReactRoot />,
     errorElement: <ErrorPage />,
-    loader: rootLoader,
+    loader: contactsLoader,
     action: rootAction,
     children: [
       {
@@ -40,11 +44,9 @@ const router = createHashRouter([
         children: [
           {
             index: true,
-            element: <Index />
-          },
-          {
             path: `contacts`,
-            element: <Index />,
+            element: <ContactIndex />,
+            loader: contactsLoader
           },
           {
             path: `contacts/:contactId`,
@@ -65,7 +67,7 @@ const router = createHashRouter([
           },
           {
             path: 'products',
-            element: <ProductDetail />,
+            element: <ProductIndex />,
           },
           {
             path: `products/:handle`,

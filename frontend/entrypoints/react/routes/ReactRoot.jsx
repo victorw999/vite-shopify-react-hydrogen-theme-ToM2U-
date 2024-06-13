@@ -27,27 +27,8 @@ import { fetchProducts } from '../features/products/productSlice'
 
 import { fetchCustomers } from '../features/customers/customerSlice'
 import TabSwitch from '../features/sidebar/TabSwitch'
-import productsLoader from '../loaders/productsLoader'
 
 // ReactRoot.jsx
-export async function loader({ request, params }) {
-  try {
-  
-    // get params to filter contacts data
-    const url = new URL(request.url)
-    const q = url.searchParams.get('q')
-    
-    // merge sample data w/ current contact frm cache
-    await loadContacts(); 
-    const contacts = await getContacts(q)
-    
-    return { contacts, q }
-
-  } catch (error) {
-    throw new Error('ReactRoot.jsx loader() issue: ', error);
-  }
-}
-
 export async function action() {
   const contact = await createContact()
   return redirect(`/contacts/${contact.id}/edit`)
@@ -190,7 +171,7 @@ export default function ReactRoot() {
                     <div className="app-display-list">
                       <li className='app-tool-bar'>
                         <Link to={`/`}>
-                          <IconHome /> 
+                          <IconHome />
                           <IconLoadCustomer action={() => dispatch(fetchCustomers())} />
                         </Link>
                       </li>
@@ -199,7 +180,7 @@ export default function ReactRoot() {
                       <TabSwitch initialActiveTab='contacts'
                         contactsState={contactsState}
                         customersState
-                         
+
                       />
 
 
@@ -216,7 +197,7 @@ export default function ReactRoot() {
                       {/*  */}
                       <hr />
 
-                     
+
                     </div>
                   </nav>
                 </div>
