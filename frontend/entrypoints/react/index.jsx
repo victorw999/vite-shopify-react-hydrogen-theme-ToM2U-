@@ -1,19 +1,17 @@
 import React, { useReducer } from 'react'
 import ReactDOM from 'react-dom/client'
 
-import { createBrowserRouter, RouterProvider, createHashRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, createHashRouter, Navigate } from 'react-router-dom'
 import { SHOPIFY_URL, SHOPIFY_REACT_ROOT } from './Global.js'
+
+import { AppContext, AppDispatchContext } from './redux/AppContext.js'
+import { Provider } from 'react-redux';
+import store from './redux/store.js'
+import ErrorPage from './error-page.jsx'
 
 import ReactRoot, {
   action as rootAction
 } from './routes/ReactRoot.jsx'
-
-
-import ProductList from './features/products/ProductList.jsx'
-import ProductDetail from './features/products/ProductDetail.jsx'
-
-import ErrorPage from './error-page.jsx'
-
 
 import { contactsLoader } from './loaders/contactsLoader.js'
 import Contact, {
@@ -22,14 +20,14 @@ import Contact, {
 } from './features/contacts/Contact.jsx'
 import EditContact, { action as editAction } from './features/contacts/edit'
 import { action as destroyAction } from './features/contacts/destroy.jsx'
-
 import ContactIndex from './features/contacts/ContactIndex.jsx'
 
-import { AppContext, AppDispatchContext } from './redux/AppContext.js'
-
-import { Provider } from 'react-redux';
-import store from './redux/store.js'
 import ProductIndex from './features/products/ProductIndex.jsx'
+import ProductList from './features/products/ProductList.jsx'
+import ProductDetail from './features/products/ProductDetail.jsx'
+
+import CustomerIndex from './features/customers/CustomerIndex.jsx'
+import CustomerDetail from './features/customers/CustomerDetail.jsx'
 
 const router = createHashRouter([
   {
@@ -73,10 +71,22 @@ const router = createHashRouter([
             path: `products/:handle`,
             element: <ProductDetail />
           },
+          {
+            path: 'customers',
+            element: <CustomerIndex />,
+          },
+          {
+            path: `customers/:customerId`,
+            element: <CustomerDetail />
+          },
 
         ]
       }
     ]
+  },
+  {
+    path: '*', // page not found,  Redirect to a default path
+    element: <Navigate to="/" replace />
   }
 ])
 
