@@ -3,6 +3,7 @@ import { framerText } from '../../utils/framerAnimationOptions';
 import ContactList from '../contacts/ContactList';
 import ProductList from '../products/ProductList';
 import { useNavigate, redirect, NavLink } from 'react-router-dom';
+import CustomerList from '../customers/CustomerList';
 
 const TabSwitch = ({ initialActiveTab = 'contacts', contactsState, customersState }) => {
 
@@ -45,19 +46,17 @@ const TabSwitch = ({ initialActiveTab = 'contacts', contactsState, customersStat
         </div>
 
         <div className="tab-content">
-          {activeTab === 'contacts' && (
-            <div className="panel">
+          <div className="panel">
+            {activeTab === 'contacts' && (
               <ContactList list={contactsState} framerText={framerText} />
-            </div>
-          )}
-          {activeTab === 'customers' && (
-            <div className="panel">customers</div>
-          )}
-          {activeTab === 'products' && (
-            <div className="panel">
+            )}
+            {activeTab === 'customers' && (
+              <CustomerList framerText={framerText} />
+            )}
+            {activeTab === 'products' && (
               <ProductList framerText={framerText} />
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </>

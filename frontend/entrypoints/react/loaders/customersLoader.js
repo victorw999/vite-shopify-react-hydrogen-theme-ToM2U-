@@ -7,6 +7,22 @@ const query = `{
         lastName
         firstName
     		numberOfOrders
+        orders(first: 10) {
+          edges {
+            node {
+              id
+              name 
+              totalPrice
+              lineItems(first: 10) {
+                nodes {
+                  name
+                  quantity
+                  title
+                }
+              }
+            }
+          }
+        } 
         lastOrder {
           id
           name
@@ -62,8 +78,9 @@ async function customersLoader() {
     )
 
     const data = await response.json()
-    console.log('===customers loader data: ', data)
+    // console.log('===customers loader data.data.customers.edges: ', data.data.customers.edges)
     let results = data.data.customers.edges.map(i => i.node)
+
     return results
   } catch (err) {
     console.error('fetchCustomersByAdminAPI() error fetching customers: ', err)
