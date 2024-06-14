@@ -73,13 +73,19 @@
 }
 
 /* side bar project */
+
 #shopify-react-root {
   /*display: flex;
   height: 100%;
   width: 100%;
   position: fixed;*/
   z-index: 11;
-
+  
+  font-family: "Quicksand", sans-serif; 
+  * {
+    font-family: "Quicksand", sans-serif;   
+  }
+  
   &.error-state {
     @apply relative h-auto w-auto;
   }
@@ -251,7 +257,7 @@
   .section_heading{
     @apply font-thin text-[1.5rem] leading-[1.7rem] mb-4 uppercase;
 
-    font-family: "Quicksand", sans-serif; 
+    /* font-family: "Quicksand", sans-serif; */
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;

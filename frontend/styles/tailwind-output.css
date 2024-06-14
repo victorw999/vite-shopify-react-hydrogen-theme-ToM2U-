@@ -2683,6 +2683,10 @@ select {
   width: 100%;
   position: fixed;*/
   z-index: 11;
+  font-family: "Quicksand", sans-serif;
+  * {
+    font-family: "Quicksand", sans-serif;
+  }
   &.error-state {
     position: relative;
   }
@@ -3083,7 +3087,7 @@ select {
     line-height: 1.7rem;
   }
   .section_heading{
-    font-family: "Quicksand", sans-serif;
+    /* font-family: "Quicksand", sans-serif; */
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
