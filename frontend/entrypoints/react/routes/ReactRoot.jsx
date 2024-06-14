@@ -114,7 +114,7 @@ export default function ReactRoot() {
                 {...framerSidebarPanel}
                 id="sidebar"
                 className="container z-10 flex h-screen 
-                
+                scroll_bar_style
                 w-[300px] min-w-[300px] 
                 md:w-[30rem] md:min-w-[30rem]
                 flex-col overflow-y-auto py-5 px-0"
@@ -205,7 +205,7 @@ export default function ReactRoot() {
               </motion.div>
               <div
                 id="outlet_container"
-                className={navigation.state === 'loading' ? 'loading' : ''}
+                className={`scroll_bar_style ${navigation.state === 'loading' ? 'loading' : ''} `}
               >
                 <Outlet />
               </div>

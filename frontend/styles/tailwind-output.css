@@ -2012,8 +2012,8 @@ select {
   border-radius: 0.25rem;
 }
 
-.rounded-3xl {
-  border-radius: 1.5rem;
+.rounded-\[2px\] {
+  border-radius: 2px;
 }
 
 .rounded-full {
@@ -2030,10 +2030,6 @@ select {
 
 .rounded-xl {
   border-radius: 0.75rem;
-}
-
-.rounded-\[2px\] {
-  border-radius: 2px;
 }
 
 .rounded-b {
@@ -2117,6 +2113,11 @@ select {
   border-top-color: rgba(var(--color-contrast) / 0.3);
 }
 
+.bg-\[green\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 128 0 / var(--tw-bg-opacity));
+}
+
 .bg-background {
   background-color: hsl(var(--background));
 }
@@ -2178,11 +2179,6 @@ select {
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
 
-.bg-\[green\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 128 0 / var(--tw-bg-opacity));
-}
-
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
@@ -2231,10 +2227,6 @@ select {
   padding: 1.5rem;
 }
 
-.p-1 {
-  padding: 0.25rem;
-}
-
 .p-\[2px\] {
   padding: 2px;
 }
@@ -2242,11 +2234,6 @@ select {
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 
 .px-2 {
@@ -2747,20 +2734,6 @@ select {
     background-color: hsl(225 6% 15% / var(--tw-bg-opacity));
   }
   #sidebar {
-    /*** scroll bar style ***/
-    /* General scrollbar styling */
-    &::-webkit-scrollbar {
-      width: 2px;
-      /* Example width - adjust as desired */
-    }
-    /* Styling the scrollbar thumb (the draggable part) */
-    &::-webkit-scrollbar-thumb {
-      background-color: hsl(var(--border));
-    }
-    /* Styling the scrollbar track (the background) */
-    &::-webkit-scrollbar-track {
-      background-color: hsl(var(--muted));
-    }
     /***  ***/
     .app-display-list {
       padding-left: 0px;
@@ -2842,6 +2815,23 @@ select {
     }
   }
   /* #sidebar */
+  /*** Custom Scroll Style ***/
+  .scroll_bar_style {
+    /*** scroll bar style ***/
+    /* General scrollbar styling */
+    &::-webkit-scrollbar {
+      width: 2px;
+      /* Example width - adjust as desired */
+    }
+    /* Styling the scrollbar thumb (the draggable part) */
+    &::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--border));
+    }
+    /* Styling the scrollbar track (the background) */
+    &::-webkit-scrollbar-track {
+      background-color: hsl(var(--muted));
+    }
+  }
   #sidebar form {
     position: relative;
     input[type="search"] {
@@ -2891,7 +2881,7 @@ select {
   #outlet_container {
     flex: 1;
     padding: 2rem 4rem;
-    width: 100%
+    width: 100%;
   }
   #outlet_container {
     --tw-bg-opacity: 1;
@@ -2903,9 +2893,8 @@ select {
       position: absolute;
       width: 100%;
       height: 100%;
-      /* background: white; */
-      /*  opacity: 0.8; */
     }
+    overflow-y: scroll;
   }
   #contact-form {
     .form-row,

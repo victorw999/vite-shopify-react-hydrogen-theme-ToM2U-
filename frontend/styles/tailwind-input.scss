@@ -99,22 +99,6 @@
   #sidebar {
     @apply bg-contrast0;
 
-    /*** scroll bar style ***/
-    /* General scrollbar styling */
-    &::-webkit-scrollbar {
-      width: 2px; /* Example width - adjust as desired */
-    }
-
-    /* Styling the scrollbar thumb (the draggable part) */
-    &::-webkit-scrollbar-thumb {
-      @apply bg-border;
-    }
-
-    /* Styling the scrollbar track (the background) */
-    &::-webkit-scrollbar-track {
-      @apply bg-muted;
-    }
-
     /***  ***/
     .app-display-list {
       @apply pl-0 pb-80;
@@ -147,6 +131,25 @@
       }
     }
   } /* #sidebar */
+
+  /*** Custom Scroll Style ***/
+  .scroll_bar_style {
+    /*** scroll bar style ***/
+    /* General scrollbar styling */
+    &::-webkit-scrollbar {
+      width: 2px; /* Example width - adjust as desired */
+    }
+
+    /* Styling the scrollbar thumb (the draggable part) */
+    &::-webkit-scrollbar-thumb {
+      @apply bg-border;
+    }
+
+    /* Styling the scrollbar track (the background) */
+    &::-webkit-scrollbar-track {
+      @apply bg-muted;
+    }
+  }
 
   #sidebar form {
     position: relative;
@@ -192,9 +195,9 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      /* background: white; */
-      /*  opacity: 0.8; */
     }
+
+    overflow-y: scroll;
   }
 
   #contact-form {
@@ -218,10 +221,10 @@
            md:w-[300px] md:min-w-[300px] md:py-8  
            flex-shrink  flex-grow-0 justify-center  align-middle;
   }
-  .detail_img_main{
-    @apply h-full w-full object-contain object-top border-solid border-gray-100 border-[15px]
+  .detail_img_main {
+    @apply h-full w-full object-contain object-top border-solid border-gray-100 border-[15px];
   }
-  .detail_info_wrapper{
+  .detail_info_wrapper {
     @apply flex-shrink flex-grow basis-auto p-8;
   }
 } /* #shopify-react-root */
