@@ -18,7 +18,7 @@ export default defineConfig({
       }
     ]
   },
-  plugins: [shopify(), react(), webfontDownload()],
+  plugins: [shopify(), react(), webfontDownload(["https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"])],
   build: {
     rollupOptions: {
       output: {
