@@ -10,10 +10,12 @@ import { Navigate } from "react-router-dom";
 export default function CustomerIndex() {
   const { customers } = useSelector(state => state.customers)
 
-  // if (customers.length > 0) {
-  //   const firstProductHandle = customers[0].handle;
-  //   return <Navigate to={`/customers/${firstProductHandle}`} replace />;
-  // }
+  if (customers.length > 0) {
+    // strip the gid's prefix to get the customer id
+    // first customer's id
+    let cid = customers[0].id.replace('gid://shopify/Customer/', '')
+    return <Navigate to={`/customers/${cid}`} replace />;
+  }
 
   return (
     <p id="zero-state" className="bg-transparent">

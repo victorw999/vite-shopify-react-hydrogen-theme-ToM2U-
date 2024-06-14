@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { useSelector } from 'react-redux';
 
 import { motion } from 'framer-motion'
@@ -21,7 +21,10 @@ function CustomerList({ framerText }) {
 
           // strip the gid's prefix to get the customer id
           let cid = customer.id.replace('gid://shopify/Customer/', '')
-          let totalSpending = calcCustomerTotalSpending(customer)
+
+          // memoize expansive calculation
+          const totalSpending = useMemo(() => calcCustomerTotalSpending(customer), [customer])
+
 
           return (
 
@@ -38,7 +41,7 @@ function CustomerList({ framerText }) {
               >
                 {customer.firstName && customer.lastName ? (
                   <div className='name'>
-                    {`${customer.firstName} ${customer.lastName} `} <span className="totalSpending font-mono p-[2px] px-3 bg-[green] rounded-[2px]">${totalSpending}</span>
+                    {`${customer.firstName} ${customer.lastName} `} <span className="totalSpending num_format_box bg-green-700">${totalSpending}</span>
                   </div>
                 ) : ''}
               </NavLink>

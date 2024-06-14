@@ -13,11 +13,17 @@ const query = `{
               id
               name 
               totalPrice
+              createdAt
               lineItems(first: 10) {
                 nodes {
                   name
                   quantity
                   title
+                  product {
+                    featuredImage {
+                      originalSrc
+                    }
+                  }
                 }
               }
             }
