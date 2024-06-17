@@ -1,4 +1,4 @@
-import { getContacts, loadContacts } from "../features/contacts/utils/contacts";
+import { getContacts, loadContacts } from "../features/contacts/contactsUtils";
 
 export async function contactsLoader({ request, params }) {
   try {
@@ -7,8 +7,10 @@ export async function contactsLoader({ request, params }) {
     const url = new URL(request.url)
     const q = url.searchParams.get('q')
 
-    // merge sample data w/ current contact frm cache
+    // load & merge sample_contacts.json w/ current contacts in cache
     await loadContacts();
+
+    // Filter the list if there are URLSearchParams
     const contacts = await getContacts(q)
 
     return { contacts, q }

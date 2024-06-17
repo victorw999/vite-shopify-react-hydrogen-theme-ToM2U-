@@ -14,8 +14,8 @@ import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
 import { useState, useEffect } from 'react'
 
-import { loadContacts } from '../features/contacts/utils/contacts'
-import { getContacts, createContact } from '../features/contacts/utils/contacts'
+import { loadContacts } from '../features/contacts/contactsUtils'
+import { getContacts, createContact } from '../features/contacts/contactsUtils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
 
@@ -55,6 +55,7 @@ export default function ReactRoot() {
     new URLSearchParams(navigation.location.search).has('q')
 
 
+  // update input element on DOM
   useEffect(() => {
     let searchbar = document.getElementById('react_searchbar_q')
     if (searchbar) {
@@ -136,7 +137,7 @@ export default function ReactRoot() {
                         size="xl"
                         id="react_searchbar_q"
                         className={` ${searching ? 'loading' : ''} text-contrast`}
-                        aria-label="Search contacts"
+                        aria-label="Search contacts" r
                         placeholder="Search"
                         type="search"
                         name="q"
@@ -181,21 +182,8 @@ export default function ReactRoot() {
                       <TabSwitch initialActiveTab='contacts'
                         contactsState={contactsState}
                         customersState
-
                       />
 
-
-                      {/* <li>
-                        <a href={`/collections/all`}>All Collection Anchor</a>
-                      </li>
-                      <li>
-                        <Link to={`/collections/all`}>All Collection Link</Link>
-                      </li> 
-
-                      <ContactList contactsState={contactsState} framerText={framerText} />
-                      */}
-
-                      {/*  */}
                       <hr />
 
 

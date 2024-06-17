@@ -41,7 +41,7 @@ export default function CustomerDetail() {
           </div> */}
 
           <div className="detail_info_wrapper">
-            <h1>{`${customer.firstName} ${customer.lastName}`}</h1>
+            <h1 className="section_heading">{`${customer.firstName} ${customer.lastName}`}</h1>
             <div className="totalSpending">Total Spending: <span className="num_format_box bg-green-700">${totalSpending}</span></div>
             <div className="description">{customer.description}</div>
             <div className="list_section">

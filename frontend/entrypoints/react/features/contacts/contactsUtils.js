@@ -3,6 +3,13 @@ import { matchSorter } from 'match-sorter'
 import sortBy from 'sort-by'
 import sample_contacts from './sample_contacts.json';
 
+/**
+ * utitlize "matchSorter()" to filter the contacts stores in cache, based in user input
+ * then utitlize "sortBy()" to sort the data first by "last", then by "createdAt"
+ * 
+ * @param {*} query 
+ * @returns 
+ */
 export async function getContacts(query) {
   await fakeNetwork(`getContacts:${query}`)
   let contacts = await localforage.getItem('contacts')
@@ -10,6 +17,7 @@ export async function getContacts(query) {
   if (query) {
     contacts = matchSorter(contacts, query, { keys: ['first', 'last'] })
   }
+  console.log('contacts: ', contacts)
   return contacts.sort(sortBy('last', 'createdAt'))
 }
 

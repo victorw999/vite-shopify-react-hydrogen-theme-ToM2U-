@@ -2,7 +2,7 @@ import { Form, useLoaderData, useNavigate, redirect } from 'react-router-dom'
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
 
-import { updateContact } from './utils/contacts'
+import { updateContact } from './contactsUtils'
 
 export async function action({ request, params }) {
   const formData = await request.formData()
@@ -75,7 +75,7 @@ export default function EditContact() {
       </p>
       <p className="form-row">
         <span className="form-label"></span>
-        <Button type="submit" size="xl"  className="  text-contrast2">
+        <Button type="submit" size="xl" className="  text-contrast2">
           Save
         </Button>
         <Button

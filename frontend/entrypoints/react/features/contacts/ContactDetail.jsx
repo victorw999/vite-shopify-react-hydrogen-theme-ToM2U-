@@ -1,5 +1,5 @@
 import { Form, useLoaderData, useFetcher, useOutletContext } from 'react-router-dom'
-import { getContact, updateContact } from './utils/contacts'
+import { getContact, updateContact } from './contactsUtils'
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { useEffect, useState, useCallback, useRef } from 'react'
 import { stringHasNoSlashes, isImageFile, removeFileExtension } from '../../Global'
@@ -49,8 +49,8 @@ export default function Contact() {
   const getImgUrls = useCallback(() => {
     try {
       let str = avatarURL
-       
-      if (!str || str.trim() === "") { 
+
+      if (!str || str.trim() === "") {
         return placeholderImages['ppl-1']  // set default profile img
       }
       // if it's not a URL and it's an image file, retrieve the default images provided in react/assests folder
@@ -85,12 +85,12 @@ export default function Contact() {
             // src={contact.avatar || null} 
             // src={avatarImgUrl}
             src={getImgUrls()}
-          />) : <CgProfile className=' text-slate-200 w-full h-full'/>
+          />) : <CgProfile className=' text-slate-200 w-full h-full' />
         }
       </div>
 
       <div className="detail_info_wrapper">
-        <h1>
+        <h1 className='section_heading'>
           {contact.first || contact.last ? (
             <>
               {contact.first} {contact.last}

@@ -12,12 +12,12 @@ import ErrorPage from './error-page.jsx'
 import ReactRoot, {
   action as rootAction
 } from './routes/ReactRoot.jsx'
-
+import { rootLoader } from './loaders/rootloader.js'
 import { contactsLoader } from './loaders/contactsLoader.js'
-import Contact, {
+import ContactDetail, {
   loader as contactLoader,
   action as contactAction
-} from './features/contacts/Contact.jsx'
+} from './features/contacts/ContactDetail.jsx'
 import EditContact, { action as editAction } from './features/contacts/edit'
 import { action as destroyAction } from './features/contacts/destroy.jsx'
 import ContactIndex from './features/contacts/ContactIndex.jsx'
@@ -34,7 +34,7 @@ const router = createHashRouter([
     path: '/',
     element: <ReactRoot />,
     errorElement: <ErrorPage />,
-    loader: contactsLoader,
+    loader: rootLoader,
     action: rootAction,
     children: [
       {
@@ -48,7 +48,7 @@ const router = createHashRouter([
           },
           {
             path: `contacts/:contactId`,
-            element: <Contact />,
+            element: <ContactDetail />,
             loader: contactLoader,
             action: contactAction
           },
