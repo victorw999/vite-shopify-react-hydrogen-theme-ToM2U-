@@ -1,4 +1,4 @@
-import { getContacts, loadContacts } from "../features/contacts/contactsUtils";
+import { filterContactsByQuery, loadContacts } from "../features/contacts/contactsUtils";
 
 export async function contactsLoader({ request, params }) {
   try {
@@ -11,7 +11,7 @@ export async function contactsLoader({ request, params }) {
     await loadContacts();
 
     // Filter the list if there are URLSearchParams
-    const contacts = await getContacts(q)
+    const contacts = await filterContactsByQuery(q)
 
     return { contacts, q }
 

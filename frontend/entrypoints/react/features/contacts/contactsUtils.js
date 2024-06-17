@@ -10,14 +10,13 @@ import sample_contacts from './sample_contacts.json';
  * @param {*} query 
  * @returns 
  */
-export async function getContacts(query) {
-  await fakeNetwork(`getContacts:${query}`)
+export async function filterContactsByQuery(query) {
+  await fakeNetwork(`filterContactsByQuery:${query}`)
   let contacts = await localforage.getItem('contacts')
   if (!contacts) contacts = []
   if (query) {
     contacts = matchSorter(contacts, query, { keys: ['first', 'last'] })
   }
-  console.log('contacts: ', contacts)
   return contacts.sort(sortBy('last', 'createdAt'))
 }
 
@@ -25,7 +24,7 @@ export async function createContact() {
   await fakeNetwork()
   let id = Math.random().toString(36).substring(2, 9)
   let contact = { id, createdAt: Date.now() }
-  let contacts = await getContacts()
+  let contacts = await filterContactsByQuery()
   contacts.unshift(contact)
   await set(contacts)
   return contact

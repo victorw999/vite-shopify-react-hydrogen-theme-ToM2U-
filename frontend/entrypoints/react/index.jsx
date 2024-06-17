@@ -12,7 +12,9 @@ import ErrorPage from './error-page.jsx'
 import ReactRoot, {
   action as rootAction
 } from './routes/ReactRoot.jsx'
-import { rootLoader } from './loaders/rootloader.js'
+
+import { rootLoader } from './loaders/rootLoader.js'
+
 import { contactsLoader } from './loaders/contactsLoader.js'
 import ContactDetail, {
   loader as contactLoader,

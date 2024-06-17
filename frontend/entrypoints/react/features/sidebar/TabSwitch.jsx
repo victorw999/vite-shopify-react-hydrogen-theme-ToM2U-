@@ -5,9 +5,8 @@ import ProductList from '../products/ProductList';
 import { useNavigate, redirect, NavLink } from 'react-router-dom';
 import CustomerList from '../customers/CustomerList';
 
-const TabSwitch = ({ initialActiveTab = 'contacts', contactsState, customersState }) => {
+const TabSwitch = ({ activeTab, setActiveTab, contactsState }) => {
 
-  const [activeTab, setActiveTab] = useState(initialActiveTab);
   const navigate = useNavigate();
 
   const handleTabClick = (tab) => {

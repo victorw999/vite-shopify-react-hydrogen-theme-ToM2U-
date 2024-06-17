@@ -21,6 +21,8 @@ export default function CustomerDetail() {
     let cid = customer.id.replace('gid://shopify/Customer/', '')
     if (cid === customerId) {
       return customer
+    } else {
+      return ''
     }
   })[0]
 
@@ -61,19 +63,22 @@ export default function CustomerDetail() {
                         <div className="orderBody">
                           <ul>
                             {
-                              lineItems.map(item => (
-                                <li className="order_lineItem">
-                                  <span className="lineItem_img_wrapper">
-                                    <img
-                                      className="lineItem_img_main"
-                                      src={`${item?.product?.featuredImage.originalSrc}`}
-                                    />
-                                  </span>
-                                  <span className="lineItem_info num_format_box border-none">
-                                    {`${item.name} / qty:${item.quantity}`}
-                                  </span>
-                                </li>
-                              ))
+                              lineItems.map(item => {
+                                const imgUrl = item?.product?.featuredImage.originalSrc
+                                return (
+                                  <li className="order_lineItem" key={imgUrl}>
+                                    <span className="lineItem_img_wrapper">
+                                      <img
+                                        className="lineItem_img_main"
+                                        src={imgUrl}
+                                      />
+                                    </span>
+                                    <span className="lineItem_info num_format_box border-none">
+                                      {`${item.name} / qty:${item.quantity}`}
+                                    </span>
+                                  </li>
+                                )
+                              })
                             }
                           </ul>
                         </div>

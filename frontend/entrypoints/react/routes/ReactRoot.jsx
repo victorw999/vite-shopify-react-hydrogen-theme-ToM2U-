@@ -15,7 +15,7 @@ import { Input } from '@shadcn/components/ui/input.jsx'
 import { useState, useEffect } from 'react'
 
 import { loadContacts } from '../features/contacts/contactsUtils'
-import { getContacts, createContact } from '../features/contacts/contactsUtils'
+import { filterContactsByQuery, createContact } from '../features/contacts/contactsUtils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
 
@@ -98,6 +98,12 @@ export default function ReactRoot() {
 
 
 
+  /**
+   * activeTab, a string: 'contacts' | 'products' | 'customers' 
+   * Based on "activeTab" show/hide "new" btn
+   */
+  const [activeTab, setActiveTab] = useState('contacts');
+
   return (
     <>
       <div id="react-app-icons-container" className="fixed bg-zinc-800 border-r-2 border-2 border-zinc-100 p-3">
@@ -126,6 +132,8 @@ export default function ReactRoot() {
                     <IconGoBack className="" action={toggleSidebar} />
                     <h1 className="text-2xl ">React Router Contacts</h1>
                   </div>
+
+
 
                   <div className="contactFormWrapper px-[theme('sidebarMargin.default')] flex flex-row space-x-4 text-3xl   justify-between">
                     <Form
@@ -158,7 +166,7 @@ export default function ReactRoot() {
                       />
                       <div className="sr-only" aria-live="polite"></div>
                     </Form>
-                    <Form method="post" className="my-5 ml-3">
+                    <Form method="post" className={`my-5 ml-3 ${activeTab !== 'contacts' ? 'hidden' : ""}`}>
                       <Button
                         type="submit"
                         variant="default"
@@ -178,14 +186,12 @@ export default function ReactRoot() {
                         </Link>
                       </li>
 
-
-                      <TabSwitch initialActiveTab='contacts'
+                      <TabSwitch
+                        activeTab={activeTab}
+                        setActiveTab={setActiveTab}
                         contactsState={contactsState}
-                        customersState
+
                       />
-
-                      <hr />
-
 
                     </div>
                   </nav>

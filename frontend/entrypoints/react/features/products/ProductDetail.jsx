@@ -28,7 +28,7 @@ export default function ProductDetail() {
           </div>
 
           <div className="detail_info_wrapper">
-            <h1 class='section_heading'>{product.title}</h1>
+            <h1 className='section_heading'>{product.title}</h1>
             <div className="handle ">
               <span className="num_format_box">{product.handle}</span>
             </div>
