@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 
 import { motion } from 'framer-motion'
@@ -27,7 +27,6 @@ function CustomerList({ framerText }) {
       try {
         const filteredData = await filterCustomersByQuery(customers, searchParams.get('q'));
         setfilteredCustomers(filteredData);
-        console.log('filteredData: ', filteredData)
       } catch (error) {
         console.error('Error fetching filtered customers:', error);
       }
@@ -46,9 +45,6 @@ function CustomerList({ framerText }) {
 
           // strip the gid's prefix to get the customer id
           let cid = customer.id.replace('gid://shopify/Customer/', '')
-
-          // memoize expansive calculation
-          // const totalSpending = useMemo(() => calcCustomerTotalSpending(customer), [customer])
 
           return (
 

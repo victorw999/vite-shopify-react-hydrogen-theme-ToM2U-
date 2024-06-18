@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { calcCustomerTotalSpending, convertISODateToString } from "./customerUtils";
 import { useMemo } from "react";
+import { nanoid } from 'nanoid'
 
 export default function CustomerDetail() {
 
@@ -29,8 +30,6 @@ export default function CustomerDetail() {
   // memoize expansive calculation
   const totalSpending = useMemo(() => calcCustomerTotalSpending(customer), [customer])
 
-  console.log('===> customer detail: customer ', customer)
-
   return (
     <div id="customer_detail" className="detail_section">
       {
@@ -54,7 +53,7 @@ export default function CustomerDetail() {
                     let order = item.node
                     let lineItems = order.lineItems.nodes
                     return (
-                      <li className="listItem orderItem" key={item.id}>
+                      <li className="listItem orderItem" key={`${item.id}-${nanoid()}`}>
                         <div className="orderHeader">
                           <span className="orderNum num_format_box">{order.name}</span>{" "}
                           <span className="orderDate num_format_box">{convertISODateToString(order.createdAt)}</span>{" "}
@@ -66,7 +65,9 @@ export default function CustomerDetail() {
                               lineItems.map(item => {
                                 const imgUrl = item?.product?.featuredImage.originalSrc
                                 return (
-                                  <li className="order_lineItem" key={imgUrl}>
+                                  <li className="order_lineItem"
+                                    key={`${imgUrl}-${nanoid()}`}
+                                  >
                                     <span className="lineItem_img_wrapper">
                                       <img
                                         className="lineItem_img_main"

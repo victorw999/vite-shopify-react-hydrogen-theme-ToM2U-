@@ -1,5 +1,8 @@
 import { createSlice, createSelector, createAsyncThunk, createEntityAdapter } from '@reduxjs/toolkit'
 import customersLoader from '../../loaders/customersLoader'
+import { calcCustomerTotalSpending } from './customerUtils';
+import sortBy from 'sort-by'
+
 
 export const customerSlice = createSlice({
   name: 'customers',
@@ -19,7 +22,14 @@ export const customerSlice = createSlice({
 
       // only update when current store doesn't have it. prevent duplicates
       if (newCustomers.length > 0) {
-        state.customers = [...state.customers, ...action.payload];
+
+        // add "totalSpending" property to each customer, to sum up customer's total spending 
+        const mod_customers = action.payload.map((customer) => {
+          return { ...customer, totalSpending: calcCustomerTotalSpending(customer) }
+        })
+
+        let arr = [...state.customers, ...mod_customers];
+        state.customers = arr.sort(sortBy('firstName', 'lastName'))
       }
 
     },

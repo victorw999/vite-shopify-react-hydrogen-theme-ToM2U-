@@ -145,7 +145,7 @@ export default function ReactRoot() {
                         size="xl"
                         id="react_searchbar_q"
                         className={` ${searching ? 'loading' : ''} text-contrast`}
-                        aria-label="Search contacts" r
+                        aria-label="Search contacts"
                         placeholder="Search"
                         type="search"
                         name="q"

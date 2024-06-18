@@ -2,6 +2,7 @@
 import { matchSorter } from 'match-sorter'
 import sortBy from 'sort-by'
 
+// filter data based on user search
 export async function filterProductsByQuery(products, query) {
 
   let result
@@ -12,6 +13,5 @@ export async function filterProductsByQuery(products, query) {
   } else {
     result = products
   }
-  // console.log('result: ', result)
   return products
 }

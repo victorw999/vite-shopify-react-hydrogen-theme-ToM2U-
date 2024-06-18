@@ -3,6 +3,9 @@
     - `nvm use 18.12.1`
 - vite server
     - `pnpm vite:dev `
+        -  use this vite command to spin up the preview environment. 
+        - You don't need to `shopify theme dev` for just previewing react app
+        - However, you will need the Shopify theme's preview link to access the preview.
 - shopify theme CLI 
     - `shopify theme dev -s [shopname] -t [theme_id] --live-reload=full-page`
 - tailwind
