@@ -255,10 +255,28 @@
 
   .section_heading{
     @apply font-thin text-[1.5rem] leading-[1.7rem] mb-4 uppercase;
-
-    /* font-family: "Quicksand", sans-serif; */
+ 
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
+  }
+
+  .section_heading_normalcase{
+    @apply font-thin text-[1.5rem] leading-[1.7rem] mb-4;
+  }
+
+  .section_index_page{
+    @apply w-full h-full flex items-center justify-center;
+    h2::first-letter {
+      @apply text-slate-100 font-heading mx-1;      
+      line-height: 1;  
+      initial-letter: 2;
+    }
+    a{
+      @apply font-extrabold text-yellow-400;
+    }
+    b{
+      @apply font-bold uppercase
+    }
   }
 } /* #shopify-react-root */
