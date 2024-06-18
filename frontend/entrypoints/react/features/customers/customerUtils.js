@@ -1,10 +1,13 @@
+
+import { matchSorter } from 'match-sorter'
+import sortBy from 'sort-by'
+
 /**
  * calculate the total spending of all orders of the input customer
  * @param {customer obj} customer obj returned by GraphQL 
  * @returns sum of all orders
  */
 export function calcCustomerTotalSpending(customer) {
-  console.log(' calcCustomerTotalSpending ', customer.firstName)
   let sum = 0
   try {
     sum = customer.orders.edges.reduce((accum, curr) => {
@@ -33,4 +36,19 @@ export function convertISODateToString(dateString) {
 
   // Format the date in "MM/DD/YYYY"
   return `${month}/${day}/${year}`;
+}
+
+// filter data based on user search
+export async function filterCustomersByQuery(customers, query) {
+
+  let result
+  if (!customers) result = []
+  if (query !== null && customers !== null) {
+    result = matchSorter(customers, query, { keys: ['firstName', 'lastName'] })
+    return result.sort(sortBy('firstName', 'lastName'))
+  } else {
+    result = customers
+  }
+  // console.log('result: ', result)
+  return customers
 }
