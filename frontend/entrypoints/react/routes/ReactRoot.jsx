@@ -130,10 +130,8 @@ export default function ReactRoot() {
 
                   <div className="sidebar_row_1 mb-4 flex relative px-[theme('sidebarMargin.default')]">
                     <IconGoBack className="" action={toggleSidebar} />
-                    <h1 className="text-2xl ">React Router Contacts</h1>
+                    <h1 className="text-2xl ">Custom React Shopify App</h1>
                   </div>
-
-
 
                   <div className="contactFormWrapper px-[theme('sidebarMargin.default')] flex flex-row space-x-4 text-3xl   justify-between">
                     <Form
@@ -179,18 +177,11 @@ export default function ReactRoot() {
                   </div>
                   <nav>
                     <div className="app-display-list">
-                      <li className='app-tool-bar'>
-                        <Link to={`/`}>
-                          <IconHome />
-                          <IconLoadCustomer action={() => dispatch(fetchCustomers())} />
-                        </Link>
-                      </li>
 
                       <TabSwitch
                         activeTab={activeTab}
                         setActiveTab={setActiveTab}
                         contactsState={contactsState}
-
                       />
 
                     </div>

@@ -20,7 +20,7 @@ export default function ContactIndex() {
   return (
     <div className="section_index_page bg-transparent">
       <h2 className="section_heading_normalcase">
-        Provides a glossary of your B2B customer contact information, streamlining communication.
+        <b>Directory:</b> Provides a glossary of your B2B customer contact information, streamlining communication.
         While this serves as a proof-of-concept for a contact directory, its underlying layout can be adapted to encompass a wider range of functionalities.  This includes the management of merchandise information, product categorization, and establishing associations between different data points.
 
       </h2>

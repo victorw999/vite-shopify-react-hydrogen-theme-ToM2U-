@@ -79,10 +79,10 @@
   width: 100%;
   position: fixed;*/
   z-index: 11;
-  
-  font-family: "Quicksand", sans-serif; 
+
+  font-family: "Quicksand", sans-serif;
   * {
-    font-family: "Quicksand", sans-serif;   
+    font-family: "Quicksand", sans-serif;
   }
 
   &.error-state {
@@ -95,7 +95,8 @@
   }
 
   /*** ICONS ***/
-  .appIcon {
+  .appIcon,
+  button.tab_ctrl_unit {
     @apply p-3 border-2 border-zinc-100 rounded-xl;
   }
 
@@ -104,6 +105,9 @@
   #sidebar {
     @apply bg-contrast0;
 
+    .element_padding {
+      @apply px-7 py-4;
+    }
     /***  ***/
     .app-display-list {
       @apply pl-0 pb-80;
@@ -113,26 +117,18 @@
       }
 
       a,
-      navlink,
       .list-header {
-        @apply block px-7 py-4 no-underline border-b-[1px] border-zinc-600 transition-all;
+        @apply element_padding block  no-underline border-b-[1px] border-zinc-600 transition-all;
         &.active {
           @apply bg-contrast2 text-accent;
         }
         &.pending {
-          color: hsl(224, 98%, 58%);
+          @apply text-yellow-400;
         }
       }
 
       .list-header {
         @apply font-bold text-xl;
-      }
-    }
-
-    /***  ***/
-    .app-tool-bar {
-      .appIcon {
-        @apply mr-4;
       }
     }
   } /* #sidebar */
@@ -174,10 +170,30 @@
 
   /* TabSwitch */
   .tab-controls {
-    button {
-      border: 2px solid white;
-      padding: 10px;
-      margin: 10px;
+    @apply flex items-center justify-around sm:justify-start element_padding;
+    > a {
+      padding: 0px !important;
+      @apply border-none;
+    }
+
+    .tab_ctrl_unit {
+      @apply h-[43px] mr-1 flex justify-center items-center;
+    }
+
+    .appIcon {
+      @apply border-[1px] border-zinc-600 hover:border-2 hover:border-zinc-100;
+    }
+
+    button.tab_ctrl_unit {
+      @apply border-none p-0 sm:p-3
+        sm:border-[1px]  sm:border-solid  sm:border-zinc-600 sm:hover:border-2 sm:hover:border-zinc-100;
+    }
+
+    .desktop_txt {
+      @apply hidden sm:block;
+    }
+    .mobile_icon {
+      @apply block sm:hidden;
     }
   }
 
@@ -233,50 +249,50 @@
     @apply flex-shrink flex-grow basis-auto p-8;
   }
 
-  .list_section{
-    ul{
+  .list_section {
+    ul {
       @apply list-none p-3;
     }
   }
 
-  .num_format_box{
-    @apply font-mono p-[2px] px-3 border border-gray-700 rounded-[2px] ;
+  .num_format_box {
+    @apply font-mono p-[2px] px-3 border border-gray-700 rounded-[2px];
   }
 
-  .order_lineItem{
+  .order_lineItem {
     @apply flex overflow-hidden p-2 m-2;
-    .lineItem_img_wrapper{
+    .lineItem_img_wrapper {
       @apply w-[100px] min-w-[100px] h-[100px] overflow-hidden;
     }
-    .lineItem_info{
+    .lineItem_info {
       @apply flex-grow;
     }
   }
 
-  .section_heading{
+  .section_heading {
     @apply font-thin text-[1.5rem] leading-[1.7rem] mb-4 uppercase;
- 
+
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
   }
 
-  .section_heading_normalcase{
+  .section_heading_normalcase {
     @apply font-thin text-[1.5rem] leading-[1.7rem] mb-4;
   }
 
-  .section_index_page{
+  .section_index_page {
     @apply w-full h-full flex items-center justify-center;
     h2::first-letter {
-      @apply text-slate-100 font-heading mx-1;      
-      line-height: 1;  
+      @apply text-slate-100 font-heading mx-1;
+      line-height: 1;
       initial-letter: 2;
     }
-    a{
+    a {
       @apply font-extrabold text-yellow-400;
     }
-    b{
-      @apply font-bold uppercase
+    b {
+      @apply font-bold uppercase;
     }
   }
 } /* #shopify-react-root */

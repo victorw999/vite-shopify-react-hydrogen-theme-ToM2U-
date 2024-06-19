@@ -6,6 +6,7 @@ import { BsPeople } from "react-icons/bs";
 import { RiHome7Line } from "react-icons/ri";
 import { BsDatabaseDown } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
+import { PiPants } from "react-icons/pi";
 
 const bsi = 2 // btn shake intensity
 const framerBtnHover = (flag) => {
@@ -98,6 +99,23 @@ export function IconLoadCustomer(props) {
       {...rest}
     >
       <CgProfile />
+    </motion.button>
+  )
+}
+
+/**  Pants icon represent "products" */
+export function IconProducts(props) {
+  const { action, className, ...rest } = props; // Destructure and separate 'action'
+
+  return (
+    <motion.button
+      whileHover={framerBtnHover}
+      onClick={action}
+      className={`appIcon  ${className ? className : ''}`}
+      aria-label="toggle load products"
+      {...rest}
+    >
+      <PiPants />
     </motion.button>
   )
 }

@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { framerText } from '../../utils/framerAnimationOptions';
 import ContactList from '../contacts/ContactList';
 import ProductList from '../products/ProductList';
-import { useNavigate, redirect, NavLink } from 'react-router-dom';
+import { useNavigate, redirect, NavLink, Link } from 'react-router-dom';
 import CustomerList from '../customers/CustomerList';
+import { IconHome, IconPeople, IconLoadCustomer, IconProducts } from '../../components/icons';
 
 const TabSwitch = ({ activeTab, setActiveTab, contactsState }) => {
 
@@ -22,25 +23,32 @@ const TabSwitch = ({ activeTab, setActiveTab, contactsState }) => {
 
     <div className='TabSwitch'>
       <div className="tab-controls">
+
+
+        <Link to={`/`} className='tab_ctrl_unit'>
+          <IconHome />
+        </Link>
         <button
-          className={activeTab === 'contacts' ? 'active' : ''}
-          onClick={() => handleTabClick('contacts')}
-        >
-          contacts
-        </button>
-        <button
-          className={activeTab === 'customers' ? 'active' : ''}
-          onClick={() => handleTabClick('customers')}
-        >
-          customers
-        </button>
-        <button
-          className={activeTab === 'products' ? 'active' : ''}
+          className={`${activeTab === 'products' ? 'active' : ''} tab_ctrl_unit`}
           onClick={() => handleTabClick('products')}
         >
-          products
+          <span className="desktop_txt">Products</span>
+          <IconProducts className='mobile_icon' />
         </button>
-
+        <button
+          className={`${activeTab === 'customers' ? 'active' : ''} tab_ctrl_unit`}
+          onClick={() => handleTabClick('customers')}
+        >
+          <span className="desktop_txt">Customers</span>
+          <IconPeople className="mobile_icon" />
+        </button>
+        <button
+          className={`${activeTab === 'contacts' ? 'active' : ''} tab_ctrl_unit`}
+          onClick={() => handleTabClick('contacts')}
+        >
+          <span className="desktop_txt">Contacts</span>
+          <IconLoadCustomer className="mobile_icon" />
+        </button>
       </div>
 
       <div className="tab-content">

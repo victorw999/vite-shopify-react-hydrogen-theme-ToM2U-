@@ -2712,17 +2712,21 @@ select {
     background-color: rgba(var(--color-contrast) / var(--tw-bg-opacity));
   }
   /*** ICONS ***/
-  .appIcon {
+  .appIcon,
+  button.tab_ctrl_unit {
     border-radius: 0.75rem;
   }
-  .appIcon {
+  .appIcon,
+  button.tab_ctrl_unit {
     border-width: 2px;
   }
-  .appIcon {
+  .appIcon,
+  button.tab_ctrl_unit {
     --tw-border-opacity: 1;
     border-color: rgb(244 244 245 / var(--tw-border-opacity));
   }
-  .appIcon {
+  .appIcon,
+  button.tab_ctrl_unit {
     padding: 0.75rem;
   }
   /*** Side Bar ***/
@@ -2731,6 +2735,14 @@ select {
     background-color: hsl(225 6% 15% / var(--tw-bg-opacity));
   }
   #sidebar {
+    .element_padding {
+      padding-left: 1.75rem;
+      padding-right: 1.75rem;
+    }
+    .element_padding {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
     /***  ***/
     .app-display-list {
       padding-left: 0px;
@@ -2743,47 +2755,108 @@ select {
         list-style-type: none;
       }
       a,
-      navlink,
       .list-header {
         display: block;
       }
       a,
-      navlink,
       .list-header {
         border-bottom-width: 1px;
       }
       a,
-      navlink,
       .list-header {
         --tw-border-opacity: 1;
         border-color: rgb(82 82 91 / var(--tw-border-opacity));
       }
       a,
-      navlink,
-      .list-header {
-        padding-left: 1.75rem;
-        padding-right: 1.75rem;
-      }
-      a,
-      navlink,
-      .list-header {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-      }
-      a,
-      navlink,
       .list-header {
         text-decoration-line: none;
       }
       a,
-      navlink,
       .list-header {
         transition-property: all;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-duration: 150ms;
       }
+       {
+        /*display: flex;
+  height: 100%;
+  width: 100%;
+  position: fixed;*/
+        z-index: 11;
+        font-family: "Quicksand", sans-serif;
+        /*** Error Page ***/
+        /*** ICONS ***/
+        /*** Side Bar ***/
+         {
+          a,
+      .list-header {
+            padding-left: 1.75rem;
+            padding-right: 1.75rem;
+          }
+          a,
+      .list-header {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+          }
+          a,
+      .list-header {
+            padding-left: 1.75rem;
+            padding-right: 1.75rem;
+          }
+          a,
+      .list-header {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+          }
+          /***  ***/
+        }
+        /* #sidebar */
+        /*** Custom Scroll Style ***/
+        /* #sidebar form*/
+        /* TabSwitch */
+        /*hidden*/
+        /* #contact-form */
+      }
+       {
+         {
+          a,
+      .list-header {
+            padding-left: 1.75rem;
+            padding-right: 1.75rem;
+          }
+          a,
+      .list-header {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+          }
+          a,
+      .list-header {
+            padding-left: 1.75rem;
+            padding-right: 1.75rem;
+          }
+          a,
+      .list-header {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+          }
+          /***  ***/
+        }
+      }
+       {
+         {
+          a,
+      .list-header {
+            padding-left: 1.75rem;
+            padding-right: 1.75rem
+          }
+          a,
+      .list-header {
+            padding-top: 1rem;
+            padding-bottom: 1rem
+          }
+        }
+      }
       a,
-      navlink,
       .list-header {
         &.active {
           --tw-bg-opacity: 1;
@@ -2793,7 +2866,8 @@ select {
           color: hsl(var(--accent));
         }
         &.pending {
-          color: hsl(224, 98%, 58%);
+          --tw-text-opacity: 1;
+          color: rgb(250 204 21 / var(--tw-text-opacity));
         }
       }
       .list-header {
@@ -2802,12 +2876,6 @@ select {
       }
       .list-header {
         font-weight: 700;
-      }
-    }
-    /***  ***/
-    .app-tool-bar {
-      .appIcon {
-        margin-right: 1rem;
       }
     }
   }
@@ -2847,10 +2915,177 @@ select {
   /* #sidebar form*/
   /* TabSwitch */
   .tab-controls {
-    button {
-      border: 2px solid white;
-      padding: 10px;
-      margin: 10px;
+    display: flex;
+  }
+  .tab-controls {
+    align-items: center;
+  }
+  .tab-controls {
+    justify-content: space-around;
+  }
+   {
+    /*display: flex;
+  height: 100%;
+  width: 100%;
+  position: fixed;*/
+    z-index: 11;
+    font-family: "Quicksand", sans-serif;
+    /*** Error Page ***/
+    /*** ICONS ***/
+    /*** Side Bar ***/
+     {
+      .tab-controls {
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
+      }
+      .tab-controls {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .tab-controls {
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
+      }
+      .tab-controls {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      /***  ***/
+    }
+    /* #sidebar */
+    /*** Custom Scroll Style ***/
+    /* #sidebar form*/
+    /* TabSwitch */
+    /*hidden*/
+    /* #contact-form */
+  }
+   {
+     {
+      .tab-controls {
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
+      }
+      .tab-controls {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      .tab-controls {
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
+      }
+      .tab-controls {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+      }
+      /***  ***/
+    }
+  }
+   {
+     {
+      .tab-controls {
+        padding-left: 1.75rem;
+        padding-right: 1.75rem
+      }
+      .tab-controls {
+        padding-top: 1rem;
+        padding-bottom: 1rem
+      }
+    }
+  }
+  @media (min-width: 32em) {
+    .tab-controls {
+      justify-content: flex-start;
+    }
+  }
+  .tab-controls {
+    > a {
+      padding: 0px !important;
+    }
+    > a {
+      border-style: none;
+    }
+    .tab_ctrl_unit {
+      margin-right: 0.25rem;
+    }
+    .tab_ctrl_unit {
+      display: flex;
+    }
+    .tab_ctrl_unit {
+      height: 43px;
+    }
+    .tab_ctrl_unit {
+      align-items: center;
+    }
+    .tab_ctrl_unit {
+      justify-content: center;
+    }
+    .appIcon {
+      border-width: 1px;
+    }
+    .appIcon {
+      --tw-border-opacity: 1;
+      border-color: rgb(82 82 91 / var(--tw-border-opacity));
+    }
+    .appIcon:hover {
+      border-width: 2px;
+    }
+    .appIcon:hover {
+      --tw-border-opacity: 1;
+      border-color: rgb(244 244 245 / var(--tw-border-opacity));
+    }
+    button.tab_ctrl_unit {
+      border-style: none;
+    }
+    button.tab_ctrl_unit {
+      padding: 0px;
+    }
+    @media (min-width: 32em) {
+      button.tab_ctrl_unit {
+        border-width: 1px;
+      }
+    }
+    @media (min-width: 32em) {
+      button.tab_ctrl_unit {
+        border-style: solid;
+      }
+    }
+    @media (min-width: 32em) {
+      button.tab_ctrl_unit {
+        --tw-border-opacity: 1;
+        border-color: rgb(82 82 91 / var(--tw-border-opacity));
+      }
+    }
+    @media (min-width: 32em) {
+      button.tab_ctrl_unit {
+        padding: 0.75rem;
+      }
+    }
+    @media (min-width: 32em) {
+      button.tab_ctrl_unit:hover {
+        border-width: 2px;
+      }
+    }
+    @media (min-width: 32em) {
+      button.tab_ctrl_unit:hover {
+        --tw-border-opacity: 1;
+        border-color: rgb(244 244 245 / var(--tw-border-opacity));
+      }
+    }
+    .desktop_txt {
+      display: none;
+    }
+    @media (min-width: 32em) {
+      .desktop_txt {
+        display: block;
+      }
+    }
+    .mobile_icon {
+      display: block;
+    }
+    @media (min-width: 32em) {
+      .mobile_icon {
+        display: none;
+      }
     }
   }
   /*hidden*/
@@ -3014,7 +3249,7 @@ select {
   .detail_info_wrapper {
     padding: 2rem;
   }
-  .list_section{
+  .list_section {
     ul {
       list-style-type: none;
     }
@@ -3054,7 +3289,7 @@ select {
   .order_lineItem {
     padding: 0.5rem;
   }
-  .order_lineItem{
+  .order_lineItem {
     .lineItem_img_wrapper {
       height: 100px;
     }
@@ -3086,7 +3321,7 @@ select {
   .section_heading {
     line-height: 1.7rem;
   }
-  .section_heading{
+  .section_heading {
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
@@ -3118,7 +3353,7 @@ select {
   .section_index_page {
     justify-content: center;
   }
-  .section_index_page{
+  .section_index_page {
     h2::first-letter {
       margin-left: 0.25rem;
       margin-right: 0.25rem;
