@@ -1,8 +1,6 @@
 import { SHOPIFY_URL, importAllImages } from '../Global'
 import {
-  Outlet,
-  NavLink,
-  Link,
+  Outlet, useOutlet,
   useNavigation, useNavigate,
   useSubmit,
   Form,
@@ -19,7 +17,7 @@ import { filterContactsByQuery, createContact } from '../features/contacts/conta
 import { motion, AnimatePresence } from 'framer-motion'
 import { framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
 
-import { IconGoBack, IconPeople, IconHome, IconLoadCustomer } from '../components/icons'
+import { IconGoBack, IconPeople, IconHome, IconLoadCustomer, IconNewContact } from '../components/icons'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactsPlaceholderImgs } from '../features/contacts/contactSlice'
@@ -63,6 +61,8 @@ export default function ReactRoot() {
     }
   }, [q])
 
+  // check if outlet exist
+  const outlet = useOutlet()
 
   /* another method to trigger a rout action (in this case: loader())
     * 0, specifies the relative offset within the history stack. 0 indicates navigating to the current route  
@@ -120,23 +120,21 @@ export default function ReactRoot() {
               <motion.div
                 {...framerSidebarPanel}
                 id="sidebar"
-                className="container z-10 flex h-screen 
+                className="container  
                 scroll_bar_style
-                w-[300px] min-w-[300px] 
-                md:w-[30rem] md:min-w-[30rem]
-                flex-col overflow-y-auto py-5 px-0"
+                "
               >
                 <div className="sidebar_innerContainer py-5">
 
-                  <div className="sidebar_row_1 mb-4 flex relative px-[theme('sidebarMargin.default')]">
-                    <IconGoBack className="" action={toggleSidebar} />
+                  <div className="app_top_row">
+                    <IconGoBack className="close_btn" action={toggleSidebar} />
                     <h1 className="text-2xl ">Custom React Shopify App</h1>
                   </div>
 
-                  <div className="contactFormWrapper px-[theme('sidebarMargin.default')] flex flex-row space-x-4 text-3xl   justify-between">
+                  <div className="search-bar-wrapper">
                     <Form
                       id="search-form"
-                      className="my-5 h-[theme('btnHeight.default')] bg-white  grow  "
+                      className="my-5 h-[theme('btnHeight.default')] bg-white grow"
                       role="search"
                     >
                       <Input
@@ -164,18 +162,19 @@ export default function ReactRoot() {
                       />
                       <div className="sr-only" aria-live="polite"></div>
                     </Form>
-                    <Form method="post" className={`my-5 ml-3 ${activeTab !== 'contacts' ? 'hidden' : ""}`}>
+                    <Form method="post" className={`add_new_contact_form ${activeTab !== 'contacts' ? 'hidden' : ""}`}>
                       <Button
                         type="submit"
                         variant="default"
                         size="xl"
-                        className="w-full text-contrast2 "
+                        className="add_new_contact_btn"
                       >
-                        New
+                        <span className="desktop_txt">New</span>
+                        <IconNewContact className='mobile_icon' />
                       </Button>
                     </Form>
                   </div>
-                  <nav>
+                  <div>
                     <div className="app-display-list">
 
                       <TabSwitch
@@ -185,14 +184,19 @@ export default function ReactRoot() {
                       />
 
                     </div>
-                  </nav>
+                  </div>
                 </div>
               </motion.div>
               <div
                 id="outlet_container"
                 className={`scroll_bar_style ${navigation.state === 'loading' ? 'loading' : ''} `}
               >
-                <Outlet />
+                <div className="app_top_row">
+                  <IconGoBack className="close_btn" action={toggleSidebar} />
+                </div>
+                <div className={`outlet_wrapper ${!outlet ? 'outlet-empty' : 'outlet-active'}`}>
+                  <Outlet />
+                </div>
               </div>
             </motion.div>)
         }
