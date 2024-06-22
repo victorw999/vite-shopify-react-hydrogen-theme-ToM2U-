@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
+import { OutletContext } from '../../routes/ReactRoot'
 
 const ns = 'contactlist'
 
 function ContactList({ list, framerText }) {
+  const { setOutletState } = useContext(OutletContext);
+
   return (
     <div className={`${ns}`}>
       <li><h3 className='list-header bg-contrast2'>Contacts</h3></li>
@@ -19,6 +22,7 @@ function ContactList({ list, framerText }) {
               className={({ isActive, isPending }) =>
                 isActive ? 'active' : isPending ? 'pending' : ''
               }
+              onClick={() => setOutletState('active')}
             >
               {contact.first || contact.last ? (
                 <>

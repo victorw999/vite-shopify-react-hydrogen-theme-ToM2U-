@@ -1478,10 +1478,6 @@ select {
   margin-left: 0.5rem;
 }
 
-.ml-3 {
-  margin-left: 0.75rem;
-}
-
 .ml-4 {
   margin-left: 1rem;
 }
@@ -1683,10 +1679,6 @@ select {
   width: 0.75rem;
 }
 
-.w-\[300px\] {
-  width: 300px;
-}
-
 .w-auto {
   width: auto;
 }
@@ -1706,10 +1698,6 @@ select {
 
 .w-screen {
   width: 100vw;
-}
-
-.min-w-\[300px\] {
-  min-width: 300px;
 }
 
 .max-w-7xl {
@@ -1869,10 +1857,6 @@ select {
   grid-template-rows: auto 1fr auto;
 }
 
-.flex-row {
-  flex-direction: row;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -1960,12 +1944,6 @@ select {
 
 .gap-y-6 {
   row-gap: 1.5rem;
-}
-
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
@@ -2258,11 +2236,6 @@ select {
   padding-right: 0.125rem;
 }
 
-.px-\[theme\(\'sidebarMargin\.default\'\)\] {
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
-}
-
 .py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -2393,11 +2366,6 @@ select {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
 }
 
 .text-4xl {
@@ -2678,10 +2646,6 @@ select {
 /* side bar project */
 
 #shopify-react-root {
-  /*display: flex;
-  height: 100%;
-  width: 100%;
-  position: fixed;*/
   z-index: 11;
   font-family: "Quicksand", sans-serif;
   * {
@@ -2729,10 +2693,82 @@ select {
   button.tab_ctrl_unit {
     padding: 0.75rem;
   }
+  /*** Custom Scroll Style ***/
+  .scroll_bar_style {
+    /*** scroll bar style ***/
+    /* General scrollbar styling */
+    &::-webkit-scrollbar {
+      width: 2px;
+      /* Example width - adjust as desired */
+    }
+    /* Styling the scrollbar thumb (the draggable part) */
+    &::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--border));
+    }
+    /* Styling the scrollbar track (the background) */
+    &::-webkit-scrollbar-track {
+      background-color: hsl(var(--muted));
+    }
+  }
+  /*** Top row contains close app btn ***/
+  .app_top_row {
+    position: relative;
+  }
+  .app_top_row {
+    margin-bottom: 1rem;
+  }
+  .app_top_row {
+    display: flex;
+  }
+  .app_top_row {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
   /*** Side Bar ***/
+  #sidebar {
+    position: absolute;
+  }
+  #sidebar {
+    z-index: 10;
+  }
+  #sidebar {
+    display: flex;
+  }
+  #sidebar {
+    height: var(--screen-height, 100vh);
+  }
+  #sidebar {
+    flex-direction: column;
+  }
+  #sidebar {
+    overflow-y: auto;
+  }
   #sidebar {
     --tw-bg-opacity: 1;
     background-color: hsl(225 6% 15% / var(--tw-bg-opacity));
+  }
+  #sidebar {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  #sidebar {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  @media (min-width: 48em) {
+    #sidebar {
+      position: relative;
+    }
+  }
+  @media (min-width: 48em) {
+    #sidebar {
+      width: 30rem;
+    }
+  }
+  @media (min-width: 48em) {
+    #sidebar {
+      min-width: 30rem;
+    }
   }
   #sidebar {
     .element_padding {
@@ -2778,15 +2814,19 @@ select {
         transition-duration: 150ms;
       }
        {
-        /*display: flex;
-  height: 100%;
-  width: 100%;
-  position: fixed;*/
         z-index: 11;
         font-family: "Quicksand", sans-serif;
         /*** Error Page ***/
         /*** ICONS ***/
+        /*** Custom Scroll Style ***/
+        /*** Top row contains close app btn ***/
         /*** Side Bar ***/
+        @media (min-width: 48em) {
+        }
+        @media (min-width: 48em) {
+        }
+        @media (min-width: 48em) {
+        }
          {
           a,
       .list-header {
@@ -2811,10 +2851,14 @@ select {
           /***  ***/
         }
         /* #sidebar */
-        /*** Custom Scroll Style ***/
+        /* desktop/mobile icon visibilty control */
         /* #sidebar form*/
+        /* Search Bar */
+        /* Add New Contact Button */
         /* TabSwitch */
         /*hidden*/
+        /* OUTLET */
+        /* Edit.jsx */
         /* #contact-form */
       }
        {
@@ -2880,21 +2924,21 @@ select {
     }
   }
   /* #sidebar */
-  /*** Custom Scroll Style ***/
-  .scroll_bar_style {
-    /*** scroll bar style ***/
-    /* General scrollbar styling */
-    &::-webkit-scrollbar {
-      width: 2px;
-      /* Example width - adjust as desired */
+  /* desktop/mobile icon visibilty control */
+  .desktop_txt {
+    display: none;
+  }
+  @media (min-width: 48em) {
+    .desktop_txt {
+      display: block;
     }
-    /* Styling the scrollbar thumb (the draggable part) */
-    &::-webkit-scrollbar-thumb {
-      background-color: hsl(var(--border));
-    }
-    /* Styling the scrollbar track (the background) */
-    &::-webkit-scrollbar-track {
-      background-color: hsl(var(--muted));
+  }
+  .mobile_icon {
+    display: block;
+  }
+  @media (min-width: 48em) {
+    .mobile_icon {
+      display: none;
     }
   }
   #sidebar form {
@@ -2913,6 +2957,70 @@ select {
     }
   }
   /* #sidebar form*/
+  /* Search Bar */
+  .search-bar-wrapper {
+    display: flex;
+  }
+  .search-bar-wrapper {
+    flex-direction: row;
+  }
+  .search-bar-wrapper {
+    justify-content: space-between;
+  }
+  .search-bar-wrapper > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+  .search-bar-wrapper {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+  .search-bar-wrapper {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  /* Add New Contact Button */
+  .add_new_contact_form {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .add_new_contact_form {
+    margin-left: 0.75rem;
+  }
+  .add_new_contact_form {
+    .add_new_contact_btn {
+      width: 100%;
+    }
+    .add_new_contact_btn {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .add_new_contact_btn {
+      --tw-text-opacity: 1;
+      color: hsl(225 6% 12% / var(--tw-text-opacity));
+    }
+    @media (min-width: 48em) {
+      .add_new_contact_btn {
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
+    }
+    .add_new_contact_btn {
+      .mobile_icon {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+      .mobile_icon {
+        svg {
+          height: 16px;
+        }
+        svg {
+          width: 16px;
+        }
+      }
+    }
+  }
   /* TabSwitch */
   .tab-controls {
     display: flex;
@@ -2924,15 +3032,19 @@ select {
     justify-content: space-around;
   }
    {
-    /*display: flex;
-  height: 100%;
-  width: 100%;
-  position: fixed;*/
     z-index: 11;
     font-family: "Quicksand", sans-serif;
     /*** Error Page ***/
     /*** ICONS ***/
+    /*** Custom Scroll Style ***/
+    /*** Top row contains close app btn ***/
     /*** Side Bar ***/
+    @media (min-width: 48em) {
+    }
+    @media (min-width: 48em) {
+    }
+    @media (min-width: 48em) {
+    }
      {
       .tab-controls {
         padding-left: 1.75rem;
@@ -2953,10 +3065,18 @@ select {
       /***  ***/
     }
     /* #sidebar */
-    /*** Custom Scroll Style ***/
+    /* desktop/mobile icon visibilty control */
+    @media (min-width: 48em) {
+    }
+    @media (min-width: 48em) {
+    }
     /* #sidebar form*/
+    /* Search Bar */
+    /* Add New Contact Button */
     /* TabSwitch */
     /*hidden*/
+    /* OUTLET */
+    /* Edit.jsx */
     /* #contact-form */
   }
    {
@@ -2992,7 +3112,7 @@ select {
       }
     }
   }
-  @media (min-width: 32em) {
+  @media (min-width: 48em) {
     .tab-controls {
       justify-content: flex-start;
     }
@@ -3039,52 +3159,36 @@ select {
     button.tab_ctrl_unit {
       padding: 0px;
     }
-    @media (min-width: 32em) {
+    @media (min-width: 48em) {
       button.tab_ctrl_unit {
         border-width: 1px;
       }
     }
-    @media (min-width: 32em) {
+    @media (min-width: 48em) {
       button.tab_ctrl_unit {
         border-style: solid;
       }
     }
-    @media (min-width: 32em) {
+    @media (min-width: 48em) {
       button.tab_ctrl_unit {
         --tw-border-opacity: 1;
         border-color: rgb(82 82 91 / var(--tw-border-opacity));
       }
     }
-    @media (min-width: 32em) {
+    @media (min-width: 48em) {
       button.tab_ctrl_unit {
         padding: 0.75rem;
       }
     }
-    @media (min-width: 32em) {
+    @media (min-width: 48em) {
       button.tab_ctrl_unit:hover {
         border-width: 2px;
       }
     }
-    @media (min-width: 32em) {
+    @media (min-width: 48em) {
       button.tab_ctrl_unit:hover {
         --tw-border-opacity: 1;
         border-color: rgb(244 244 245 / var(--tw-border-opacity));
-      }
-    }
-    .desktop_txt {
-      display: none;
-    }
-    @media (min-width: 32em) {
-      .desktop_txt {
-        display: block;
-      }
-    }
-    .mobile_icon {
-      display: block;
-    }
-    @media (min-width: 32em) {
-      .mobile_icon {
-        display: none;
       }
     }
   }
@@ -3110,16 +3214,50 @@ select {
       visibility: hidden;
     }
   }
+  /* OUTLET */
   #outlet_container {
-    flex: 1;
-    padding: 2rem 4rem;
+    position: absolute;
+  }
+  #outlet_container {
+    z-index: 9;
+  }
+  #outlet_container {
+    height: 100%;
+  }
+  #outlet_container {
     width: 100%;
+  }
+  #outlet_container {
+    flex: 1 1 0%;
   }
   #outlet_container {
     --tw-bg-opacity: 1;
     background-color: hsl(225 6% 12% / var(--tw-bg-opacity));
   }
   #outlet_container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #outlet_container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @media (min-width: 48em) {
+    #outlet_container {
+      position: relative;
+    }
+  }
+  @media (min-width: 48em) {
+    #outlet_container {
+      z-index: 11;
+    }
+  }
+  #outlet_container {
+    border: 10px solid red;
+    /* toggle outlet section visibility @mobile */
+    &.outlet_active {
+      z-index: 12;
+    }
     &.loading::before {
       content: "";
       position: absolute;
@@ -3128,6 +3266,7 @@ select {
     }
     overflow-y: scroll;
   }
+  /* Edit.jsx */
   #contact-form {
     .form-row,
     .form-row-wrapper {
@@ -3740,20 +3879,12 @@ select {
     width: 7rem;
   }
 
-  .md\:w-\[30rem\] {
-    width: 30rem;
-  }
-
   .md\:w-\[calc\(50\%_-_theme\(spacing\.4\)\)\] {
     width: calc(50% - 1rem);
   }
 
   .md\:w-full {
     width: 100%;
-  }
-
-  .md\:min-w-\[30rem\] {
-    min-width: 30rem;
   }
 
   .md\:max-w-\[335px\] {

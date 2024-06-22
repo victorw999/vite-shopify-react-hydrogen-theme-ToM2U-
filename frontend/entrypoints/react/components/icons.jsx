@@ -7,6 +7,7 @@ import { RiHome7Line } from "react-icons/ri";
 import { BsDatabaseDown } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { PiPants } from "react-icons/pi";
+import { VscNewFile } from "react-icons/vsc";
 
 const bsi = 2 // btn shake intensity
 const framerBtnHover = (flag) => {
@@ -116,6 +117,22 @@ export function IconProducts(props) {
       {...rest}
     >
       <PiPants />
+    </motion.button>
+  )
+}
+
+/**  create new contact, next to search bar*/
+export function IconNewContact(props) {
+  const { action, className, ...rest } = props; // Destructure and separate 'action'
+
+  return (
+    <motion.button
+      onClick={action}
+      className={`appIcon  ${className ? className : ''}`}
+      aria-label="toggle new contact "
+      {...rest}
+    >
+      <VscNewFile />
     </motion.button>
   )
 }

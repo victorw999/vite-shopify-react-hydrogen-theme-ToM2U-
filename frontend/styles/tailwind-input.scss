@@ -74,10 +74,6 @@
 
 /* side bar project */
 #shopify-react-root {
-  /*display: flex;
-  height: 100%;
-  width: 100%;
-  position: fixed;*/
   z-index: 11;
 
   font-family: "Quicksand", sans-serif;
@@ -100,10 +96,43 @@
     @apply p-3 border-2 border-zinc-100 rounded-xl;
   }
 
-  /*** Side Bar ***/
+  /*** Custom Scroll Style ***/
+  .scroll_bar_style {
+    /*** scroll bar style ***/
+    /* General scrollbar styling */
+    &::-webkit-scrollbar {
+      width: 2px; /* Example width - adjust as desired */
+    }
 
+    /* Styling the scrollbar thumb (the draggable part) */
+    &::-webkit-scrollbar-thumb {
+      @apply bg-border;
+    }
+
+    /* Styling the scrollbar track (the background) */
+    &::-webkit-scrollbar-track {
+      @apply bg-muted;
+    }
+  }
+
+  /*** Top row contains close app btn ***/
+  .app_top_row {
+    @apply mb-4 flex relative px-[theme('sidebarMargin.default')];
+  }
+
+  /*** Side Bar ***/
   #sidebar {
-    @apply bg-contrast0;
+    @apply bg-contrast0
+    z-10 flex 
+    absolute md:relative
+    
+    /*border-[15px] border-solid border-red-500*/
+
+    h-screen
+    /*w-[300px] min-w-[300px]
+    w-screen  min-w-screen*/
+    md:w-[30rem] md:min-w-[30rem]
+    flex-col overflow-y-auto py-5 px-0;
 
     .element_padding {
       @apply px-7 py-4;
@@ -133,23 +162,12 @@
     }
   } /* #sidebar */
 
-  /*** Custom Scroll Style ***/
-  .scroll_bar_style {
-    /*** scroll bar style ***/
-    /* General scrollbar styling */
-    &::-webkit-scrollbar {
-      width: 2px; /* Example width - adjust as desired */
-    }
-
-    /* Styling the scrollbar thumb (the draggable part) */
-    &::-webkit-scrollbar-thumb {
-      @apply bg-border;
-    }
-
-    /* Styling the scrollbar track (the background) */
-    &::-webkit-scrollbar-track {
-      @apply bg-muted;
-    }
+  /* desktop/mobile icon visibilty control */
+  .desktop_txt {
+    @apply hidden md:block;
+  }
+  .mobile_icon {
+    @apply block md:hidden;
   }
 
   #sidebar form {
@@ -168,9 +186,27 @@
     }
   } /* #sidebar form*/
 
+  /* Search Bar */
+  .search-bar-wrapper {
+    @apply px-[theme('sidebarMargin.default')] flex flex-row space-x-4 text-3xl justify-between;
+  }
+  /* Add New Contact Button */
+  .add_new_contact_form {
+    @apply my-5 ml-3;
+    .add_new_contact_btn {
+      @apply w-full text-contrast2 px-0 md:px-8;
+      .mobile_icon {
+        @apply px-5;
+        svg {
+          @apply w-[16px] h-[16px];
+        }
+      }
+    }
+  }
+
   /* TabSwitch */
   .tab-controls {
-    @apply flex items-center justify-around sm:justify-start element_padding;
+    @apply flex items-center justify-around md:justify-start element_padding;
     > a {
       padding: 0px !important;
       @apply border-none;
@@ -185,15 +221,8 @@
     }
 
     button.tab_ctrl_unit {
-      @apply border-none p-0 sm:p-3
-        sm:border-[1px]  sm:border-solid  sm:border-zinc-600 sm:hover:border-2 sm:hover:border-zinc-100;
-    }
-
-    .desktop_txt {
-      @apply hidden sm:block;
-    }
-    .mobile_icon {
-      @apply block sm:hidden;
+      @apply border-none p-0 md:p-3
+        md:border-[1px]  md:border-solid  md:border-zinc-600 md:hover:border-2 md:hover:border-zinc-100;
     }
   }
 
@@ -206,11 +235,22 @@
     }
   }
 
+  /* OUTLET */
   #outlet_container {
-    flex: 1;
-    padding: 2rem 4rem;
-    width: 100%;
-    @apply bg-contrast2;
+    @apply bg-contrast2 
+    absolute md:relative
+    w-full h-full 
+    z-[9] md:z-[11]
+    px-8 py-16
+    flex-1;
+
+    border: 10px solid red;
+
+    /* toggle outlet section visibility @mobile */
+    &.outlet_active {
+      @apply z-[12];
+    }
+
     &.loading::before {
       content: "";
       position: absolute;
@@ -221,6 +261,7 @@
     overflow-y: scroll;
   }
 
+  /* Edit.jsx */
   #contact-form {
     .form-row,
     .form-row-wrapper {

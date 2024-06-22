@@ -38,7 +38,7 @@ function CustomerList({ framerText }) {
 
   return (
     <div className={`${ns}`}>
-      <li><h3 className='list-header bg-contrast2'>customers</h3></li>
+      <li><h3 className='list-header bg-contrast2'>Customers</h3></li>
 
       {filteredCustomers && filteredCustomers.length ? (
         filteredCustomers.map((customer, idx) => {

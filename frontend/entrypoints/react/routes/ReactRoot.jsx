@@ -10,14 +10,15 @@ import {
 
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext } from 'react'
 
 import { loadContacts } from '../features/contacts/contactsUtils'
 import { filterContactsByQuery, createContact } from '../features/contacts/contactsUtils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
 
-import { IconGoBack, IconPeople, IconHome, IconLoadCustomer, IconNewContact } from '../components/icons'
+import { IconGoBack, IconPeople, IconHome, IconLoadCustomer } from '../components/icons'
+import { VscNewFile } from "react-icons/vsc";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactsPlaceholderImgs } from '../features/contacts/contactSlice'
@@ -31,6 +32,9 @@ export async function action() {
   const contact = await createContact()
   return redirect(`/contacts/${contact.id}/edit`)
 }
+
+// Tracks if the "outlet" section should be active on mobile
+export const OutletContext = createContext()
 
 export default function ReactRoot() {
 
@@ -61,8 +65,8 @@ export default function ReactRoot() {
     }
   }, [q])
 
-  // check if outlet exist
-  const outlet = useOutlet()
+  // Tracks if the "outlet" section should be active on mobile
+  const [outletState, setOutletState] = useState(null)
 
   /* another method to trigger a rout action (in this case: loader())
     * 0, specifies the relative offset within the history stack. 0 indicates navigating to the current route  
@@ -105,7 +109,9 @@ export default function ReactRoot() {
   const [activeTab, setActiveTab] = useState('contacts');
 
   return (
-    <>
+
+    <OutletContext.Provider value={{ outletState, setOutletState }}>
+
       <div id="react-app-icons-container" className="fixed bg-zinc-800 border-r-2 border-2 border-zinc-100 p-3">
         <IconPeople className="" action={toggleSidebar} />
       </div>
@@ -170,7 +176,10 @@ export default function ReactRoot() {
                         className="add_new_contact_btn"
                       >
                         <span className="desktop_txt">New</span>
-                        <IconNewContact className='mobile_icon' />
+                        <span className="mobile_icon">
+                          <VscNewFile />
+                        </span>
+
                       </Button>
                     </Form>
                   </div>
@@ -189,18 +198,20 @@ export default function ReactRoot() {
               </motion.div>
               <div
                 id="outlet_container"
-                className={`scroll_bar_style ${navigation.state === 'loading' ? 'loading' : ''} `}
+                className={`scroll_bar_style ${navigation.state === 'loading' ? 'loading' : ''} 
+                ${outletState === 'active' ? 'outlet_active' : ''}
+                `}
               >
                 <div className="app_top_row">
-                  <IconGoBack className="close_btn" action={toggleSidebar} />
+                  <IconGoBack className="close_btn" action={() => setOutletState('')} />
                 </div>
-                <div className={`outlet_wrapper ${!outlet ? 'outlet-empty' : 'outlet-active'}`}>
-                  <Outlet />
-                </div>
+                <Outlet />
+
               </div>
             </motion.div>)
         }
       </AnimatePresence>
-    </>
+    </OutletContext.Provider>
+
   )
 }
