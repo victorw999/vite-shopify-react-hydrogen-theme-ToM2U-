@@ -3254,9 +3254,30 @@ select {
   }
   #outlet_container {
     border: 10px solid red;
+    .close_btn {
+      display: block;
+    }
+    @media (min-width: 48em) {
+      .close_btn {
+        display: none;
+      }
+    }
     /* toggle outlet section visibility @mobile */
+  }
+  #outlet_container {
+    display: none;
+  }
+  @media (min-width: 48em) {
+    #outlet_container {
+      display: block;
+    }
+  }
+  #outlet_container {
     &.outlet_active {
       z-index: 12;
+    }
+    &.outlet_active {
+      display: block;
     }
     &.loading::before {
       content: "";

@@ -125,12 +125,8 @@
     @apply bg-contrast0
     z-10 flex 
     absolute md:relative
-    
-    /*border-[15px] border-solid border-red-500*/
 
-    h-screen
-    /*w-[300px] min-w-[300px]
-    w-screen  min-w-screen*/
+    h-screen 
     md:w-[30rem] md:min-w-[30rem]
     flex-col overflow-y-auto py-5 px-0;
 
@@ -246,9 +242,14 @@
 
     border: 10px solid red;
 
+    .close_btn {
+      @apply block md:hidden;
+    }
+
     /* toggle outlet section visibility @mobile */
+    @apply hidden md:block;
     &.outlet_active {
-      @apply z-[12];
+      @apply z-[12] block;
     }
 
     &.loading::before {

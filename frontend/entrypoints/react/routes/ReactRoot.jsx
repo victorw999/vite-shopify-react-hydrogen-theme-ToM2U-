@@ -116,7 +116,7 @@ export default function ReactRoot() {
         <IconPeople className="" action={toggleSidebar} />
       </div>
 
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="sync" initial={false}>
         {
           isAppOpen && (
             <motion.div
@@ -196,7 +196,8 @@ export default function ReactRoot() {
                   </div>
                 </div>
               </motion.div>
-              <div
+
+              <motion.div
                 id="outlet_container"
                 className={`scroll_bar_style ${navigation.state === 'loading' ? 'loading' : ''} 
                 ${outletState === 'active' ? 'outlet_active' : ''}
@@ -207,7 +208,7 @@ export default function ReactRoot() {
                 </div>
                 <Outlet />
 
-              </div>
+              </motion.div>
             </motion.div>)
         }
       </AnimatePresence>
