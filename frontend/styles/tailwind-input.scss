@@ -219,6 +219,9 @@
     button.tab_ctrl_unit {
       @apply border-none p-0 md:p-3
         md:border-[1px]  md:border-solid  md:border-zinc-600 md:hover:border-2 md:hover:border-zinc-100;
+      &.desktop_unit {
+        @apply hidden md:flex;
+      }
     }
   }
 

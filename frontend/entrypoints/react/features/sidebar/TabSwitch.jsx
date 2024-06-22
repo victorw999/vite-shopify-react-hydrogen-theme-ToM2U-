@@ -5,6 +5,8 @@ import ProductList from '../products/ProductList';
 import { useNavigate, redirect, NavLink, Link } from 'react-router-dom';
 import CustomerList from '../customers/CustomerList';
 import { IconHome, IconPeople, IconLoadCustomer, IconProducts } from '../../components/icons';
+import { PiPants } from "react-icons/pi";
+
 
 const TabSwitch = ({ activeTab, setActiveTab, contactsState }) => {
 
@@ -24,31 +26,33 @@ const TabSwitch = ({ activeTab, setActiveTab, contactsState }) => {
     <div className='TabSwitch'>
       <div className="tab-controls">
 
-
         <Link to={`/`} className='tab_ctrl_unit'>
           <IconHome />
         </Link>
+
         <button
-          className={`${activeTab === 'products' ? 'active' : ''} tab_ctrl_unit`}
+          className={`${activeTab === 'products' ? 'active' : ''} tab_ctrl_unit desktop_unit`}
           onClick={() => handleTabClick('products')}
         >
           <span className="desktop_txt">Products</span>
-          <IconProducts className='mobile_icon' />
         </button>
+        <IconProducts className="mobile_icon" action={() => handleTabClick('products')} />
+
         <button
-          className={`${activeTab === 'customers' ? 'active' : ''} tab_ctrl_unit`}
+          className={`${activeTab === 'customers' ? 'active' : ''} tab_ctrl_unit desktop_unit`}
           onClick={() => handleTabClick('customers')}
         >
           <span className="desktop_txt">Customers</span>
-          <IconPeople className="mobile_icon" />
         </button>
+        <IconPeople className="mobile_icon" action={() => handleTabClick('customers')} />
+
         <button
-          className={`${activeTab === 'contacts' ? 'active' : ''} tab_ctrl_unit`}
+          className={`${activeTab === 'contacts' ? 'active' : ''} tab_ctrl_unit desktop_unit`}
           onClick={() => handleTabClick('contacts')}
         >
           <span className="desktop_txt">Contacts</span>
-          <IconLoadCustomer className="mobile_icon" />
         </button>
+        <IconLoadCustomer className="mobile_icon" action={() => handleTabClick('contacts')} />
       </div>
 
       <div className="tab-content">
