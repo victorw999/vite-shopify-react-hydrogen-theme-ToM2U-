@@ -95,7 +95,7 @@
     position: absolute;
     min-width: 100vw;
     height: 100vw;
-    background-color: black;
+    background-color: gray;
     z-index: 999;
   }
 
@@ -249,11 +249,11 @@
     absolute md:relative
     w-full h-full 
     z-[9] md:z-[11]
-    px-8 py-16
+    px-8 py-10 md:py-16
     flex-1;
 
     .close_btn {
-      @apply block md:hidden;
+      @apply block md:hidden right-0;
     }
 
     /* toggle outlet section visibility @mobile */
@@ -287,7 +287,7 @@
   } /* #contact-form */
 
   .detail_section {
-    @apply my-10 flex flex-col md:flex-row md:items-start;
+    @apply my-[4.5rem] md:my-10 flex flex-col md:flex-row md:items-start;
   }
   .detail_img_wrapper {
     @apply flex w-full p-0

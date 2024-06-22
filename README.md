@@ -14,6 +14,8 @@
     - `pnpm build`
 - push built assets files to shopify
     - `shopify theme push -s [shopname] -t [theme_id]`
+- Deploy to shopify
+    - I don't know why, but it often takes me 3 times (`pnpm build && shopify theme push...`) to eventually updated the shopify theme. The frist few builds, if you run preview link, you'd see that preview still trying to fetch assets from localhost:5173. [example](https://github.com/barrel/shopify-vite/issues/103)
 - refresh the contacts cache in local cache
     - chrome inspector > Application > IndexedDB > localforage > keyvaluepairs
 

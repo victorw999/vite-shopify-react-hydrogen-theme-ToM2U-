@@ -122,7 +122,7 @@ export default function ReactRoot() {
 
     <OutletContext.Provider value={{ outletState, setOutletState, setOutletStateHandler }}>
 
-      <div id="react-app-icons-container" className="fixed bg-zinc-800 border-r-2 border-2 border-zinc-100 p-3">
+      <div id="react-app-icons-container" className="z-11 fixed bg-zinc-800 border-r-2 border-2 border-zinc-100 p-3">
         <IconPeople className="" action={toggleSidebar} />
       </div>
 
@@ -144,7 +144,7 @@ export default function ReactRoot() {
 
                   <div className="app_top_row">
                     <IconGoBack className="close_btn" action={toggleSidebar} />
-                    <h1 className="text-2xl ">Custom React Shopify App</h1>
+                    <h1 className="text-2xl ">Custom React <span className="hidden md:inline-block"> Shopify</span> App</h1>
                   </div>
 
                   <div className="search-bar-wrapper">

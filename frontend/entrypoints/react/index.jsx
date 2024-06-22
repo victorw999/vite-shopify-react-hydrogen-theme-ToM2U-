@@ -52,8 +52,7 @@ const router = createHashRouter([
             path: `contacts/:contactId`,
             element: <ContactDetail />,
             loader: contactLoader,
-            action: contactAction,
-            hydrateFallbackElement: <Loading /> /* todo: not sure if this is working */
+            action: contactAction
           },
           {
             path: `contacts/:contactId/edit`,
