@@ -52,7 +52,8 @@ const router = createHashRouter([
             path: `contacts/:contactId`,
             element: <ContactDetail />,
             loader: contactLoader,
-            action: contactAction
+            action: contactAction,
+            hydrateFallbackElement: <Loading /> /* todo: not sure if this is working */
           },
           {
             path: `contacts/:contactId/edit`,
@@ -91,7 +92,11 @@ const router = createHashRouter([
     element: <Navigate to="/" replace />
   }
 ])
-
+const Loading = () => {
+  return (
+    <div className="loading_component"></div>
+  )
+}
 const App = () => {
   // const [appContextData, dispatch] = useReducer(appReducer, initialState);
   return (

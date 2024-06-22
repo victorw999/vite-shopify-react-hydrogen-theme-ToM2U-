@@ -15,7 +15,7 @@ import { useState, useEffect, createContext } from 'react'
 import { loadContacts } from '../features/contacts/contactsUtils'
 import { filterContactsByQuery, createContact } from '../features/contacts/contactsUtils'
 import { motion, AnimatePresence } from 'framer-motion'
-import { framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
+import { framerOutlet, framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
 
 import { IconGoBack, IconPeople, IconHome, IconLoadCustomer } from '../components/icons'
 import { VscNewFile } from "react-icons/vsc";
@@ -68,6 +68,16 @@ export default function ReactRoot() {
   // Tracks if the "outlet" section should be active on mobile
   const [outletState, setOutletState] = useState(null)
 
+  /**
+   
+    ** setOutletStateHandler: 
+    handles clicks evt on side bar list items, in mobile view;
+   
+    ** setTimeout's delay: 
+    This "delay" will provide <Outlet /> time to render the new contact details. Otherwise there'll be flickering during transition. It's apparent in "mobile", not so much in desktop view. Framer animation has nothing to do with this mobile flickering.
+   */
+  const setOutletStateHandler = () => setTimeout(() => setOutletState('active'), 250)
+
   /* another method to trigger a rout action (in this case: loader())
     * 0, specifies the relative offset within the history stack. 0 indicates navigating to the current route  
     * Using navigate with replace: true on the current route indirectly refetches data by forcing React Router to re-execute the route's associated loader function (if one exists).
@@ -110,7 +120,7 @@ export default function ReactRoot() {
 
   return (
 
-    <OutletContext.Provider value={{ outletState, setOutletState }}>
+    <OutletContext.Provider value={{ outletState, setOutletState, setOutletStateHandler }}>
 
       <div id="react-app-icons-container" className="fixed bg-zinc-800 border-r-2 border-2 border-zinc-100 p-3">
         <IconPeople className="" action={toggleSidebar} />
@@ -197,7 +207,9 @@ export default function ReactRoot() {
                 </div>
               </motion.div>
 
+              {/* <AnimatePresence> */}
               <motion.div
+                // {...framerOutlet}
                 id="outlet_container"
                 className={`scroll_bar_style ${navigation.state === 'loading' ? 'loading' : ''} 
                 ${outletState === 'active' ? 'outlet_active' : ''}
@@ -209,6 +221,7 @@ export default function ReactRoot() {
                 <Outlet />
 
               </motion.div>
+              {/* </AnimatePresence> */}
             </motion.div>)
         }
       </AnimatePresence>

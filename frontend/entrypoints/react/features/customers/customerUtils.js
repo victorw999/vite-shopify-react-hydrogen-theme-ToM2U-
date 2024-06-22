@@ -49,6 +49,5 @@ export async function filterCustomersByQuery(customers, query) {
   } else {
     result = customers
   }
-  // console.log('result: ', result)
   return customers
 }

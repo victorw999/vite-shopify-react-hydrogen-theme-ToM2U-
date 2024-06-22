@@ -3,8 +3,6 @@ import { filterContactsByQuery, loadContacts } from "../features/contacts/contac
 export async function rootLoader({ request, params }) {
 
   try {
-
-
     /**
      * 
      rootLoader will capture 
@@ -20,9 +18,6 @@ export async function rootLoader({ request, params }) {
      * Loaders focus on data fetching and preparation, while components handle UI logic and state management.
      *  
      * loader() execute before the component is even mounted, meaning we can't access, componenet internal state in loader(), there's no component instance with state yet.
-
-      
-
 
      */
 
@@ -42,3 +37,5 @@ export async function rootLoader({ request, params }) {
     throw new Error('contactsLoader() issue: ', error);
   }
 }
+
+

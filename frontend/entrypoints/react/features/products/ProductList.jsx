@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
+import { OutletContext } from '../../routes/ReactRoot'
 import { useSelector } from 'react-redux';
 
 import { motion } from 'framer-motion'
@@ -37,6 +38,8 @@ function ProductList({ framerText }) {
     }
   }, [searchParams, products])
 
+  const { setOutletStateHandler } = useContext(OutletContext);
+
   return (
     <div className={`${ns}`}>
       <li><h3 className='list-header bg-contrast2'>Products</h3></li>
@@ -56,6 +59,7 @@ function ProductList({ framerText }) {
                 className={({ isActive, isPending }) =>
                   isActive ? 'active' : isPending ? 'pending' : ''
                 }
+                onClick={setOutletStateHandler}
               >
                 {product.title ? (
                   <>

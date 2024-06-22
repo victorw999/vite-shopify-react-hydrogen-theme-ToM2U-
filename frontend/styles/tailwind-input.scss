@@ -90,6 +90,15 @@
     @apply mx-auto max-h-[300px] w-full bg-contrast;
   }
 
+  /* todo: not sure if this is working */
+  .loading_component {
+    position: absolute;
+    min-width: 100vw;
+    height: 100vw;
+    background-color: black;
+    z-index: 999;
+  }
+
   /*** ICONS ***/
   .appIcon,
   button.tab_ctrl_unit {
@@ -242,8 +251,6 @@
     z-[9] md:z-[11]
     px-8 py-16
     flex-1;
-
-    border: 10px solid red;
 
     .close_btn {
       @apply block md:hidden;

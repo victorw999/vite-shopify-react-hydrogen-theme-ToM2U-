@@ -6,7 +6,7 @@ import { OutletContext } from '../../routes/ReactRoot'
 const ns = 'contactlist'
 
 function ContactList({ list, framerText }) {
-  const { setOutletState } = useContext(OutletContext);
+  const { setOutletStateHandler } = useContext(OutletContext);
 
   return (
     <div className={`${ns}`}>
@@ -22,7 +22,7 @@ function ContactList({ list, framerText }) {
               className={({ isActive, isPending }) =>
                 isActive ? 'active' : isPending ? 'pending' : ''
               }
-              onClick={() => setOutletState('active')}
+              onClick={setOutletStateHandler}
             >
               {contact.first || contact.last ? (
                 <>

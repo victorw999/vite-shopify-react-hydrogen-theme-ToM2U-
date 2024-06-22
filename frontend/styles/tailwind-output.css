@@ -2675,6 +2675,14 @@ select {
     --tw-bg-opacity: 1;
     background-color: rgba(var(--color-contrast) / var(--tw-bg-opacity));
   }
+  /* todo: not sure if this is working */
+  .loading_component {
+    position: absolute;
+    min-width: 100vw;
+    height: 100vw;
+    background-color: black;
+    z-index: 999;
+  }
   /*** ICONS ***/
   .appIcon,
   button.tab_ctrl_unit {
@@ -2817,6 +2825,7 @@ select {
         z-index: 11;
         font-family: "Quicksand", sans-serif;
         /*** Error Page ***/
+        /* todo: not sure if this is working */
         /*** ICONS ***/
         /*** Custom Scroll Style ***/
         /*** Top row contains close app btn ***/
@@ -3035,6 +3044,7 @@ select {
     z-index: 11;
     font-family: "Quicksand", sans-serif;
     /*** Error Page ***/
+    /* todo: not sure if this is working */
     /*** ICONS ***/
     /*** Custom Scroll Style ***/
     /*** Top row contains close app btn ***/
@@ -3191,6 +3201,16 @@ select {
         border-color: rgb(244 244 245 / var(--tw-border-opacity));
       }
     }
+    button.tab_ctrl_unit {
+      &.desktop_unit {
+        display: none;
+      }
+      @media (min-width: 48em) {
+        &.desktop_unit {
+          display: flex;
+        }
+      }
+    }
   }
   /*hidden*/
   #search-spinner {
@@ -3253,7 +3273,6 @@ select {
     }
   }
   #outlet_container {
-    border: 10px solid red;
     .close_btn {
       display: block;
     }

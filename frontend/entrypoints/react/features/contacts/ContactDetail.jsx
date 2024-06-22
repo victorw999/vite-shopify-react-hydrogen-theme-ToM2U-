@@ -5,6 +5,9 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 import { stringHasNoSlashes, isImageFile, removeFileExtension } from '../../Global'
 import { useDispatch, useSelector } from 'react-redux';
 import { CgProfile } from "react-icons/cg";
+import { motion, AnimatePresence, usePresence } from 'framer-motion'
+import { framerDetailSection, framerOutlet } from '../../utils/framerAnimationOptions'
+import { nanoid } from 'nanoid'
 
 export async function loader({ params }) {
   const contact = await getContact(params.contactId)
@@ -24,7 +27,7 @@ export async function action({ request, params }) {
   })
 }
 
-export default function Contact() {
+export default function ContactDetail() {
   const { contact } = useLoaderData()
   const [avatarURL, setAvatarRUL] = useState()
 
@@ -38,9 +41,9 @@ export default function Contact() {
     setAvatarRUL(contact.avatar.trim())
     // Reset on cleanup
     return () => {
-      setAvatarRUL(''); // Or any other default value
+      // setAvatarRUL(''); // Or any other default value
     };
-  }, [contact.avatar])
+  }, [contact.avatar, contact])
 
 
   /*
@@ -75,7 +78,10 @@ export default function Contact() {
 
   return (
 
-    <div id="contact" className="detail_section">
+    <motion.div
+      // {...framerDetailSection}
+      id="contact" className="detail_section" key={`${contact.id}`}
+    >
       <div className="detail_img_wrapper">
 
         {(avatarURL && avatarURL.trim() !== '') ?
@@ -132,7 +138,7 @@ export default function Contact() {
           </Form>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
