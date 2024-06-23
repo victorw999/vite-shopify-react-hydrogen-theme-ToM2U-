@@ -16,6 +16,8 @@ export default function ProductDetail() {
   // filter out the one matches params.handle
   let product = products.filter(product => product.handle === handle)[0]
 
+  console.log('===>> product: ', product)
+
   return (
     <div id="product_detail" className="detail_section">
       {
@@ -23,7 +25,13 @@ export default function ProductDetail() {
           <div className="detail_img_wrapper">
             <img
               className="detail_img_main"
+              srcset={`
+                ${product?.media?.edges[0]?.node?.previewImage?.transformedSrc} 480w,
+                ${product?.featuredImage?.originalSrc} 800w
+              `}
+              sizes="(max-width: 500px) 480px, 100vw"
               src={`${product?.featuredImage?.originalSrc}`}
+              loading="lazy"
             />
           </div>
 

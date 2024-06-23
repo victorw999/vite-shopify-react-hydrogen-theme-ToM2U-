@@ -24,14 +24,23 @@ const query = ` {
           }
         }
         featuredImage {
-          originalSrc
-          src
+          originalSrc           
+        }
+        media(first: 1) {
+          edges {
+            node {              
+              previewImage {
+                transformedSrc(maxHeight: 200, maxWidth: 200)
+              }
+            }
+          }
         }
       }
     }
   }
 }`
 async function productsLoader() {
+
   const response = await fetch(
     'https://vzine.myshopify.com/api/2024-07/graphql.json',
     {

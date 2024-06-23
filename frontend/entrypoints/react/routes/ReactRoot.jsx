@@ -76,7 +76,7 @@ export default function ReactRoot() {
     ** setTimeout's delay: 
     This "delay" will provide <Outlet /> time to render the new contact details. Otherwise there'll be flickering during transition. It's apparent in "mobile", not so much in desktop view. Framer animation has nothing to do with this mobile flickering.
    */
-  const setOutletStateHandler = () => setTimeout(() => setOutletState('active'), 250)
+  const setOutletStateHandler = () => setTimeout(() => setOutletState('active'), 350)
 
   /* another method to trigger a rout action (in this case: loader())
     * 0, specifies the relative offset within the history stack. 0 indicates navigating to the current route  
