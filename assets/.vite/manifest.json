@@ -219,7 +219,7 @@
     ]
   },
   "frontend/entrypoints/react/features/contacts/ContactList.jsx": {
-    "file": "ContactList.hOv2yqul.min.js",
+    "file": "ContactList.QP8dWZ6D.min.js",
     "src": "frontend/entrypoints/react/features/contacts/ContactList.jsx",
     "isEntry": true,
     "imports": [
@@ -311,7 +311,7 @@
     ]
   },
   "frontend/entrypoints/react/features/customers/CustomerList.jsx": {
-    "file": "CustomerList.BHjxp6js.min.js",
+    "file": "CustomerList.B7EDSsGV.min.js",
     "src": "frontend/entrypoints/react/features/customers/CustomerList.jsx",
     "isEntry": true,
     "imports": [
@@ -372,7 +372,7 @@
     ]
   },
   "frontend/entrypoints/react/features/products/ProductList.jsx": {
-    "file": "ProductList.BHjxp6js.min.js",
+    "file": "ProductList.B7EDSsGV.min.js",
     "src": "frontend/entrypoints/react/features/products/ProductList.jsx",
     "isEntry": true,
     "imports": [
@@ -411,7 +411,7 @@
     ]
   },
   "frontend/entrypoints/react/features/sidebar/TabSwitch.jsx": {
-    "file": "TabSwitch.BHjxp6js.min.js",
+    "file": "TabSwitch.B7EDSsGV.min.js",
     "src": "frontend/entrypoints/react/features/sidebar/TabSwitch.jsx",
     "isEntry": true,
     "imports": [
@@ -433,7 +433,7 @@
     ]
   },
   "frontend/entrypoints/react/index.jsx": {
-    "file": "index.BTpbZge_.min.js",
+    "file": "index.DSqZlXhG.min.js",
     "src": "frontend/entrypoints/react/index.jsx",
     "isEntry": true,
     "imports": [
@@ -506,7 +506,7 @@
     ]
   },
   "frontend/entrypoints/react/routes/ReactRoot.jsx": {
-    "file": "ReactRoot.BTo7Bchh.min.js",
+    "file": "ReactRoot.C-Nk3Mhh.min.js",
     "src": "frontend/entrypoints/react/routes/ReactRoot.jsx",
     "isEntry": true,
     "imports": [
@@ -533,7 +533,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme.D_AgZFx-.min.css",
+    "file": "theme.WVosBbCY.min.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
