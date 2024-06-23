@@ -1,6 +1,45 @@
 {
-  "current": "Default",
+  "current": {
+    "favicon": "shopify:\/\/shop_images\/Asset_2.png",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "enable_sticky_header": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "footer-1": {
+            "type": "country_selector",
+            "settings": {
+              "heading": "Country"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1"
+        ],
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
-    "Default": {}
+    "Default": {
+    }
   }
 }
