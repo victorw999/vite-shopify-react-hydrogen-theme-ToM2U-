@@ -19,11 +19,22 @@ const query = `{
                   name
                   quantity
                   title
-                  product {
-                    featuredImage {
-                      originalSrc
+                  product {                  
+                    media(first: 1) {
+                      edges {
+                        node {
+                          preview {
+                            image {
+                              transformedSrc(maxHeight: 100, maxWidth: 100)
+                            }
+                          }
+                        }
+                      }
                     }
                   }
+                  
+               
+                  
                 }
               }
             }

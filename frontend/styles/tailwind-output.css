@@ -3496,6 +3496,18 @@ select {
     .lineItem_img_wrapper {
       overflow: hidden;
     }
+    .lineItem_img_wrapper {
+      .lineItem_img_main {
+        height: 100%;
+      }
+      .lineItem_img_main {
+        width: 100%;
+      }
+      .lineItem_img_main {
+        -o-object-fit: cover;
+           object-fit: cover;
+      }
+    }
     .lineItem_info {
       flex-grow: 1;
     }

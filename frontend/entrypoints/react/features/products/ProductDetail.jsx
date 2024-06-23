@@ -16,8 +16,6 @@ export default function ProductDetail() {
   // filter out the one matches params.handle
   let product = products.filter(product => product.handle === handle)[0]
 
-  console.log('===>> product: ', product)
-
   return (
     <div id="product_detail" className="detail_section">
       {

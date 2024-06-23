@@ -27,6 +27,7 @@ export default function CustomerDetail() {
     }
   })[0]
 
+  console.log('===> cusotmer', customer)
   // memoize expansive calculation
   const totalSpending = useMemo(() => calcCustomerTotalSpending(customer), [customer])
 
@@ -34,12 +35,7 @@ export default function CustomerDetail() {
     <div id="customer_detail" className="detail_section">
       {
         (customer != null) ? (<>
-          {/* <div className="detail_img_wrapper">
-            <img
-              className="detail_img_main"
-              src={`${customer?.featuredImage?.originalSrc}`}
-            />
-          </div> */}
+
 
           <div className="detail_info_wrapper">
             <h1 className="section_heading">{`${customer.firstName} ${customer.lastName}`}</h1>
@@ -63,7 +59,9 @@ export default function CustomerDetail() {
                           <ul>
                             {
                               lineItems.map(item => {
-                                const imgUrl = item?.product?.featuredImage.originalSrc
+
+                                const imgUrl = item?.product?.media?.edges[0]?.node?.preview?.image?.transformedSrc
+
                                 return (
                                   <li className="order_lineItem"
                                     key={`${imgUrl}-${nanoid()}`}
