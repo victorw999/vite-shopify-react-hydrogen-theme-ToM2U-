@@ -10,7 +10,7 @@ import {
 
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
-import { useState, useEffect, createContext } from 'react'
+import { useState, useEffect, createContext, useRef } from 'react'
 
 import { loadContacts } from '../features/contacts/contactsUtils'
 import { filterContactsByQuery, createContact } from '../features/contacts/contactsUtils'
@@ -76,7 +76,19 @@ export default function ReactRoot() {
     ** setTimeout's delay: 
     This "delay" will provide <Outlet /> time to render the new contact details. Otherwise there'll be flickering during transition. It's apparent in "mobile", not so much in desktop view. Framer animation has nothing to do with this mobile flickering.
    */
-  const setOutletStateHandler = () => setTimeout(() => setOutletState('active'), 350)
+  const setOutletStateHandler = () => {
+    // setOutletState('') // mk it inactive, so during mobile view transition, the prev img will be hidden
+    reset_outlet_class() // use ref maybe better than toggle componenet state
+    setTimeout(() => {
+      setOutletState('active')
+    }, 350)
+  }
+
+  const outletRef = useRef(null);
+
+  const reset_outlet_class = () => {
+    outletRef.current.classList.remove('outlet_active');
+  };
 
   /* another method to trigger a rout action (in this case: loader())
     * 0, specifies the relative offset within the history stack. 0 indicates navigating to the current route  
@@ -211,6 +223,7 @@ export default function ReactRoot() {
               <motion.div
                 // {...framerOutlet}
                 id="outlet_container"
+                ref={outletRef}
                 className={`scroll_bar_style ${navigation.state === 'loading' ? 'loading' : ''} 
                 ${outletState === 'active' ? 'outlet_active' : ''}
                 `}

@@ -25,7 +25,7 @@ const query = `{
                         node {
                           preview {
                             image {
-                              transformedSrc(maxHeight: 100, maxWidth: 100)
+                              transformedSrc(maxHeight: 130, maxWidth: 130)
                             }
                           }
                         }

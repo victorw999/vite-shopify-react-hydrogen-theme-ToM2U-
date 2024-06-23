@@ -27,7 +27,6 @@ export default function CustomerDetail() {
     }
   })[0]
 
-  console.log('===> cusotmer', customer)
   // memoize expansive calculation
   const totalSpending = useMemo(() => calcCustomerTotalSpending(customer), [customer])
 
