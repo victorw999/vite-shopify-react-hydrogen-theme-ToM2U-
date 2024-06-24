@@ -34,10 +34,42 @@ export const fetchContactsPlaceholderImgs = () => {
     try {
 
       // make an async call in the thunk
-      const images = importAllImages(import.meta.glob('../../assets/contacts/**/*.{png,jpg,jpeg,svg}', { eager: true }));
+
+      // fetch origin img
+      const images = importAllImages(import.meta.glob('../../assets/contacts/**/*.{png,jpg,jpeg,svg}',
+        {
+          eager: true
+        }));
+
+      // fetch srcset with '@vite-imagetools'
+      const images_srcset = importAllImages(import.meta.glob('../../assets/contacts/**/*.{png,jpg,jpeg,svg}',
+        {
+
+          /**
+           ** ref: https://github.com/vitejs/vite/discussions/8695#discussioncomment-4473184
+           ** doc: https://github.com/JonasKruckenberg/imagetools/blob/main/docs/directives.md#srcset
+           *  this will generate this:     
+              "ppl-1": http://localhost:5173/@imagetools/foo 200w, 
+                       http://localhost:5173/@imagetools/bar 600w",
+            */
+          query: {
+            format: 'jpg', w: '200;600', picture: '', as: "srcset"
+          },
+          eager: true
+        }));
+
+      // combine 2 obj
+      let mergedObj = {}
+      Object.keys(images).forEach(key => {
+
+        mergedObj[key] = {
+          'src': images[key] ?? '',
+          'srcset': images_srcset[key] ?? ''
+        }
+      })
 
       // dispatch an action when we get the response back
-      dispatch(loadImages(images))
+      dispatch(loadImages(mergedObj))
     } catch (err) {
       // If something went wrong, handle it here
       dispatch(imageLoadingErr())

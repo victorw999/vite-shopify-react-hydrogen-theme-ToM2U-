@@ -52,9 +52,10 @@ export default function ContactDetail() {
   const getImgUrls = useCallback(() => {
     try {
       let str = avatarURL
+      console.log('str: ', str)
 
       if (!str || str.trim() === "") {
-        return placeholderImages['ppl-1']  // set default profile img
+        return placeholderImages['ppl-1'].src  // set default profile img
       }
       // if it's not a URL and it's an image file, retrieve the default images provided in react/assests folder
       if (stringHasNoSlashes(str) && isImageFile(str)) {
@@ -90,13 +91,16 @@ export default function ContactDetail() {
             key={avatarURL}
             // src={contact.avatar || null} 
             // src={avatarImgUrl}
-            src={getImgUrls()}
+            src={getImgUrls().src || avatarURL}
+            srcset={getImgUrls().srcset}
+            sizes="(max-width: 500px) 480px, 100vw"
+            loading="lazy"
           />) : <CgProfile className=' text-slate-200 w-full h-full' />
         }
       </div>
 
       <div className="detail_info_wrapper">
-        <h1 className='section_heading'>
+        <h1 className='section_heading flex'>
           {contact.first || contact.last ? (
             <>
               {contact.first} {contact.last}
@@ -104,12 +108,12 @@ export default function ContactDetail() {
           ) : (
             <i>No Name</i>
           )}{' '}
-          <Favorite contact={contact} />
+          <Favorite contact={contact} className='ml-4 test1' />
         </h1>
 
         {contact.twitter && (
           <p>
-            <a target="_blank" href={`https://twitter.com/${contact.twitter}`}>
+            <a target="_blank" href={`https://twitter.com/${contact.twitter}`} className='pl-0'>
               {contact.twitter}
             </a>
           </p>
@@ -142,7 +146,7 @@ export default function ContactDetail() {
   )
 }
 
-function Favorite({ contact }) {
+function Favorite({ contact, className }) {
   const fetcher = useFetcher()
   // yes, this is a `let` for later
   let favorite = contact.favorite
@@ -151,7 +155,7 @@ function Favorite({ contact }) {
   }
 
   return (
-    <fetcher.Form method="post">
+    <fetcher.Form method="post" className={className}>
       <button
         name="favorite"
         value={favorite ? 'false' : 'true'}

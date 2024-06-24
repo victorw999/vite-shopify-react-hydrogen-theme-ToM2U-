@@ -3,7 +3,7 @@ import shopify from 'vite-plugin-shopify'
 import react from '@vitejs/plugin-react'
 import { fileURLToPath, URL } from 'url'
 import webfontDownload from 'vite-plugin-webfont-dl';
-
+import { imagetools } from 'vite-imagetools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,7 +18,12 @@ export default defineConfig({
       }
     ]
   },
-  plugins: [shopify(), react(), webfontDownload(["https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"])],
+  plugins: [
+    shopify(),
+    react(),
+    webfontDownload(["https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"]),
+    imagetools()
+  ],
   build: {
     rollupOptions: {
       output: {

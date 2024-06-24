@@ -34,10 +34,12 @@ export function removeFileExtension(filename) {
 export function importAllImages(modules) {
   let imageUrls = {};
   Object.entries(modules).forEach(([item, module]) => {
-    // Extract filename (assumes filenames like 'image-name.jpg')
+    // Extract filename (assumes filenames like 'image-name.jpg') 
     const filename = item.split('/').pop().split('.')[0];
-    imageUrls[filename] = module.default;
+
+    imageUrls[filename] = module.default
   });
+  // console.log("imageUrls ==>", imageUrls)
   return imageUrls;
 }
 
