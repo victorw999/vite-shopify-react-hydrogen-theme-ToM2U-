@@ -2299,6 +2299,10 @@ select {
   padding-bottom: 1px;
 }
 
+.pl-0 {
+  padding-left: 0px;
+}
+
 .pl-4 {
   padding-left: 1rem;
 }
@@ -2341,10 +2345,6 @@ select {
 
 .pt-6 {
   padding-top: 1.5rem;
-}
-
-.pl-0 {
-  padding-left: 0px;
 }
 
 .text-left {

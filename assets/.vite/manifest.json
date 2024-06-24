@@ -11,21 +11,11 @@
     "file": "6xKtdSZaM9iE8KbpRA_hK1QN.CV11HFfs.min.woff2",
     "src": "6xKtdSZaM9iE8KbpRA_hK1QN.woff2"
   },
-  "_Global.CZoLVvO7.min.js": {
-    "file": "Global.CZoLVvO7.min.js"
+  "_Global.DZzDGABG.min.js": {
+    "file": "Global.DZzDGABG.min.js"
   },
   "__commonjsHelpers.Cpj98o6Y.min.js": {
     "file": "_commonjsHelpers.Cpj98o6Y.min.js"
-  },
-  "_button.CdF1pWhJ.min.js": {
-    "file": "button.CdF1pWhJ.min.js",
-    "imports": [
-      "frontend/entrypoints/react/components/icons.jsx",
-      "_index.C8ayVwQI.min.js",
-      "_index.BYzmSUuc.min.js",
-      "_index.Bb4qSo10.min.js",
-      "_utils.CHtjtCvc.min.js"
-    ]
   },
   "_customerUtils.CvkgFsrJ.min.js": {
     "file": "customerUtils.CvkgFsrJ.min.js",
@@ -51,11 +41,11 @@
   "_modulepreload-polyfill.BCYanipZ.min.js": {
     "file": "modulepreload-polyfill.BCYanipZ.min.js"
   },
-  "_productSlice.DgchAzsl.min.js": {
-    "file": "productSlice.DgchAzsl.min.js",
+  "_productSlice.CvjiWDym.min.js": {
+    "file": "productSlice.CvjiWDym.min.js",
     "imports": [
       "_redux-toolkit.modern.DURh381R.min.js",
-      "_Global.CZoLVvO7.min.js",
+      "_Global.DZzDGABG.min.js",
       "_customerUtils.CvkgFsrJ.min.js",
       "frontend/entrypoints/react/features/customers/customerUtils.js"
     ],
@@ -66,7 +56,21 @@
       "ppl-4.BQ_z0gR7.min.jpg",
       "ppl-5.BfO9cnIP.min.jpg",
       "ppl-6.AoeTgME2.min.jpg",
-      "ppl-7.Uz3IVIb6.min.jpg"
+      "ppl-7.Uz3IVIb6.min.jpg",
+      "ppl-1.YiG6MYaK.min.jpeg",
+      "ppl-1.M01lHoVW.min.jpeg",
+      "ppl-2.Dz0o9g3R.min.jpeg",
+      "ppl-2.F0-2yxfZ.min.jpeg",
+      "ppl-3.Ua9F32sB.min.jpeg",
+      "ppl-3.Dwr48ENo.min.jpeg",
+      "ppl-4.CwZpjm0m.min.jpeg",
+      "ppl-4.ILwaiNSs.min.jpeg",
+      "ppl-5.DkjcjH9F.min.jpeg",
+      "ppl-5.9eUTMaLe.min.jpeg",
+      "ppl-6.CfKUAFf4.min.jpeg",
+      "ppl-6.DzqycIj3.min.jpeg",
+      "ppl-7.Cp_u0rMz.min.jpeg",
+      "ppl-7.CI5kL8Sm.min.jpeg"
     ]
   },
   "_redux-toolkit.modern.DURh381R.min.js": {
@@ -181,31 +185,34 @@
     ]
   },
   "frontend/entrypoints/react/error-page.jsx": {
-    "file": "error-page.WEspp656.min.js",
+    "file": "error-page.JGBGEYmP.min.js",
     "src": "frontend/entrypoints/react/error-page.jsx",
     "isEntry": true,
     "imports": [
       "frontend/entrypoints/react/components/icons.jsx",
-      "_Global.CZoLVvO7.min.js",
+      "_Global.DZzDGABG.min.js",
       "_index.C8ayVwQI.min.js",
       "__commonjsHelpers.Cpj98o6Y.min.js"
     ]
   },
   "frontend/entrypoints/react/features/contacts/ContactDetail.jsx": {
-    "file": "ContactDetail.B5U47b2P.min.js",
+    "file": "ContactDetail.qp35VdRu.min.js",
     "src": "frontend/entrypoints/react/features/contacts/ContactDetail.jsx",
     "isEntry": true,
     "imports": [
       "frontend/entrypoints/react/components/icons.jsx",
       "frontend/entrypoints/react/loaders/contactsLoader.js",
       "frontend/entrypoints/react/features/customers/customerUtils.js",
-      "_button.CdF1pWhJ.min.js",
+      "frontend/entrypoints/react/features/contacts/edit.jsx",
       "_index.C8ayVwQI.min.js",
-      "_Global.CZoLVvO7.min.js",
+      "_Global.DZzDGABG.min.js",
       "__commonjsHelpers.Cpj98o6Y.min.js",
+      "_productSlice.CvjiWDym.min.js",
+      "_customerUtils.CvkgFsrJ.min.js",
       "_index.BYzmSUuc.min.js",
       "_index.Bb4qSo10.min.js",
-      "_utils.CHtjtCvc.min.js"
+      "_utils.CHtjtCvc.min.js",
+      "_redux-toolkit.modern.DURh381R.min.js"
     ]
   },
   "frontend/entrypoints/react/features/contacts/ContactIndex.jsx": {
@@ -219,33 +226,33 @@
     ]
   },
   "frontend/entrypoints/react/features/contacts/ContactList.jsx": {
-    "file": "ContactList.Di3h1dmp.min.js",
+    "file": "ContactList.Bgr2MVlH.min.js",
     "src": "frontend/entrypoints/react/features/contacts/ContactList.jsx",
     "isEntry": true,
     "imports": [
       "frontend/entrypoints/react/components/icons.jsx",
       "_index.C8ayVwQI.min.js",
-      "frontend/entrypoints/react/features/customers/customerUtils.js",
-      "_Global.CZoLVvO7.min.js",
+      "frontend/entrypoints/react/features/contacts/ContactDetail.jsx",
       "__commonjsHelpers.Cpj98o6Y.min.js",
-      "_button.CdF1pWhJ.min.js",
-      "frontend/entrypoints/react/features/contacts/edit.jsx",
       "frontend/entrypoints/react/loaders/contactsLoader.js",
-      "_productSlice.DgchAzsl.min.js",
-      "_customerUtils.CvkgFsrJ.min.js",
+      "frontend/entrypoints/react/features/customers/customerUtils.js",
+      "frontend/entrypoints/react/features/contacts/edit.jsx",
       "_index.BYzmSUuc.min.js",
       "_index.Bb4qSo10.min.js",
       "_utils.CHtjtCvc.min.js",
-      "_redux-toolkit.modern.DURh381R.min.js"
+      "_Global.DZzDGABG.min.js",
+      "_productSlice.CvjiWDym.min.js",
+      "_redux-toolkit.modern.DURh381R.min.js",
+      "_customerUtils.CvkgFsrJ.min.js"
     ]
   },
   "frontend/entrypoints/react/features/contacts/contactSlice.js": {
-    "file": "contactSlice.DzBpGLyh.min.js",
+    "file": "contactSlice.BBcTPMFT.min.js",
     "src": "frontend/entrypoints/react/features/contacts/contactSlice.js",
     "isEntry": true,
     "imports": [
       "_redux-toolkit.modern.DURh381R.min.js",
-      "_Global.CZoLVvO7.min.js"
+      "_Global.DZzDGABG.min.js"
     ]
   },
   "frontend/entrypoints/react/features/contacts/contactsUtils.js": {
@@ -269,18 +276,17 @@
     ]
   },
   "frontend/entrypoints/react/features/contacts/edit.jsx": {
-    "file": "edit.B7SVrAd2.min.js",
+    "file": "edit.BIHAj60A.min.js",
     "src": "frontend/entrypoints/react/features/contacts/edit.jsx",
     "isEntry": true,
     "imports": [
       "frontend/entrypoints/react/components/icons.jsx",
-      "_button.CdF1pWhJ.min.js",
       "_index.C8ayVwQI.min.js",
-      "_utils.CHtjtCvc.min.js",
+      "_index.BYzmSUuc.min.js",
       "_index.Bb4qSo10.min.js",
+      "_utils.CHtjtCvc.min.js",
       "frontend/entrypoints/react/loaders/contactsLoader.js",
       "frontend/entrypoints/react/features/customers/customerUtils.js",
-      "_index.BYzmSUuc.min.js",
       "__commonjsHelpers.Cpj98o6Y.min.js"
     ]
   },
@@ -311,23 +317,22 @@
     ]
   },
   "frontend/entrypoints/react/features/customers/CustomerList.jsx": {
-    "file": "CustomerList.s_qpLb9J.min.js",
+    "file": "CustomerList.CN7izopn.min.js",
     "src": "frontend/entrypoints/react/features/customers/CustomerList.jsx",
     "isEntry": true,
     "imports": [
       "frontend/entrypoints/react/components/icons.jsx",
       "_index.C8ayVwQI.min.js",
-      "frontend/entrypoints/react/features/contacts/ContactList.jsx",
+      "frontend/entrypoints/react/features/contacts/ContactDetail.jsx",
       "frontend/entrypoints/react/features/customers/customerUtils.js",
       "__commonjsHelpers.Cpj98o6Y.min.js",
-      "_Global.CZoLVvO7.min.js",
-      "_button.CdF1pWhJ.min.js",
+      "frontend/entrypoints/react/loaders/contactsLoader.js",
+      "frontend/entrypoints/react/features/contacts/edit.jsx",
       "_index.BYzmSUuc.min.js",
       "_index.Bb4qSo10.min.js",
       "_utils.CHtjtCvc.min.js",
-      "frontend/entrypoints/react/features/contacts/edit.jsx",
-      "frontend/entrypoints/react/loaders/contactsLoader.js",
-      "_productSlice.DgchAzsl.min.js",
+      "_Global.DZzDGABG.min.js",
+      "_productSlice.CvjiWDym.min.js",
       "_redux-toolkit.modern.DURh381R.min.js",
       "_customerUtils.CvkgFsrJ.min.js"
     ]
@@ -372,23 +377,22 @@
     ]
   },
   "frontend/entrypoints/react/features/products/ProductList.jsx": {
-    "file": "ProductList.s_qpLb9J.min.js",
+    "file": "ProductList.CN7izopn.min.js",
     "src": "frontend/entrypoints/react/features/products/ProductList.jsx",
     "isEntry": true,
     "imports": [
       "frontend/entrypoints/react/components/icons.jsx",
       "_index.C8ayVwQI.min.js",
-      "frontend/entrypoints/react/features/contacts/ContactList.jsx",
+      "frontend/entrypoints/react/features/contacts/ContactDetail.jsx",
       "frontend/entrypoints/react/features/customers/customerUtils.js",
       "__commonjsHelpers.Cpj98o6Y.min.js",
-      "_Global.CZoLVvO7.min.js",
-      "_button.CdF1pWhJ.min.js",
+      "frontend/entrypoints/react/loaders/contactsLoader.js",
+      "frontend/entrypoints/react/features/contacts/edit.jsx",
       "_index.BYzmSUuc.min.js",
       "_index.Bb4qSo10.min.js",
       "_utils.CHtjtCvc.min.js",
-      "frontend/entrypoints/react/features/contacts/edit.jsx",
-      "frontend/entrypoints/react/loaders/contactsLoader.js",
-      "_productSlice.DgchAzsl.min.js",
+      "_Global.DZzDGABG.min.js",
+      "_productSlice.CvjiWDym.min.js",
       "_redux-toolkit.modern.DURh381R.min.js",
       "_customerUtils.CvkgFsrJ.min.js"
     ]
@@ -411,39 +415,37 @@
     ]
   },
   "frontend/entrypoints/react/features/sidebar/TabSwitch.jsx": {
-    "file": "TabSwitch.s_qpLb9J.min.js",
+    "file": "TabSwitch.CN7izopn.min.js",
     "src": "frontend/entrypoints/react/features/sidebar/TabSwitch.jsx",
     "isEntry": true,
     "imports": [
       "frontend/entrypoints/react/components/icons.jsx",
       "_index.C8ayVwQI.min.js",
-      "frontend/entrypoints/react/features/contacts/ContactList.jsx",
+      "frontend/entrypoints/react/features/contacts/ContactDetail.jsx",
       "frontend/entrypoints/react/features/customers/customerUtils.js",
       "__commonjsHelpers.Cpj98o6Y.min.js",
-      "_Global.CZoLVvO7.min.js",
-      "_button.CdF1pWhJ.min.js",
+      "frontend/entrypoints/react/loaders/contactsLoader.js",
+      "frontend/entrypoints/react/features/contacts/edit.jsx",
       "_index.BYzmSUuc.min.js",
       "_index.Bb4qSo10.min.js",
       "_utils.CHtjtCvc.min.js",
-      "frontend/entrypoints/react/features/contacts/edit.jsx",
-      "frontend/entrypoints/react/loaders/contactsLoader.js",
-      "_productSlice.DgchAzsl.min.js",
+      "_Global.DZzDGABG.min.js",
+      "_productSlice.CvjiWDym.min.js",
       "_redux-toolkit.modern.DURh381R.min.js",
       "_customerUtils.CvkgFsrJ.min.js"
     ]
   },
   "frontend/entrypoints/react/index.jsx": {
-    "file": "index.D9rDBHfO.min.js",
+    "file": "index.CaoXkuC7.min.js",
     "src": "frontend/entrypoints/react/index.jsx",
     "isEntry": true,
     "imports": [
       "frontend/entrypoints/react/components/icons.jsx",
       "_index.C8ayVwQI.min.js",
-      "frontend/entrypoints/react/features/contacts/ContactList.jsx",
-      "_Global.CZoLVvO7.min.js",
+      "frontend/entrypoints/react/features/contacts/ContactDetail.jsx",
+      "_Global.DZzDGABG.min.js",
       "_redux-toolkit.modern.DURh381R.min.js",
-      "_productSlice.DgchAzsl.min.js",
-      "_button.CdF1pWhJ.min.js",
+      "_productSlice.CvjiWDym.min.js",
       "frontend/entrypoints/react/features/contacts/edit.jsx",
       "frontend/entrypoints/react/features/customers/customerUtils.js",
       "_customerUtils.CvkgFsrJ.min.js",
@@ -493,37 +495,36 @@
     ]
   },
   "frontend/entrypoints/react/redux/store.js": {
-    "file": "store.D4Xmqvea.min.js",
+    "file": "store.aq1KZqIK.min.js",
     "src": "frontend/entrypoints/react/redux/store.js",
     "isEntry": true,
     "imports": [
       "_redux-toolkit.modern.DURh381R.min.js",
-      "_productSlice.DgchAzsl.min.js",
-      "_Global.CZoLVvO7.min.js",
+      "_productSlice.CvjiWDym.min.js",
+      "_Global.DZzDGABG.min.js",
       "_customerUtils.CvkgFsrJ.min.js",
       "frontend/entrypoints/react/features/customers/customerUtils.js",
       "__commonjsHelpers.Cpj98o6Y.min.js"
     ]
   },
   "frontend/entrypoints/react/routes/ReactRoot.jsx": {
-    "file": "ReactRoot.DfzanQtg.min.js",
+    "file": "ReactRoot.C0S26D6k.min.js",
     "src": "frontend/entrypoints/react/routes/ReactRoot.jsx",
     "isEntry": true,
     "imports": [
       "frontend/entrypoints/react/components/icons.jsx",
-      "_Global.CZoLVvO7.min.js",
-      "_button.CdF1pWhJ.min.js",
       "frontend/entrypoints/react/features/contacts/edit.jsx",
       "_index.C8ayVwQI.min.js",
       "frontend/entrypoints/react/loaders/contactsLoader.js",
       "frontend/entrypoints/react/features/customers/customerUtils.js",
-      "_productSlice.DgchAzsl.min.js",
-      "frontend/entrypoints/react/features/contacts/ContactList.jsx",
+      "_productSlice.CvjiWDym.min.js",
+      "frontend/entrypoints/react/features/contacts/ContactDetail.jsx",
       "_index.BYzmSUuc.min.js",
       "_index.Bb4qSo10.min.js",
       "_utils.CHtjtCvc.min.js",
       "__commonjsHelpers.Cpj98o6Y.min.js",
       "_redux-toolkit.modern.DURh381R.min.js",
+      "_Global.DZzDGABG.min.js",
       "_customerUtils.CvkgFsrJ.min.js"
     ]
   },
@@ -533,7 +534,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme.C0eosCfT.min.css",
+    "file": "theme.DHarCDhQ.min.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },
@@ -690,6 +691,34 @@
     "file": "shopify_common.CNjPOCtB.min.js",
     "src": "frontend/lib/shopify_common.js",
     "isDynamicEntry": true
+  },
+  "ppl-1.jpeg": {
+    "file": "ppl-1.M01lHoVW.min.jpeg",
+    "src": "ppl-1.jpeg"
+  },
+  "ppl-2.jpeg": {
+    "file": "ppl-2.F0-2yxfZ.min.jpeg",
+    "src": "ppl-2.jpeg"
+  },
+  "ppl-3.jpeg": {
+    "file": "ppl-3.Dwr48ENo.min.jpeg",
+    "src": "ppl-3.jpeg"
+  },
+  "ppl-4.jpeg": {
+    "file": "ppl-4.ILwaiNSs.min.jpeg",
+    "src": "ppl-4.jpeg"
+  },
+  "ppl-5.jpeg": {
+    "file": "ppl-5.9eUTMaLe.min.jpeg",
+    "src": "ppl-5.jpeg"
+  },
+  "ppl-6.jpeg": {
+    "file": "ppl-6.DzqycIj3.min.jpeg",
+    "src": "ppl-6.jpeg"
+  },
+  "ppl-7.jpeg": {
+    "file": "ppl-7.CI5kL8Sm.min.jpeg",
+    "src": "ppl-7.jpeg"
   },
   "webfonts.css": {
     "file": "webfonts.BcLUlzqE.min.css",
