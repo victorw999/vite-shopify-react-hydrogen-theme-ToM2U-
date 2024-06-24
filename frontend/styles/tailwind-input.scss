@@ -99,10 +99,23 @@
     z-index: 999;
   }
 
-  /*** ICONS ***/
+  /*** APP Launch Icon ***/
+  #react-app-icons-container {
+    @apply z-[11] fixed 
+    p-3 
+    h-[var(--height-nav)]
+    flex items-center justify-center;
+  }
+
+  /* ICONS */
   .appIcon,
   button.tab_ctrl_unit {
     @apply p-3 border-2 border-zinc-100 rounded-xl;
+  }
+
+  /*** APP ***/
+  #react-app-container {
+    @apply z-[12] fixed bottom-0 left-0 right-0 top-0 backdrop-blur-sm flex;
   }
 
   /*** Custom Scroll Style ***/
@@ -273,18 +286,30 @@
   }
 
   /* Edit.jsx */
-  #contact-form {
-    .form-row,
-    .form-row-wrapper {
-      @apply flex flex-row my-2;
-    }
-    .form-row-wrapper {
-      @apply w-full;
-    }
-    .form-label {
-      @apply flex min-w-[168px] align-middle;
-    }
-  } /* #contact-form */
+  .contact-edit {
+    #contact-form {
+      box-sizing: border-box;
+      .form-row,
+      .form-row-wrapper {
+        @apply flex flex-row my-2;
+      }
+      .form-row-wrapper {
+        @apply w-full;
+      }
+
+      /* hide label @ mobile */
+      .form-label {
+        @apply hidden md:flex md:min-w-[168px] md:align-middle;
+      }
+      .form-row {
+        &.btn-row {
+          button {
+            @apply grow shrink w-1/2 md:grow-0 md:shrink-0 md:w-auto;
+          }
+        }
+      }
+    } /* #contact-form */
+  }
 
   .detail_section {
     @apply my-[4.5rem] md:my-10 flex flex-col md:flex-row md:items-start;
@@ -351,3 +376,13 @@
     }
   }
 } /* #shopify-react-root */
+
+/***********************************/
+/* shopify store , beyond react app*/
+header {
+  .store_name {
+  }
+  .mobile_btnGrp_left {
+    @apply ml-[50px]; /* leave room for custom_app's launch btn @mobile */
+  }
+}

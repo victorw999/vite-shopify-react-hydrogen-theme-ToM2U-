@@ -1482,6 +1482,10 @@ select {
   margin-left: 1rem;
 }
 
+.ml-\[50px\] {
+  margin-left: 50px;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
 }
@@ -1698,6 +1702,10 @@ select {
 
 .w-screen {
   width: 100vw;
+}
+
+.min-w-\[20px\] {
+  min-width: 20px;
 }
 
 .max-w-7xl {
@@ -2024,10 +2032,6 @@ select {
   border-width: 0px;
 }
 
-.border-2 {
-  border-width: 2px;
-}
-
 .border-x-0 {
   border-left-width: 0px;
   border-right-width: 0px;
@@ -2039,10 +2043,6 @@ select {
 
 .border-b-2 {
   border-bottom-width: 2px;
-}
-
-.border-r-2 {
-  border-right-width: 2px;
 }
 
 .border-t {
@@ -2076,11 +2076,6 @@ select {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-
-.border-zinc-100 {
-  --tw-border-opacity: 1;
-  border-color: rgb(244 244 245 / var(--tw-border-opacity));
 }
 
 .border-t-contrast\/30 {
@@ -2148,11 +2143,6 @@ select {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-zinc-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(39 39 42 / var(--tw-bg-opacity));
-}
-
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
 }
@@ -2187,10 +2177,6 @@ select {
 
 .p-2 {
   padding: 0.5rem;
-}
-
-.p-3 {
-  padding: 0.75rem;
 }
 
 .p-4 {
@@ -2438,6 +2424,10 @@ select {
   font-weight: var(--font-heading-weight);
 }
 
+.font-light {
+  font-weight: 300;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -2464,6 +2454,10 @@ select {
 
 .leading-none {
   line-height: 1;
+}
+
+.tracking-\[4px\] {
+  letter-spacing: 4px;
 }
 
 .tracking-tight {
@@ -2687,7 +2681,29 @@ select {
     background-color: gray;
     z-index: 999;
   }
-  /*** ICONS ***/
+  /*** APP Launch Icon ***/
+  #react-app-icons-container {
+    position: fixed;
+  }
+  #react-app-icons-container {
+    z-index: 11;
+  }
+  #react-app-icons-container {
+    display: flex;
+  }
+  #react-app-icons-container {
+    height: var(--height-nav);
+  }
+  #react-app-icons-container {
+    align-items: center;
+  }
+  #react-app-icons-container {
+    justify-content: center;
+  }
+  #react-app-icons-container {
+    padding: 0.75rem;
+  }
+  /* ICONS */
   .appIcon,
   button.tab_ctrl_unit {
     border-radius: 0.75rem;
@@ -2704,6 +2720,33 @@ select {
   .appIcon,
   button.tab_ctrl_unit {
     padding: 0.75rem;
+  }
+  /*** APP ***/
+  #react-app-container {
+    position: fixed;
+  }
+  #react-app-container {
+    bottom: 0px;
+  }
+  #react-app-container {
+    left: 0px;
+  }
+  #react-app-container {
+    right: 0px;
+  }
+  #react-app-container {
+    top: 0px;
+  }
+  #react-app-container {
+    z-index: 12;
+  }
+  #react-app-container {
+    display: flex;
+  }
+  #react-app-container {
+    --tw-backdrop-blur: blur(4px);
+    -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
   }
   /*** Custom Scroll Style ***/
   .scroll_bar_style {
@@ -2830,7 +2873,9 @@ select {
         font-family: "Quicksand", sans-serif;
         /*** Error Page ***/
         /* todo: not sure if this is working */
-        /*** ICONS ***/
+        /*** APP Launch Icon ***/
+        /* ICONS */
+        /*** APP ***/
         /*** Custom Scroll Style ***/
         /*** Top row contains close app btn ***/
         /*** Side Bar ***/
@@ -2872,7 +2917,6 @@ select {
         /*hidden*/
         /* OUTLET */
         /* Edit.jsx */
-        /* #contact-form */
       }
        {
          {
@@ -3049,7 +3093,9 @@ select {
     font-family: "Quicksand", sans-serif;
     /*** Error Page ***/
     /* todo: not sure if this is working */
-    /*** ICONS ***/
+    /*** APP Launch Icon ***/
+    /* ICONS */
+    /*** APP ***/
     /*** Custom Scroll Style ***/
     /*** Top row contains close app btn ***/
     /*** Side Bar ***/
@@ -3091,7 +3137,6 @@ select {
     /*hidden*/
     /* OUTLET */
     /* Edit.jsx */
-    /* #contact-form */
   }
    {
      {
@@ -3320,34 +3365,75 @@ select {
     overflow-y: scroll;
   }
   /* Edit.jsx */
-  #contact-form {
-    .form-row,
-    .form-row-wrapper {
-      margin-top: 0.5rem;
-      margin-bottom: 0.5rem;
+  .contact-edit {
+    #contact-form {
+      box-sizing: border-box;
+      .form-row,
+      .form-row-wrapper {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .form-row,
+      .form-row-wrapper {
+        display: flex;
+      }
+      .form-row,
+      .form-row-wrapper {
+        flex-direction: row;
+      }
+      .form-row-wrapper {
+        width: 100%;
+      }
+      /* hide label @ mobile */
+      .form-label {
+        display: none;
+      }
+      @media (min-width: 48em) {
+        .form-label {
+          display: flex;
+        }
+      }
+      @media (min-width: 48em) {
+        .form-label {
+          min-width: 168px;
+        }
+      }
+      @media (min-width: 48em) {
+        .form-label {
+          vertical-align: middle;
+        }
+      }
+      .form-row {
+        &.btn-row {
+          button {
+            width: 50%;
+          }
+          button {
+            flex-shrink: 1;
+          }
+          button {
+            flex-grow: 1;
+          }
+          @media (min-width: 48em) {
+            button {
+              width: auto;
+            }
+          }
+          @media (min-width: 48em) {
+            button {
+              flex-shrink: 0;
+            }
+          }
+          @media (min-width: 48em) {
+            button {
+              flex-grow: 0;
+            }
+          }
+        }
+      }
     }
-    .form-row,
-    .form-row-wrapper {
-      display: flex;
-    }
-    .form-row,
-    .form-row-wrapper {
-      flex-direction: row;
-    }
-    .form-row-wrapper {
-      width: 100%;
-    }
-    .form-label {
-      display: flex;
-    }
-    .form-label {
-      min-width: 168px;
-    }
-    .form-label {
-      vertical-align: middle;
-    }
+    /* #contact-form */
   }
-  /* #contact-form */
   .detail_section {
     margin-top: 4.5rem;
     margin-bottom: 4.5rem;
@@ -3596,6 +3682,21 @@ select {
 }
 
 /* #shopify-react-root */
+
+/***********************************/
+
+/* shopify store , beyond react app*/
+
+header {
+  .store_name {
+  }
+  .mobile_btnGrp_left {
+    margin-left: 50px;
+  }
+  .mobile_btnGrp_left {
+    /* leave room for custom_app's launch btn @mobile */
+  }
+}
 
 .file\:border-0::file-selector-button {
   border-width: 0px;

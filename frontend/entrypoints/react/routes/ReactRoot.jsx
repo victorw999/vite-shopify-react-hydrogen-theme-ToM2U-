@@ -126,7 +126,7 @@ export default function ReactRoot() {
 
     <OutletContext.Provider value={{ outletState, setOutletState, setOutletStateHandler }}>
 
-      <div id="react-app-icons-container" className="z-11 fixed bg-zinc-800 border-r-2 border-2 border-zinc-100 p-3">
+      <div id="react-app-icons-container" className="">
         <IconPeople className="" action={toggleSidebar} />
       </div>
 
@@ -135,8 +135,8 @@ export default function ReactRoot() {
           isAppOpen && (
             <motion.div
               {...framerSidebarBackground}
-              id="react-contact-app"
-              className="fixed bottom-0 left-0 right-0 top-0 backdrop-blur-sm flex">
+              id="react-app-container"
+              className="">
               <motion.div
                 {...framerSidebarPanel}
                 id="sidebar"

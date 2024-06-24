@@ -436,7 +436,7 @@
     ]
   },
   "frontend/entrypoints/react/index.jsx": {
-    "file": "index.CaoXkuC7.min.js",
+    "file": "index.BdAqNCmy.min.js",
     "src": "frontend/entrypoints/react/index.jsx",
     "isEntry": true,
     "imports": [
@@ -534,7 +534,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme.DHarCDhQ.min.css",
+    "file": "theme.07216zvd.min.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },

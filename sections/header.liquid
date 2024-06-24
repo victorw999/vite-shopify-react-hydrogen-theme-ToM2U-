@@ -4,8 +4,9 @@
 -%}
 
 <{% if section.settings.enable_sticky_header %}sticky-header{% else %}div{% endif %} client:idle>
-  <header role="banner" class="{{ container_class }} h-nav w-full leading-none backdrop-blur-lg px-4 flex justify-between items-center gap-4 md:px-8 lg:gap-8 lg:px-12 lg:py-8">
-    <div class="flex items-center justify-start w-full gap-4 lg:hidden">
+  <header role="banner" class="header_bar {{ container_class }} h-nav w-full leading-none backdrop-blur-lg px-4 flex justify-between items-center gap-4 md:px-8 lg:gap-8 lg:px-12 lg:py-8">
+    <div class="mobile_btnGrp_left 
+    flex items-center justify-start w-full gap-4 lg:hidden">
       {%- if section.settings.menu != blank -%}
         <header-drawer client:media="(max-width: 1023px)">
           <details>
@@ -54,9 +55,11 @@
 
     <div class="flex items-center gap-12 w-full lg:w-auto">
       {%- if request.page_type == 'index' -%}
-        <h1 class="w-full lg:w-auto">
+        <h1 class="store_name w-full lg:w-auto">
       {%- endif %}
-          <a href="{{ routes.root_url }}" class="flex items-center self-stretch leading-[3rem] justify-center flex-grow w-full h-full font-heading font-heading-weight md:leading-[4rem] lg:inline lg:w-auto lg:h-auto lg:leading-none">
+          <a href="{{ routes.root_url }}" class="flex items-center self-stretch leading-[3rem] justify-center flex-grow w-full h-full font-heading font-light md:leading-[4rem] lg:inline lg:w-auto lg:h-auto lg:leading-none
+          uppercase tracking-[4px] 
+          ">
             {{ shop.name }}
           </a>
       {%- if request.page_type == 'index' -%}
@@ -72,7 +75,7 @@
       </nav>
     </div>
 
-    <div class="flex items-center justify-end w-full gap-4 lg:gap-1 lg:w-auto">
+    <div class="mobile_btnGrp_right flex items-center justify-end w-full gap-4 lg:gap-1 lg:w-auto">
       <form action="{{ routes.search_url }}" method="get" role="search" class="hidden lg:flex items-center gap-2">
         <input class="{{ input_class }} bg-transparent hidden md:inline-block text-left lg:text-right border-b transition border-transparent -mb-px border-x-0 border-t-0 appearance-none px-0 py-1 focus:ring-transparent placeholder:opacity-20 placeholder:text-inherit"
           type="search"

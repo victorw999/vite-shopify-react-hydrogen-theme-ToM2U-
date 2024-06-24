@@ -16,28 +16,30 @@ export default function EditContact() {
   const navigate = useNavigate()
 
   return (
-    <div className="detail_section">
+    <div className="detail_section contact-edit">
       <div className="detail_info_wrapper">
         <Form method="post" id="contact-form">
           <p className="form-row">
-            <span className="form-label">Name</span>
-            <Input
-              size="xl"
-              placeholder="First"
-              aria-label="First name"
-              type="text"
-              name="first"
-              defaultValue={contact.first}
-            />
-            <Input
-              className=" ml-4"
-              size="xl"
-              placeholder="Last"
-              aria-label="Last name"
-              type="text"
-              name="last"
-              defaultValue={contact.last}
-            />
+            <div className="form-row-wrapper">
+              <span className="form-label">Name</span>
+              <Input
+                size="xl"
+                placeholder="First"
+                aria-label="First name"
+                type="text"
+                name="first"
+                defaultValue={contact.first}
+              />
+              <Input
+                className=" ml-4"
+                size="xl"
+                placeholder="Last"
+                aria-label="Last name"
+                type="text"
+                name="last"
+                defaultValue={contact.last}
+              />
+            </div>
           </p>
           <p className="form-row">
             <label className="form-row-wrapper">
@@ -46,7 +48,7 @@ export default function EditContact() {
                 size="xl"
                 type="text"
                 name="twitter"
-                placeholder="@jack"
+                placeholder="@Twitter"
                 defaultValue={contact.twitter}
               />
             </label>
@@ -56,7 +58,7 @@ export default function EditContact() {
               <span className="form-label">Avatar URL</span>
               <Input
                 size="xl"
-                placeholder="https://example.com/avatar.jpg"
+                placeholder="Avatar URL"
                 aria-label="Avatar URL"
                 type="text"
                 name="avatar"
@@ -71,25 +73,28 @@ export default function EditContact() {
                 className=" w-full  text-contrast2"
                 name="notes"
                 defaultValue={contact.notes}
+                placeholder='Notes'
                 rows={6}
               />
             </label>
           </p>
-          <p className="form-row">
-            <span className="form-label"></span>
-            <Button type="submit" size="xl" className="  text-contrast2">
-              Save
-            </Button>
-            <Button
-              type="button"
-              size="xl"
-              className="ml-4 text-contrast2"
-              onClick={() => {
-                navigate(-1)
-              }}
-            >
-              Cancel
-            </Button>
+          <p className="form-row btn-row">
+            <div className="form-row-wrapper">
+              <span className="form-label"></span>
+              <Button type="submit" size="xl" className="text-contrast2">
+                Save
+              </Button>
+              <Button
+                type="button"
+                size="xl"
+                className="ml-4 text-contrast2"
+                onClick={() => {
+                  navigate(-1)
+                }}
+              >
+                Cancel
+              </Button>
+            </div>
           </p>
         </Form>
       </div>
