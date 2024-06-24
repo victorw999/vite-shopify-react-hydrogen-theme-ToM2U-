@@ -12,7 +12,7 @@ import { useState, useEffect, createContext, useRef } from 'react'
 import { filterContactsByQuery, createContact } from '../features/contacts/contactsUtils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { framerOutlet, framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
-import { IconGoBack, IconPeople, IconHome, IconLoadCustomer } from '../components/icons'
+import { IconGoBack, IconPeople, IconHome, IconLoadCustomer, IconContactBook } from '../components/icons'
 import { VscNewFile } from "react-icons/vsc";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactsPlaceholderImgs } from '../features/contacts/contactSlice'

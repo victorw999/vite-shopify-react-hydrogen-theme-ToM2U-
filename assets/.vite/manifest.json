@@ -196,7 +196,7 @@
     ]
   },
   "frontend/entrypoints/react/features/contacts/ContactDetail.jsx": {
-    "file": "ContactDetail.qp35VdRu.min.js",
+    "file": "ContactDetail.C4Rpm3un.min.js",
     "src": "frontend/entrypoints/react/features/contacts/ContactDetail.jsx",
     "isEntry": true,
     "imports": [
@@ -226,7 +226,7 @@
     ]
   },
   "frontend/entrypoints/react/features/contacts/ContactList.jsx": {
-    "file": "ContactList.Bgr2MVlH.min.js",
+    "file": "ContactList.CYZaqQLU.min.js",
     "src": "frontend/entrypoints/react/features/contacts/ContactList.jsx",
     "isEntry": true,
     "imports": [
@@ -317,7 +317,7 @@
     ]
   },
   "frontend/entrypoints/react/features/customers/CustomerList.jsx": {
-    "file": "CustomerList.CN7izopn.min.js",
+    "file": "CustomerList.D6Pw_WRA.min.js",
     "src": "frontend/entrypoints/react/features/customers/CustomerList.jsx",
     "isEntry": true,
     "imports": [
@@ -377,7 +377,7 @@
     ]
   },
   "frontend/entrypoints/react/features/products/ProductList.jsx": {
-    "file": "ProductList.CN7izopn.min.js",
+    "file": "ProductList.D6Pw_WRA.min.js",
     "src": "frontend/entrypoints/react/features/products/ProductList.jsx",
     "isEntry": true,
     "imports": [
@@ -415,7 +415,7 @@
     ]
   },
   "frontend/entrypoints/react/features/sidebar/TabSwitch.jsx": {
-    "file": "TabSwitch.CN7izopn.min.js",
+    "file": "TabSwitch.D6Pw_WRA.min.js",
     "src": "frontend/entrypoints/react/features/sidebar/TabSwitch.jsx",
     "isEntry": true,
     "imports": [
@@ -436,7 +436,7 @@
     ]
   },
   "frontend/entrypoints/react/index.jsx": {
-    "file": "index.BdAqNCmy.min.js",
+    "file": "index.Bda7gxWA.min.js",
     "src": "frontend/entrypoints/react/index.jsx",
     "isEntry": true,
     "imports": [
@@ -508,7 +508,7 @@
     ]
   },
   "frontend/entrypoints/react/routes/ReactRoot.jsx": {
-    "file": "ReactRoot.C0S26D6k.min.js",
+    "file": "ReactRoot.DMnkXdpO.min.js",
     "src": "frontend/entrypoints/react/routes/ReactRoot.jsx",
     "isEntry": true,
     "imports": [
@@ -534,7 +534,7 @@
     "isEntry": true
   },
   "frontend/entrypoints/theme.css": {
-    "file": "theme.07216zvd.min.css",
+    "file": "theme.DnlrPT9I.min.css",
     "src": "frontend/entrypoints/theme.css",
     "isEntry": true
   },

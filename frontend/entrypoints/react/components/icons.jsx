@@ -8,23 +8,43 @@ import { BsDatabaseDown } from "react-icons/bs";
 import { CgProfile } from "react-icons/cg";
 import { PiPants } from "react-icons/pi";
 import { VscNewFile } from "react-icons/vsc";
+import { MdOutlineImportContacts } from "react-icons/md";
 
 const bsi = 2 // btn shake intensity
 const framerBtnHover = (flag) => {
   let options = {
-    scale: 1.1, // Always include scaling
+    scale: 1.01, // Always include scaling
   };
 
   if (flag && flag.includes('shake')) {
     options.x = [-bsi, bsi, -bsi, bsi, -bsi, 0]; // Creates a shaking motion
     options.transition = {
-      duration: 0.4,
+      duration: 0.1,
       ease: "easeInOut",
       times: [0, 0.2, 0.4, 0.6, 0.8, 1]
     };
   }
   return options
 }
+
+const framerBtnHover_colorChange = (flag) => {
+  let options = {
+    scale: 1.01, // Always include scaling
+    // backgroundColor: '#DAA520',// "#b59410", // gold
+    borderColor: "#faca0d"
+  };
+
+  if (flag && flag.includes('shake')) {
+    options.x = [-bsi, bsi, -bsi, bsi, -bsi, 0]; // Creates a shaking motion
+    options.transition = {
+      duration: 0.1,
+      ease: "easeInOut",
+      times: [0, 0.2, 0.4, 0.6, 0.8, 1]
+    };
+  }
+  return options
+}
+
 
 /** close contact app*/
 export function IconGoBack(props) {
@@ -43,9 +63,18 @@ export function IconGoBack(props) {
 
 /** open Contacts app */
 export function IconPeople(props) {
+  const borderVariants = {
+    default: {
+      borderColor: 'white',
+    },
+    hover: {
+      borderColor: 'red',
+    },
+  };
+
   return (
     <motion.button
-      whileHover={framerBtnHover('shake')}
+      whileHover={framerBtnHover_colorChange('shake')}
       onClick={props.action}
       className={`appIcon  ${props.className}`}
       aria-label="toggle sidebar"
@@ -133,6 +162,25 @@ export function IconNewContact(props) {
       {...rest}
     >
       <VscNewFile />
+    </motion.button>
+  )
+}
+
+
+
+/**  contact books */
+export function IconContactBook(props) {
+  const { action, className, ...rest } = props; // Destructure and separate 'action'
+
+  return (
+    <motion.button
+      whileHover={framerBtnHover}
+      onClick={action}
+      className={`appIcon  ${className ? className : ''}`}
+      aria-label="toggle contact books "
+      {...rest}
+    >
+      <MdOutlineImportContacts />
     </motion.button>
   )
 }

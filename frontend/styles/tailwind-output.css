@@ -660,6 +660,7 @@ select {
   --input: 214.3 31.8% 91.4%;
   --ring: 222.2 84% 4.9%;
   --radius: 0.5rem;
+  --accent_gold_color: #faca0d;
 }
 
 *, ::before, ::after {
@@ -1355,10 +1356,6 @@ select {
   bottom: 3rem;
 }
 
-.left-0 {
-  left: 0px;
-}
-
 .right-0 {
   right: 0px;
 }
@@ -1480,10 +1477,6 @@ select {
 
 .ml-4 {
   margin-left: 1rem;
-}
-
-.ml-\[50px\] {
-  margin-left: 50px;
 }
 
 .mr-2 {
@@ -2565,12 +2558,6 @@ select {
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
-.backdrop-blur-sm {
-  --tw-backdrop-blur: blur(4px);
-  -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-          backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -2702,6 +2689,11 @@ select {
   }
   #react-app-icons-container {
     padding: 0.75rem;
+  }
+  #react-app-icons-container {
+    svg:hover {
+      color: var(--accent_gold_color);
+    }
   }
   /* ICONS */
   .appIcon,
@@ -3531,14 +3523,66 @@ select {
     flex-basis: auto;
   }
   .detail_info_wrapper {
-    padding: 2rem;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .detail_info_wrapper {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  @media (min-width: 48em) {
+    .detail_info_wrapper {
+      padding: 2rem;
+    }
   }
   .list_section {
     ul {
       list-style-type: none;
     }
     ul {
-      padding: 0.75rem;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    ul {
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    @media (min-width: 48em) {
+      ul {
+        padding: 0.75rem;
+      }
+    }
+    li.variantItem {
+      > span:first-child {
+        padding-left: 0px;
+      }
+      @media (min-width: 48em) {
+        > span:first-child {
+          padding-left: 0.75rem;
+        }
+      }
+      .num_format_box {
+        border-style: none;
+      }
+      @media (min-width: 48em) {
+        .num_format_box {
+          border-width: 1px;
+        }
+      }
+      @media (min-width: 48em) {
+        .num_format_box {
+          border-style: solid;
+        }
+      }
+      @media (min-width: 48em) {
+        .num_format_box {
+          --tw-border-opacity: 1;
+          border-color: rgb(55 65 81 / var(--tw-border-opacity));
+        }
+      }
+      .num_format_box {
+        /* border border-gray-700 */
+      }
     }
   }
   .num_format_box {
@@ -3562,7 +3606,11 @@ select {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
   .order_lineItem {
-    margin: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .order_lineItem {
+    margin-left: 0px;
   }
   .order_lineItem {
     display: flex;
@@ -3571,7 +3619,21 @@ select {
     overflow: hidden;
   }
   .order_lineItem {
-    padding: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .order_lineItem {
+    padding-left: 0px;
+  }
+  @media (min-width: 48em) {
+    .order_lineItem {
+      margin: 0.5rem;
+    }
+  }
+  @media (min-width: 48em) {
+    .order_lineItem {
+      padding: 0.5rem;
+    }
   }
   .order_lineItem {
     .lineItem_img_wrapper {
@@ -3666,11 +3728,15 @@ select {
       initial-letter: 2;
     }
     a {
-      font-weight: 800;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+    }
+    a {
+      font-weight: 400;
     }
     a {
       --tw-text-opacity: 1;
-      color: rgb(250 204 21 / var(--tw-text-opacity));
+      color: rgb(250 202 13 / var(--tw-text-opacity));
     }
     b {
       font-weight: 700;

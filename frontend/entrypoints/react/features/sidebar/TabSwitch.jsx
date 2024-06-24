@@ -4,7 +4,7 @@ import ContactList from '../contacts/ContactList';
 import ProductList from '../products/ProductList';
 import { useNavigate, redirect, NavLink, Link } from 'react-router-dom';
 import CustomerList from '../customers/CustomerList';
-import { IconHome, IconPeople, IconLoadCustomer, IconProducts } from '../../components/icons';
+import { IconHome, IconPeople, IconLoadCustomer, IconProducts, IconContactBook } from '../../components/icons';
 import { PiPants } from "react-icons/pi";
 
 
@@ -44,7 +44,7 @@ const TabSwitch = ({ activeTab, setActiveTab, contactsState }) => {
         >
           <span className="desktop_txt">Customers</span>
         </button>
-        <IconPeople className="mobile_icon" action={() => handleTabClick('customers')} />
+        <IconLoadCustomer className="mobile_icon" action={() => handleTabClick('customers')} />
 
         <button
           className={`${activeTab === 'contacts' ? 'active' : ''} tab_ctrl_unit desktop_unit`}
@@ -52,7 +52,8 @@ const TabSwitch = ({ activeTab, setActiveTab, contactsState }) => {
         >
           <span className="desktop_txt">Contacts</span>
         </button>
-        <IconLoadCustomer className="mobile_icon" action={() => handleTabClick('contacts')} />
+
+        <IconContactBook className="mobile_icon" action={() => handleTabClick('contacts')} />
       </div>
 
       <div className="tab-content">
