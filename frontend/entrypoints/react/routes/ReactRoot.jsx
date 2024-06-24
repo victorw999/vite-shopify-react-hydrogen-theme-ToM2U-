@@ -1,4 +1,3 @@
-import { SHOPIFY_URL, importAllImages } from '../Global'
 import {
   Outlet, useOutlet,
   useNavigation, useNavigate,
@@ -7,23 +6,17 @@ import {
   useLoaderData,
   redirect
 } from 'react-router-dom'
-
 import { Button } from '@shadcn/components/ui/button.jsx'
 import { Input } from '@shadcn/components/ui/input.jsx'
 import { useState, useEffect, createContext, useRef } from 'react'
-
-import { loadContacts } from '../features/contacts/contactsUtils'
 import { filterContactsByQuery, createContact } from '../features/contacts/contactsUtils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { framerOutlet, framerSidebarBackground, framerSidebarPanel, framerText } from '../utils/framerAnimationOptions'
-
 import { IconGoBack, IconPeople, IconHome, IconLoadCustomer } from '../components/icons'
 import { VscNewFile } from "react-icons/vsc";
-
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactsPlaceholderImgs } from '../features/contacts/contactSlice'
 import { fetchProducts } from '../features/products/productSlice'
-
 import { fetchCustomers } from '../features/customers/customerSlice'
 import TabSwitch from '../features/sidebar/TabSwitch'
 
@@ -68,8 +61,7 @@ export default function ReactRoot() {
   // Tracks if the "outlet" section should be active on mobile
   const [outletState, setOutletState] = useState(null)
 
-  /**
-   
+  /**   
     ** setOutletStateHandler: 
     handles clicks evt on side bar list items, in mobile view;
    
@@ -190,7 +182,12 @@ export default function ReactRoot() {
                       />
                       <div className="sr-only" aria-live="polite"></div>
                     </Form>
-                    <Form method="post" className={`add_new_contact_form ${activeTab !== 'contacts' ? 'hidden' : ""}`}>
+                    <Form method="post" className={`add_new_contact_form ${activeTab !== 'contacts' ? 'hidden' : ""}`}
+                      onSubmit={
+                        /* for mobile: toggle <Outlet/> visibility */
+                        setOutletStateHandler
+                      }
+                    >
                       <Button
                         type="submit"
                         variant="default"
@@ -201,25 +198,23 @@ export default function ReactRoot() {
                         <span className="mobile_icon">
                           <VscNewFile />
                         </span>
-
                       </Button>
                     </Form>
                   </div>
-                  <div>
-                    <div className="app-display-list">
 
-                      <TabSwitch
-                        activeTab={activeTab}
-                        setActiveTab={setActiveTab}
-                        contactsState={contactsState}
-                      />
+                  <div className="app-display-list">
 
-                    </div>
+                    <TabSwitch
+                      activeTab={activeTab}
+                      setActiveTab={setActiveTab}
+                      contactsState={contactsState}
+                    />
+
                   </div>
+
                 </div>
               </motion.div>
 
-              {/* <AnimatePresence> */}
               <motion.div
                 // {...framerOutlet}
                 id="outlet_container"
@@ -234,7 +229,6 @@ export default function ReactRoot() {
                 <Outlet />
 
               </motion.div>
-              {/* </AnimatePresence> */}
             </motion.div>)
         }
       </AnimatePresence>

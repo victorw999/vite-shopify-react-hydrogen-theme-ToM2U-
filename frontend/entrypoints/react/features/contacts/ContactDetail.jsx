@@ -1,13 +1,14 @@
 import { Form, useLoaderData, useFetcher, useOutletContext } from 'react-router-dom'
 import { getContact, updateContact } from './contactsUtils'
 import { Button } from '@shadcn/components/ui/button.jsx'
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useEffect, useState, useCallback, useRef, useContext } from 'react'
 import { stringHasNoSlashes, isImageFile, removeFileExtension } from '../../Global'
 import { useDispatch, useSelector } from 'react-redux';
 import { CgProfile } from "react-icons/cg";
 import { motion, AnimatePresence, usePresence } from 'framer-motion'
 import { framerDetailSection, framerOutlet } from '../../utils/framerAnimationOptions'
 import { nanoid } from 'nanoid'
+import { OutletContext } from '../../routes/ReactRoot'
 
 export async function loader({ params }) {
   const contact = await getContact(params.contactId)
@@ -28,6 +29,8 @@ export async function action({ request, params }) {
 }
 
 export default function ContactDetail() {
+  const { setOutletState } = useContext(OutletContext);
+
   const { contact } = useLoaderData()
   const [avatarURL, setAvatarRUL] = useState()
 
@@ -52,7 +55,6 @@ export default function ContactDetail() {
   const getImgUrls = useCallback(() => {
     try {
       let str = avatarURL
-      console.log('str: ', str)
 
       if (!str || str.trim() === "") {
         return placeholderImages['ppl-1'].src  // set default profile img
@@ -92,7 +94,7 @@ export default function ContactDetail() {
             // src={contact.avatar || null} 
             // src={avatarImgUrl}
             src={getImgUrls().src || avatarURL}
-            srcset={getImgUrls().srcset}
+            srcSet={getImgUrls().srcset}
             sizes="(max-width: 500px) 480px, 100vw"
             loading="lazy"
           />) : <CgProfile className=' text-slate-200 w-full h-full' />
@@ -133,7 +135,10 @@ export default function ContactDetail() {
             onSubmit={(event) => {
               if (!confirm('Please confirm you want to delete this record.')) {
                 event.preventDefault()
+
               }
+              /* for mobile: toggle <Outlet/> visibility */
+              setOutletState('')
             }}
           >
             <Button className="ml-4  text-contrast2 " type="submit" size="xl">
