@@ -5,6 +5,9 @@
 - The React app serves as a template for exploring and manipulating Shopify data retrieved from GraphQL APIs
 - This empowers devs to quickly prototype functionalities and gain insights into data structures and manipulation capabilities before diving into full-fledged application development
 
+## 🏝️ App Features
+![app featuers](/assets_readme/react_shopify_app_screen_1.jpg)
+
 ## 🔨 Dev Environment:
 - node version
     - `nvm use 18.12.1`
