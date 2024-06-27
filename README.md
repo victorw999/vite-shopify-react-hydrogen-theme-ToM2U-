@@ -1,22 +1,28 @@
-# vic note
+# React App for Shopify Store
+
+## 🔨 Dev Environment:
 - node version
     - `nvm use 18.12.1`
+- open 3 dev terminals: 
+    - vite, tailwindcss, shopify theme CLI
 - vite server
     - `pnpm vite:dev `
-        -  use this vite command to spin up the preview environment. 
-        - You don't need to `shopify theme dev` for just previewing react app
+        - spin up the vite preview environment. 
+        - You don't actually need the Shopify CLI `shopify theme dev` to just preview your React app.
         - However, you will need the Shopify theme's preview link to access the preview.
 - shopify theme CLI 
     - `shopify theme dev -s [shopname] -t [theme_id] --live-reload=full-page`
 - tailwind
     - `pnpm watch-tailwind`
-- Rebuild the assets/ folder, and the minified files (eg:xx.min.js) in it.
+- [Build] Rebuild the assets/ folder, and the minified files (eg:xx.min.js) in it. (vite)
     - `pnpm build`
-- push built assets files to shopify
+- [Deploy] push built assets files to shopify
     - `shopify theme push -s [shopname] -t [theme_id]`
-- Deploy to shopify
-    - I don't know why, but it often takes me 3 times (`pnpm build && shopify theme push...`) to eventually updated the shopify theme. The frist few builds, if you run preview link, you'd see that preview still trying to fetch assets from localhost:5173. [example](https://github.com/barrel/shopify-vite/issues/103)
-- refresh the contacts cache in local cache
+- [Deploy issue] Deploy to shopify
+    - Deploying `(pnpm build && shopify theme push...)` sometimes requires multiple attempts. During the initial builds, the preview link might still attempt to fetch assets from localhost:5173.
+    [example issue](https://github.com/barrel/shopify-vite/issues/103)
+- Clear Local Cache 
+    - Refresh the "contacts" data in local cache
     - chrome inspector > Application > IndexedDB > localforage > keyvaluepairs
 
 # Hydrogen Theme
