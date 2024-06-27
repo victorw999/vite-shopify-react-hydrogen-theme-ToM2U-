@@ -8,6 +8,13 @@
 ## 🏝️ App Features
 ![app featuers](/assets_readme/react_shopify_app_screen_1.jpg)
 
+### Links:
+ - [Video Demo](https://youtu.be/-xxTLYyh8go) 
+ - [Preview Theme](https://vzine.myshopify.com/?_ab=0&_fd=0&_sc=1&key=abb25ec7632898eec68dd2f4a0205b280976da9fa4648578672a32c0f70e913b&preview_theme_id=134018531428)  `Store Password: 1234` 
+ - [Code](https://github.com/victorw999/vite-shopify-react-hydrogen-theme-ToM2U-)
+
+### ![React Shopify app](assets_readme/react_shopify_app_demo.gif)
+
 ## 🔨 Dev Environment:
 - node version
     - `nvm use 18.12.1`
