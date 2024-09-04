@@ -436,7 +436,7 @@
     ]
   },
   "frontend/entrypoints/react/index.jsx": {
-    "file": "index.zWR9OJS8.min.js",
+    "file": "index.o4dyPagO.min.js",
     "src": "frontend/entrypoints/react/index.jsx",
     "isEntry": true,
     "imports": [
