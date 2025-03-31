@@ -20,15 +20,25 @@
           }
         },
         "tab": {
-          "type": "tab"
+          "type": "tab",
+          "settings": {}
         }
       },
-      "block_order": ["price", "variant_picker", "buy_buttons", "tab"]
+      "block_order": [
+        "price",
+        "variant_picker",
+        "buy_buttons",
+        "tab"
+      ],
+      "settings": {}
     },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {}
     }
   },
-  "order": ["main", "product-recommendations"]
+  "order": [
+    "main",
+    "product-recommendations"
+  ]
 }

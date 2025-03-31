@@ -6,28 +6,31 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner"
+            "heading": "Breathe Deep"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template."
+            "text": "Unleash your inner rhythm, where breath and movement intertwine, a dance of grace and stillness."
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
             "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all"
+            "button_link_1": "shopify:\/\/collections\/all"
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
-        "full_page_height_enable": true,
-        "lazy_load_enable": false,
-        "preload_first_image_enable": true
+        "image": "shopify:\/\/shop_images\/jared-rice-8w7b4SdhOgw-unsplash_1dfb7557-8801-4b9d-b0be-49494a41de6b.jpg",
+        "full_page_height_enable": true
       }
     },
     "featured_collection": {
@@ -42,21 +45,38 @@
       "type": "collection-list",
       "blocks": {
         "featured-collection-0": {
-          "type": "featured_collection"
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
         },
         "featured-collection-1": {
-          "type": "featured_collection"
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
         },
         "featured-collection-2": {
-          "type": "featured_collection"
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
         }
       },
       "block_order": [
         "featured-collection-0",
         "featured-collection-1",
         "featured-collection-2"
-      ]
+      ],
+      "settings": {
+        "title": "Collections",
+        "columns_desktop": 3
+      }
     }
   },
-  "order": ["image_banner", "featured_collection", "collection_list"]
+  "order": [
+    "image_banner",
+    "featured_collection",
+    "collection_list"
+  ]
 }
