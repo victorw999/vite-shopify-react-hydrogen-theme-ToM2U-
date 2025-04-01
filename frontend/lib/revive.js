@@ -1,15 +1,15 @@
-function media({ query }) {
+function media({query}) {
   const mediaQuery = window.matchMedia(query)
   return new Promise(function (resolve) {
     if (mediaQuery.matches) {
       resolve(true)
     } else {
-      mediaQuery.addEventListener('change', resolve, { once: true })
+      mediaQuery.addEventListener('change', resolve, {once: true})
     }
   })
 }
 
-function visible({ element }) {
+function visible({element}) {
   return new Promise(function (resolve) {
     const observer = new window.IntersectionObserver(async function (entries) {
       for (const entry of entries) {
@@ -39,7 +39,7 @@ export const islands = import.meta.glob('@/islands/*.js')
 export function revive(islands) {
   const observer = new window.MutationObserver((mutations) => {
     for (let i = 0; i < mutations.length; i++) {
-      const { addedNodes } = mutations[i]
+      const {addedNodes} = mutations[i]
       for (let j = 0; j < addedNodes.length; j++) {
         const node = addedNodes[j]
         if (node.nodeType === 1) dfs(node)
@@ -53,15 +53,19 @@ export function revive(islands) {
     const isPotentialCustomElementName = /-/.test(tagName)
 
     if (isPotentialCustomElementName && islands[potentialJsPath]) {
+
+      // hydration strategy #1: Visible: Load when element becomes visible
       if (node.hasAttribute('client:visible')) {
-        await visible({ element: node })
+        await visible({element: node})
       }
 
+      // hydration strategy #2: Media: Load when media query matches
       const clientMedia = node.getAttribute('client:media')
       if (clientMedia) {
-        await media({ query: clientMedia })
+        await media({query: clientMedia})
       }
 
+      // hydration strategy #3: Idle: Load when browser is idle
       if (node.hasAttribute('client:idle')) {
         await idle()
       }
